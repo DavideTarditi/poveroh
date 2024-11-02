@@ -1,0 +1,11 @@
+{
+  "name": "poveroh",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "start:frontend": "npm run --prefix apps/web start"
+  }
+}
