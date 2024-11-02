@@ -1,0 +1,54 @@
+<div class="flex flex-col w-1/4 p-5 space-y-6">
+  <field-input
+    id="email"
+    label="E-mail"
+    [type]="FieldType.EMAIL"
+    [control]="form.get('email')!"
+  ></field-input>
+
+  <field-input
+    id="password"
+    label="Password"
+    [type]="FieldType.PASSWORD"
+    [control]="form.get('password')!"
+  ></field-input>
+
+  <field-input
+    id="phone"
+    label="Phone"
+    [type]="FieldType.PHONE"
+    [control]="form.get('phone')!"
+  ></field-input>
+
+  <field-input
+    id="text"
+    label="Text"
+    [type]="FieldType.TEXT"
+    [control]="form.get('text')!"
+  ></field-input>
+
+  <field-input
+    id="sel"
+    label="Select"
+    [type]="FieldType.SELECT"
+    [options]="countryOptions"
+    [control]="form.get('select')!"
+  ></field-input>
+
+  <field-input
+    id="number"
+    label="Number"
+    [min]="0"
+    [max]="50"
+    [step]="0.5"
+    [type]="FieldType.NUMBER"
+    [control]="form.get('number')!"
+  ></field-input>
+
+  <field-input
+    id="money"
+    label="Money"
+    [type]="FieldType.MONEY"
+    [control]="form.get('money')!"
+  ></field-input>
+</div>
