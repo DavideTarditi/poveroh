@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core'
+import {Component, Input} from '@angular/core'
 
 @Component({
-  selector: 'go-button',
-  standalone: true,
-  imports: [],
-  templateUrl: './button.component.html'
+    selector: 'go-button',
+    standalone: true,
+    imports: [],
+    templateUrl: './button.component.html'
 })
 export class ButtonComponent {
-  @Input() message = ''
-  @Input() disabled = false
+    @Input() message = ''
+    @Input() disabled = false
 }

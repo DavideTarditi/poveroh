@@ -1,42 +1,58 @@
-<div class="form-group flex flex-col space-y-3">
-  <p *ngIf="label">
-    {{ label }}
-    <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio" data-cooltipz-dir="top">*</span>
-  </p>
+<div class="form-group flex flex-col h-full space-y-3">
+    <p *ngIf="label">
+        {{ label }}
+        <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio" data-cooltipz-dir="top">*</span>
+    </p>
 
-  <div class="relative">
-    @if (localType == FieldType.SELECT) {
-      <select
-        [id]="id"
-        [formControl]="getFormControl()"
-        class="form-input dropdown"
-        [class.incorrect]="isInvalid"
-      >
-        <option disabled value="">Seleziona un valore</option>
-        <option *ngFor="let option of options" [value]="option.value">
-          {{ option.label }}
-        </option>
-      </select>
-    } @else {
-      <input
-        [type]="type"
-        [id]="id"
-        [formControl]="getFormControl()"
-        [placeholder]="placeholder"
-        [min]="min"
-        [max]="max"
-        [step]="step"
-        class="form-input"
-        [class.incorrect]="isInvalid"
-      >
+    <div class="relative">
+        @if (localType == FieldType.SELECT || localType == FieldType.CURRENCY) {
+            <select
+                    [id]="id"
+                    [formControl]="getFormControl()"
+                    class="form-input dropdown"
+                    [class.incorrect]="isInvalid"
+            >
+                @if (localType != FieldType.CURRENCY) {
+                    <option disabled value="">Seleziona un valore</option>
+                }
+                <option *ngFor="let option of options; let i = index" [value]="option.value"
+                        [selected]="!i && localType == FieldType.CURRENCY">
+                    {{ option.label }}
+                </option>
+            </select>
+        } @else if (localType == FieldType.LONGTEXT) {
+            <textarea
+                    [id]="id"
+                    [formControl]="getFormControl()"
+                    [placeholder]="placeholder"
+                    rows="5"
+                    type="text"
+                    class="form-input"
+                    [class.incorrect]="isInvalid"
+            ></textarea>
+        }
+        @else {
+            <input
+                    [type]="type"
+                    [id]="id"
+                    [formControl]="getFormControl()"
+                    [placeholder]="placeholder"
+                    [min]="min"
+                    [max]="max"
+                    [step]="step"
+                    class="form-input"
+                    [class.incorrect]="isInvalid"
+            >
 
-      @if (this.localType == FieldType.PASSWORD) {
-        <svg-icon class="toggle-visibility-password" [path]="passwordVisibility ? '/icon/eye-outline.svg' : '/icon/eye-off-outline.svg'" (click)="toogleVisibility()"></svg-icon>
-      }
-    }
-  </div>
+            @if (this.localType == FieldType.PASSWORD) {
+                <svg-icon class="toggle-visibility-password"
+                          [path]="passwordVisibility ? '/icon/eye-outline.svg' : '/icon/eye-off-outline.svg'"
+                          (click)="toogleVisibility()"></svg-icon>
+            }
+        }
+    </div>
 
-  <div *ngIf="isInvalid">
-    <p *ngFor="let error of errors" class="danger">{{ error }}</p>
-  </div>
+    <div *ngIf="isInvalid">
+        <p *ngFor="let error of errors" class="danger">{{ error }}</p>
+    </div>
 </div>

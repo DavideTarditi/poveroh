@@ -141,48 +141,48 @@
     position: relative
 }
 
-    .notyf__icon--error:after, .notyf__icon--error:before {
-        content: "";
-        background: currentColor;
-        display: block;
-        position: absolute;
-        width: 3px;
-        border-radius: 3px;
-        left: 9px;
-        height: 12px;
-        top: 5px
-    }
+.notyf__icon--error:after, .notyf__icon--error:before {
+    content: "";
+    background: currentColor;
+    display: block;
+    position: absolute;
+    width: 3px;
+    border-radius: 3px;
+    left: 9px;
+    height: 12px;
+    top: 5px
+}
 
-    .notyf__icon--error:after {
-        transform: rotate(-45deg)
-    }
+.notyf__icon--error:after {
+    transform: rotate(-45deg)
+}
 
-    .notyf__icon--error:before {
-        transform: rotate(45deg)
-    }
+.notyf__icon--error:before {
+    transform: rotate(45deg)
+}
 
-    .notyf__icon--success:after, .notyf__icon--success:before {
-        content: "";
-        background: currentColor;
-        display: block;
-        position: absolute;
-        width: 3px;
-        border-radius: 3px
-    }
+.notyf__icon--success:after, .notyf__icon--success:before {
+    content: "";
+    background: currentColor;
+    display: block;
+    position: absolute;
+    width: 3px;
+    border-radius: 3px
+}
 
-    .notyf__icon--success:after {
-        height: 6px;
-        transform: rotate(-45deg);
-        top: 9px;
-        left: 6px
-    }
+.notyf__icon--success:after {
+    height: 6px;
+    transform: rotate(-45deg);
+    top: 9px;
+    left: 6px
+}
 
-    .notyf__icon--success:before {
-        height: 11px;
-        transform: rotate(45deg);
-        top: 5px;
-        left: 10px
-    }
+.notyf__icon--success:before {
+    height: 11px;
+    transform: rotate(45deg);
+    top: 5px;
+    left: 10px
+}
 
 .notyf__toast {
     display: block;
@@ -190,7 +190,7 @@
     pointer-events: auto;
     -webkit-animation: notyf-fadeinup .3s ease-in forwards;
     animation: notyf-fadeinup .3s ease-in forwards;
-    box-shadow: 0 3px 7px 0 rgba(0,0,0,.25);
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .25);
     position: relative;
     padding: 0 15px;
     border-radius: 2px;
@@ -207,24 +207,24 @@
     animation-delay: .25s
 }
 
-    .notyf__toast--disappear .notyf__icon, .notyf__toast--disappear .notyf__message {
-        -webkit-animation: notyf-fadeoutdown .3s forwards;
-        animation: notyf-fadeoutdown .3s forwards;
-        opacity: 1;
-        transform: translateY(0)
-    }
+.notyf__toast--disappear .notyf__icon, .notyf__toast--disappear .notyf__message {
+    -webkit-animation: notyf-fadeoutdown .3s forwards;
+    animation: notyf-fadeoutdown .3s forwards;
+    opacity: 1;
+    transform: translateY(0)
+}
 
-    .notyf__toast--disappear .notyf__dismiss {
-        -webkit-animation: notyf-fadeoutright .3s forwards;
-        animation: notyf-fadeoutright .3s forwards;
-        opacity: 1;
-        transform: translateX(0)
-    }
+.notyf__toast--disappear .notyf__dismiss {
+    -webkit-animation: notyf-fadeoutright .3s forwards;
+    animation: notyf-fadeoutright .3s forwards;
+    opacity: 1;
+    transform: translateX(0)
+}
 
-    .notyf__toast--disappear .notyf__message {
-        -webkit-animation-delay: .05s;
-        animation-delay: .05s
-    }
+.notyf__toast--disappear .notyf__message {
+    -webkit-animation-delay: .05s;
+    animation-delay: .05s
+}
 
 .notyf__toast--upper {
     margin-bottom: 20px
@@ -290,43 +290,43 @@
 }
 
 .notyf__dismiss-btn {
-    background-color: rgba(0,0,0,.25);
+    background-color: rgba(0, 0, 0, .25);
     border: none;
     cursor: pointer;
-    transition: opacity .2s ease,background-color .2s ease;
+    transition: opacity .2s ease, background-color .2s ease;
     outline: none;
     opacity: .35;
     height: 100%;
     width: 100%
 }
 
-    .notyf__dismiss-btn:after, .notyf__dismiss-btn:before {
-        content: "";
-        background: #fff;
-        height: 12px;
-        width: 2px;
-        border-radius: 3px;
-        position: absolute;
-        left: calc(50% - 1px);
-        top: calc(50% - 5px)
-    }
+.notyf__dismiss-btn:after, .notyf__dismiss-btn:before {
+    content: "";
+    background: #fff;
+    height: 12px;
+    width: 2px;
+    border-radius: 3px;
+    position: absolute;
+    left: calc(50% - 1px);
+    top: calc(50% - 5px)
+}
 
-    .notyf__dismiss-btn:after {
-        transform: rotate(-45deg)
-    }
+.notyf__dismiss-btn:after {
+    transform: rotate(-45deg)
+}
 
-    .notyf__dismiss-btn:before {
-        transform: rotate(45deg)
-    }
+.notyf__dismiss-btn:before {
+    transform: rotate(45deg)
+}
 
-    .notyf__dismiss-btn:hover {
-        opacity: .7;
-        background-color: rgba(0,0,0,.15)
-    }
+.notyf__dismiss-btn:hover {
+    opacity: .7;
+    background-color: rgba(0, 0, 0, .15)
+}
 
-    .notyf__dismiss-btn:active {
-        opacity: .8
-    }
+.notyf__dismiss-btn:active {
+    opacity: .8
+}
 
 .notyf__message {
     vertical-align: middle;
@@ -339,7 +339,7 @@
     line-height: 1.5em
 }
 
-@media only screen and (max-width:480px) {
+@media only screen and (max-width: 480px) {
     .notyf {
         padding: 0
     }
@@ -354,7 +354,7 @@
     .notyf__toast {
         max-width: none;
         border-radius: 0;
-        box-shadow: 0 -2px 7px 0 rgba(0,0,0,.13);
+        box-shadow: 0 -2px 7px 0 rgba(0, 0, 0, .13);
         width: 100%
     }
 
