@@ -6,6 +6,8 @@
     "apps/web"
   ],
   "scripts": {
-    "start:frontend": "npm run --prefix apps/web start"
+    "start-dev:frontend": "npm run --prefix apps/web start:dev",
+    "start-stage:frontend": "npm run --prefix apps/web start:stage",
+    "start-prod:frontend": "npm run --prefix apps/web start:prod"
   }
 }
