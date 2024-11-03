@@ -1,6 +1,7 @@
 @import url('notyf.min.css');
 @import url('pace.min.css');
 @import url('cooltipz.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,6 +14,7 @@
     --brand-color-2: #278664;
     --warning-color: #f89406;
     --danger-color: #eb3232;
+    --danger-color-text: #ff5f5f;
     --success-color: #2dd181;
     --black-color: #0d0d0d;
     --white-color: #ffffff;
@@ -165,7 +167,7 @@ svg.small {
 }
 
 .mandatory {
-    color: var(--danger-color) !important;
+    color: var(--danger-color-text) !important;
     font-size: 1.2rem;
 }
 
@@ -225,18 +227,19 @@ p {
 p.danger,
 a.danger,
 .danger-all,
+.danger-all p,
 .danger-all > * .danger-all:hover,
 .danger-all:hover > *, .danger-btn-outline p {
-    color: var(--danger-color) !important;
+    color: var(--danger-color-text) !important;
 }
 
 .danger-btn-outline {
-    border: 1px solid var(--danger-color) !important;
+    border: 1px solid var(--danger-color-text) !important;
     background: none !important;
 }
 
 .danger-all path, .danger-btn-outline path {
-    fill: var(--danger-color) !important;
+    fill: var(--danger-color-text) !important;
 }
 
 .fc-waiting,
@@ -263,12 +266,35 @@ a.warning,
 
 a {
     color: var(--text-color);
-    font-weight: bold;
     display: block;
     width: fit-content;
     height: fit-content;
     position: relative !important;
     cursor: pointer;
+}
+
+/* ----------- POPOVER ----------- */
+.popover-content {
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    width: 250px;
+    padding: 1.2rem;
+    background-color: var(--bg-box-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.popover-content::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
 }
 
 /* ----------- INPUT ----------- */
@@ -413,7 +439,7 @@ input:disabled {
 /* ---- input danger ---- */
 .form-input.danger,
 .error.danger {
-    background-color: var(--danger-color) !important;
+    background-color: var(--danger-color-text) !important;
     border: 0;
     color: var(--white-color) !important;
 }
@@ -423,7 +449,7 @@ input:disabled {
 }
 
 .form-input.incorrect {
-    border: 1px solid var(--danger-color) !important;
+    border: 1px solid var(--danger-color-text) !important;
 }
 
 /* ---- input success ---- */
@@ -440,7 +466,7 @@ input:disabled {
 }
 
 .input-error {
-    border: 1px solid var(--danger-color);
+    border: 1px solid var(--danger-color-text);
 }
 
 .input-group {

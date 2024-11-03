@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div class="flex flex-row items-end justify-between">
+    <div class="flex flex-row items-end space-x-6">
+        <div class="flex flex-col space-y-3">
+            <p class="sub">BILANCIO MENSILE</p>
+            <h1 class="leading-[100%]">$ 126.568,53</h1>
+        </div>
+        <div class="flex flex-col space-y-1">
+            <p class="sub small">USCITE</p>
+            <div class="flex flex-row space-x-2 items-center">
+                <svg-icon path="/icon/arrow-down-red.svg" size="extra-small"></svg-icon>
+                <p class="danger">-126.568,53 (0,05%)</p>
+            </div>
+        </div>
+        <div class="flex flex-col space-y-1">
+            <p class="sub small">ENTRATE</p>
+            <div class="flex flex-row space-x-2 items-center">
+                <svg-icon path="/icon/arrow-up-success.svg" size="extra-small"></svg-icon>
+                <p class="fc-success">+126.568,53 (1,05%)</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-row items-end space-x-6">
+        <svg-icon path="/icon/reload.svg"></svg-icon>
+        <svg-icon path="/icon/pencil.svg"></svg-icon>
+    </div>
+</div>
