@@ -1,26 +1,59 @@
-<div class="flex flex-row items-end justify-between">
-    <div class="flex flex-row items-end space-x-6">
-        <div class="flex flex-col space-y-3">
-            <p class="sub">BILANCIO MENSILE</p>
-            <h1 class="leading-[100%]">$ 126.568,53</h1>
-        </div>
-        <div class="flex flex-col space-y-1">
-            <p class="sub small">USCITE</p>
-            <div class="flex flex-row space-x-2 items-center">
-                <svg-icon path="/icon/arrow-down-red.svg" size="extra-small"></svg-icon>
-                <p class="danger">-126.568,53 (0,05%)</p>
+<div class="space-y-12">
+    <div class="flex flex-row items-end justify-between">
+        <div class="flex flex-row items-end space-x-6">
+            <div class="flex flex-col space-y-3">
+                <p class="sub">BILANCIO ATTUALE</p>
+                <h1 class="leading-[100%]">$ 126.568,53</h1>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <p class="sub small">USCITE</p>
+                <div class="flex flex-row items-center danger-all">
+                    <i class="ri-arrow-down-s-fill big"></i>
+                    <p>-126.568,53 (0,05%)</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <p class="sub small">ENTRATE</p>
+                <div class="flex flex-row items-center">
+                    <i class="ri-arrow-up-s-fill big success"></i>
+                    <p class="success">+126.568,53 (1,05%)</p>
+                </div>
             </div>
         </div>
-        <div class="flex flex-col space-y-1">
-            <p class="sub small">ENTRATE</p>
-            <div class="flex flex-row space-x-2 items-center">
-                <svg-icon path="/icon/arrow-up-success.svg" size="extra-small"></svg-icon>
-                <p class="fc-success">+126.568,53 (1,05%)</p>
-            </div>
+        <div class="flex flex-row items-end space-x-6">
+            <i class="ri-pencil-fill"></i>
+            <i class="ri-restart-line"></i>
         </div>
     </div>
-    <div class="flex flex-row items-end space-x-6">
-        <svg-icon path="/icon/reload.svg"></svg-icon>
-        <svg-icon path="/icon/pencil.svg"></svg-icon>
+
+    <div class="flex flex-row space-x-3 w-full">
+        <div class="flex flex-col bg-box-background space-y-3 p-6 w-full">
+            <div class="flex flex-row items-center justify-between">
+                <p>Ciao</p>
+                <div class="flex flex-row space-x-3">
+                    <go-button message="Accedi"></go-button>
+                    <go-button message="Accedi"></go-button>
+                    <go-button message="Accedi"></go-button>
+                </div>
+            </div>
+
+            <apx-chart
+                    class="w-full"
+                    [series]="chartOptions.series"
+                    [chart]="chartOptions.chart"
+                    [xaxis]="chartOptions.xaxis"
+                    [title]="chartOptions.title"
+            ></apx-chart>
+        </div>
+
+        <div class="flex bg-box-background p-6 w-full">
+            <apx-chart
+                    class="w-full"
+                    [series]="chartOptions.series"
+                    [chart]="chartOptions.chart"
+                    [xaxis]="chartOptions.xaxis"
+                    [title]="chartOptions.title"
+            ></apx-chart>
+        </div>
     </div>
 </div>

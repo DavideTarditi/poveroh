@@ -56,6 +56,10 @@
     --icon-arrow-down: url("/icon/apple-keyboard-control.svg")
 }
 
+:host {
+    display: contents;
+}
+
 /* ----------- BODY & HTML ----------- */
 body,
 html {
@@ -104,7 +108,7 @@ html {
     background: none !important;
 }
 
-.bg-form-background {
+.bg-form-background, .bg-box-background {
     background-color: var(--bg-box-color);
 }
 
@@ -123,6 +127,19 @@ html {
 }
 
 /* ----------- WIDTH & HEIGHT ----------- */
+
+/* ----------- WIDTH & HEIGHT ----------- */
+i {
+    font-size: 1.5rem;
+}
+
+i.small {
+    font-size: 1rem;
+}
+
+i.big {
+    font-size: 2rem;
+}
 
 /* ----------- STRUCTURE ----------- */
 .overflow-x-auto {
@@ -226,6 +243,7 @@ p {
 .fc-danger,
 p.danger,
 a.danger,
+i.danger,
 .danger-all,
 .danger-all p,
 .danger-all > * .danger-all:hover,
@@ -248,19 +266,23 @@ p.warning,
 a.warning,
 .warning-all,
 .warning-all > * .warning-all:hover,
-.warning-all:hover > * {
+.warning-all:hover > *,
+.warning-all path {
     color: var(--warning-color) !important;
 }
 
-.warning-all path {
-    fill: var(--warning-color) !important;
-}
-
-.fc-success {
+.fc-success,
+p.success,
+a.success,
+i.success,
+.success-all,
+.success-all p,
+.success-all > * .success-all:hover,
+.success-all:hover > *, .success-btn-outline p {
     color: var(--success-color);
 }
 
-.fc-success path {
+.success path {
     fill: var(--success-color) !important;
 }
 
@@ -510,6 +532,8 @@ input:disabled {
     margin: auto 0;
     right: 15px;
     z-index: 2;
+    display: flex;
+    align-items: center;
 }
 
 

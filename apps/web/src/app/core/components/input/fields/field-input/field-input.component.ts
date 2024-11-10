@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core'
 import {CommonModule} from '@angular/common'
 import {ReactiveFormsModule, Validators} from '@angular/forms'
-import {SvgIconComponent} from '../../../other/svg-icon/svg-icon.component'
 import {FieldType} from '../../../../types/fields'
 import {getPlaceholder} from '../../../../services/fields'
 import {BaseInputComponent} from '../input-base.component'
@@ -11,7 +10,7 @@ import {PASSWORD_REGEX, PHONE_REGEX} from '../../../../types/constants'
 @Component({
     selector: 'field-input',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, SvgIconComponent],
+    imports: [CommonModule, ReactiveFormsModule],
     templateUrl: './field-input.component.html'
 })
 export class FieldInputComponent extends BaseInputComponent implements OnInit {

@@ -83,6 +83,9 @@
                 [control]="form.get('textarea')!"
         ></field-input>
     </div>
-    <go-button message="Accedi" [disabled]="form.invalid"></go-button>
-
+    <div class="flex flex-col space-y-4 p-6 w-[400px]">
+        <go-button message="Accedi" [disabled]="true"></go-button>
+        <go-button message="Accedi"></go-button>
+        <go-button message="Accedi"></go-button>
+    </div>
 </form>

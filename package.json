@@ -10,7 +10,5 @@
     "start-stage:frontend": "npm run --prefix apps/web start:stage",
     "start-prod:frontend": "npm run --prefix apps/web start:prod"
   },
-  "dependencies": {
-    "@ng-icons/core": "^29.6.1"
-  }
+  "dependencies": {  }
 }

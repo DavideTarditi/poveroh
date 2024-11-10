@@ -23,9 +23,9 @@ export const routes: Routes = [
         path: '',
         component: AppLayoutComponent,
         children: [
-            {path: 'dashboard', component: DashboardComponent},
-            {path: 'test-input', component: TestInputComponent}
+            {path: 'dashboard', component: DashboardComponent}
         ]
     },
+    {path: 'test-input', component: TestInputComponent},
     {path: '**', redirectTo: 'login'}
 ]

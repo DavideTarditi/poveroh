@@ -1,6 +1,6 @@
 import {Component} from '@angular/core'
 import {FieldType} from '../../core/types/fields'
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms'
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms'
 import {FieldInputComponent} from '../../core/components/input/fields/field-input/field-input.component'
 import {IItem} from '../../core/types/item'
 import {currencyCatalog} from "../../core/types/general";

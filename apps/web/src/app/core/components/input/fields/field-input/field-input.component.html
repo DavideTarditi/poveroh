@@ -30,8 +30,7 @@
                     class="form-input"
                     [class.incorrect]="isInvalid"
             ></textarea>
-        }
-        @else {
+        } @else {
             <input
                     [type]="type"
                     [id]="id"
@@ -45,9 +44,9 @@
             >
 
             @if (this.localType == FieldType.PASSWORD) {
-                <svg-icon class="toggle-visibility-password"
-                          [path]="passwordVisibility ? '/icon/eye-outline.svg' : '/icon/eye-off-outline.svg'"
-                          (click)="toogleVisibility()"></svg-icon>
+                <span class="toggle-visibility-password" (click)="toogleVisibility()">
+                    <i [ngClass]="passwordVisibility ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+                </span>
             }
         }
     </div>

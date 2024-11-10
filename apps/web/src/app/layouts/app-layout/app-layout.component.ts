@@ -1,8 +1,7 @@
 import {Component} from '@angular/core'
 import {RouterLink, RouterOutlet} from '@angular/router'
 import {NgOptimizedImage} from "@angular/common";
-import {PopoverComponent} from "../../core/components/other/popover/popover.component";
-import {SvgIconComponent} from "../../core/components/other/svg-icon/svg-icon.component";
+import {PopoverComponent} from "../../core/components/other/popover/popover.component"
 
 @Component({
     selector: 'app-app-layout',
@@ -11,8 +10,7 @@ import {SvgIconComponent} from "../../core/components/other/svg-icon/svg-icon.co
         RouterOutlet,
         NgOptimizedImage,
         RouterLink,
-        PopoverComponent,
-        SvgIconComponent
+        PopoverComponent
     ],
     templateUrl: './app-layout.component.html'
 })
