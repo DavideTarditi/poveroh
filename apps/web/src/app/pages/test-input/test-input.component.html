@@ -83,9 +83,52 @@
                 [control]="form.get('textarea')!"
         ></field-input>
     </div>
-    <div class="flex flex-col space-y-4 p-6 w-[400px]">
-        <go-button message="Accedi" [disabled]="true"></go-button>
-        <go-button message="Accedi"></go-button>
-        <go-button message="Accedi"></go-button>
+    <div class="flex flex-col space-y-4 p-6 h-fit">
+        <div class="flex flex-row space-x-4 h-fit">
+            <go-button message="Accedi" size="small"></go-button>
+            <go-button message="Accedi" size="mid"></go-button>
+            <go-button message="Accedi"></go-button>
+        </div>
+        <div class="flex flex-row space-x-4 h-fit">
+            <go-button message="Accedi" size="small" icon="ri-pencil-fill"></go-button>
+            <go-button message="Accedi" size="mid" [iconReverse]="true" icon="ri-pencil-fill"></go-button>
+            <go-button message="Accedi"></go-button>
+        </div>
+        <div class="flex flex-row space-x-4 h-fit">
+            <go-button message="Accedi" size="small" [outline]="true" icon="ri-pencil-fill"></go-button>
+            <go-button message="Accedi" size="mid" [outline]="true" [iconReverse]="true"
+                       icon="ri-pencil-fill"></go-button>
+            <go-button message="Accedi" [outline]="true"></go-button>
+        </div>
+        <div class="flex flex-row space-x-4 h-fit">
+            <go-button message="Aggiungi" size="small" icon="ri-add-line"></go-button>
+            <go-button message="Aggiungi" size="mid" [iconReverse]="true" icon="ri-add-line"></go-button>
+            <go-button message="Aggiungi"></go-button>
+        </div>
+        <div class="flex flex-row space-x-4 h-fit">
+            <go-button message="Aggiungi" size="small" [outline]="true" icon="ri-add-line"></go-button>
+            <go-button message="Aggiungi" size="mid" [outline]="true" [iconReverse]="true"
+                       icon="ri-add-line"></go-button>
+            <go-button message="Aggiungi" [outline]="true"></go-button>
+        </div>
+        <div class="flex flex-row space-x-4 h-fit">
+            <go-button message="Aggiungi" size="small" icon="ri-add-line" [loading]="true"></go-button>
+            <go-button message="Aggiungi" size="mid" [iconReverse]="true" icon="ri-add-line"
+                       [loading]="true"></go-button>
+            <go-button message="Aggiungi" [loading]="true"></go-button>
+        </div>
+        <div class="flex flex-row space-x-4 h-fit">
+            <go-button message="Aggiungi" size="small" [outline]="true" icon="ri-add-line" [loading]="true"></go-button>
+            <go-button message="Aggiungi" size="mid" [outline]="true" [iconReverse]="true" icon="ri-add-line"
+                       [loading]="true"></go-button>
+            <go-button message="Aggiungi" [outline]="true" [loading]="true"></go-button>
+        </div>
+        <div class="flex flex-row space-x-4 h-fit">
+            <button (click)="loading = !loading">Toogle loading</button>
+            <go-button message="Aggiungi" size="small" [outline]="true" icon="ri-add-line" [loading]="loading"></go-button>
+            <go-button message="Aggiungi" size="mid" [outline]="true" [iconReverse]="true" icon="ri-add-line"
+                       [loading]="loading"></go-button>
+            <go-button message="Aggiungi" [outline]="true" [loading]="loading"></go-button>
+        </div>
     </div>
 </form>

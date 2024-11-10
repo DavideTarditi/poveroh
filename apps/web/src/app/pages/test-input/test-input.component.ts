@@ -19,6 +19,8 @@ import {ButtonComponent} from "../../core/components/input/button/button.compone
 export class TestInputComponent {
     form: FormGroup
 
+    loading: boolean = false
+
     countryOptions: IItem[] = [
         {value: 'us', label: 'United States'},
         {value: 'uk', label: 'United Kingdom'},

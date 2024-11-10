@@ -1,12 +1,21 @@
 import {Component, Input} from '@angular/core'
+import {NgClass, NgIf} from "@angular/common";
 
 @Component({
     selector: 'go-button',
     standalone: true,
-    imports: [],
+    imports: [
+        NgClass,
+        NgIf
+    ],
     templateUrl: './button.component.html'
 })
 export class ButtonComponent {
     @Input() message = ''
     @Input() disabled = false
+    @Input() size: string = ''
+    @Input() icon: string = ''
+    @Input() iconReverse: boolean = false
+    @Input() outline: boolean = false
+    @Input() loading: boolean = false
 }

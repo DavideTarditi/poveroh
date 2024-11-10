@@ -1,5 +1,10 @@
-<button type="submit" class="form-input button" [disabled]="disabled">
+<button type="submit" class="form-input button" [ngClass]="size" [class.outline]="outline" [class.loading]="loading"
+        [disabled]="disabled">
     <span class="loader"></span>
-<!--    <ng-icon name="bootstrapPencil"></ng-icon>-->
-    <p class="font-bold">{{ message }}</p>
+    <div class="flex space-x-1 justify-center"
+         *ngIf="!loading"
+         [ngClass]="{ 'flex-row-reverse space-x-reverse': iconReverse }">
+        <i class="font-bold" *ngIf="icon" [class]="icon"></i>
+        <p class="font-bold">{{ message }}</p>
+    </div>
 </button>

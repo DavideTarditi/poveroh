@@ -49,7 +49,8 @@
     --font-weight-extrabold: 800;
     /* ---- spacing ---- */
     --internal-padding-input: 0.675rem 1.75rem;
-    --internal-padding-input-small: 0.375rem 1rem;
+    --internal-padding-input-mid: 0.4rem 1.75rem;
+    --internal-padding-input-small: 0.1rem 1.75rem;
     --internal-padding-input-for-icon: 0.675rem 3rem;
     /* ---- icon ---- */
     --icon-cash: url("/icon/cash-for-bg.svg");
@@ -131,6 +132,7 @@ html {
 /* ----------- WIDTH & HEIGHT ----------- */
 i {
     font-size: 1.5rem;
+    line-height: normal;
 }
 
 i.small {
@@ -346,6 +348,10 @@ input:disabled {
     padding: var(--internal-padding-input-small) !important;
 }
 
+.form-input.mid {
+    padding: var(--internal-padding-input-mid) !important;
+}
+
 .form-input[type='submit'],
 .form-input.button {
     cursor: pointer;
@@ -399,14 +405,19 @@ input:disabled {
     border: 1px solid var(--white-color);
     color: var(--black-color);
     outline-style: none;
+    transition: all 1s ease;
 }
 
 .form-input.button p {
     color: var(--black-color);
 }
 
-.form-input.button.outline p {
+.form-input.button.outline p, .form-input.button.outline i {
     color: var(--text-color);
+}
+
+.form-input.button.outline {
+    background: none !important;
 }
 
 .form-input.button.with-icon path {
@@ -704,6 +715,65 @@ fieldset[disabled] .md-switch input + i:after {
     -moz-user-select: none;
     user-select: none;
 }
+
+/* ----------- LOADER ----------- */
+.loading .loader {
+    display: block !important;
+}
+
+.loader {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: none;
+    z-index: 5;
+    margin: auto;
+    animation: rotate 1s linear infinite;
+}
+
+.loader::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--black-color);
+    animation: prixClipFix 2s linear infinite;
+}
+
+.loading.outline > .loader::before {
+    border-color: white;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+    }
+}
+
+/* ----------- MEDIA ----------- */
 
 @media screen and (max-width: 640px) {
 
