@@ -22,9 +22,6 @@
       "dom"
     ],
     "paths": {
-      "@spartan-ng/ui-icon-helm": [
-        "./ui-icon-helm/src/index.ts"
-      ]
     }
   },
   "angularCompilerOptions": {

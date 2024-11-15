@@ -2,13 +2,22 @@ import {Component, ViewChild} from '@angular/core'
 import {ChartComponent} from "ng-apexcharts";
 import {ChartOptions} from "../../core/services/charts";
 import {ButtonComponent} from "../../core/components/input/button/button.component";
+import {BoxLayoutComponent} from "../../layouts/box-layout/box-layout.component";
+import {NgIf} from "@angular/common";
+import {Button} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
+
 
 @Component({
     selector: 'app-dashboard',
     standalone: true,
     imports: [
         ChartComponent,
-        ButtonComponent
+        ButtonComponent,
+        BoxLayoutComponent,
+        NgIf,
+        Button,
+        DialogModule
     ],
     templateUrl: './dashboard.component.html'
 })
@@ -16,11 +25,17 @@ export class DashboardComponent {
     @ViewChild("chart") chart: ChartComponent | undefined;
     public chartOptions: Partial<ChartOptions>;
 
+    visible: boolean = false;
+
+    showDialog() {
+        this.visible = true;
+    }
+
     constructor() {
         this.chartOptions = {
             series: [
                 {
-                    data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                    data: [14, 41, 35, 51, 49, 62, 69, 91, 148]
                 }
             ],
             chart: {

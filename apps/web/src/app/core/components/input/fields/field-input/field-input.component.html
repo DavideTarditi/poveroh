@@ -4,33 +4,34 @@
         <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio" data-cooltipz-dir="top">*</span>
     </p>
 
-    <div class="relative">
-        @if (localType == FieldType.SELECT || localType == FieldType.CURRENCY) {
-            <select
-                    [id]="id"
-                    [formControl]="getFormControl()"
-                    class="form-input dropdown"
-                    [class.incorrect]="isInvalid"
-            >
-                @if (localType != FieldType.CURRENCY) {
-                    <option disabled value="">Seleziona un valore</option>
-                }
-                <option *ngFor="let option of options; let i = index" [value]="option.value"
-                        [selected]="!i && localType == FieldType.CURRENCY">
-                    {{ option.label }}
-                </option>
-            </select>
-        } @else if (localType == FieldType.LONGTEXT) {
-            <textarea
-                    [id]="id"
-                    [formControl]="getFormControl()"
-                    [placeholder]="placeholder"
-                    rows="5"
-                    type="text"
-                    class="form-input"
-                    [class.incorrect]="isInvalid"
-            ></textarea>
-        } @else {
+    <div class="relative" [ngSwitch]="localType">
+        <select
+                *ngSwitchCase="FieldType.SELECT || FieldType.CURRENCY"
+                [id]="id"
+                [formControl]="getFormControl()"
+                class="form-input dropdown"
+                [class.incorrect]="isInvalid"
+        >
+            <option *ngIf="localType !== FieldType.CURRENCY" disabled value="">
+                Seleziona un valore
+            </option>
+            <option *ngFor="let option of options; let i = index" [value]="option.value"
+                    [selected]="!i && localType == FieldType.CURRENCY">
+                {{ option.label }}
+            </option>
+        </select>
+
+        <textarea
+                *ngSwitchCase="FieldType.LONGTEXT"
+                [id]="id"
+                [formControl]="getFormControl()"
+                [placeholder]="placeholder"
+                rows="5"
+                class="form-input"
+                [class.incorrect]="isInvalid"
+        ></textarea>
+
+        <ng-container *ngSwitchDefault>
             <input
                     [type]="type"
                     [id]="id"
@@ -42,13 +43,14 @@
                     class="form-input"
                     [class.incorrect]="isInvalid"
             >
-
-            @if (this.localType == FieldType.PASSWORD) {
-                <span class="toggle-visibility-password" (click)="toogleVisibility()">
-                    <i [ngClass]="passwordVisibility ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
-                </span>
-            }
-        }
+            <span
+                    *ngIf="localType === FieldType.PASSWORD"
+                    class="toggle-visibility-password"
+                    (click)="toogleVisibility()"
+            >
+                <i [ngClass]="passwordVisibility ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+            </span>
+        </ng-container>
     </div>
 
     <div *ngIf="isInvalid">

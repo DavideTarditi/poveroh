@@ -8,7 +8,14 @@
   "scripts": {
     "start-dev:frontend": "npm run --prefix apps/web start:dev",
     "start-stage:frontend": "npm run --prefix apps/web start:stage",
-    "start-prod:frontend": "npm run --prefix apps/web start:prod"
+    "start-prod:frontend": "npm run --prefix apps/web start:prod",
+    "build:frontend": "npm run --prefix apps/web build"
   },
-  "dependencies": {  }
+  "dependencies": {
+    "@angular/cdk": "^18.2.13",
+    "ng-apexcharts": "^1.12.0",
+    "primeng": "^17.18.12"
+  },
+  "devDependencies": {
+  }
 }
