@@ -6,11 +6,12 @@ import {getPlaceholder} from '../../../../services/fields'
 import {BaseInputComponent} from '../input-base.component'
 import {IItem} from '../../../../types/item'
 import {PASSWORD_REGEX, PHONE_REGEX} from '../../../../types/constants'
+import {SelectButtonComponent} from "../../select-button/select-button.component";
 
 @Component({
     selector: 'field-input',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [CommonModule, ReactiveFormsModule, SelectButtonComponent],
     templateUrl: './field-input.component.html'
 })
 export class FieldInputComponent extends BaseInputComponent implements OnInit {
@@ -58,6 +59,10 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
                 this.control.addValidators([Validators.min(this.min), Validators.max(this.max)])
                 break
         }
+
+        this.control.valueChanges.subscribe((v) => {
+            console.log("Changed value", v);
+        });
     }
 
     toogleVisibility(): void {

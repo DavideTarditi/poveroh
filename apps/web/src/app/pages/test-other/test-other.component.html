@@ -1,0 +1,6 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-row">
+    <div class="flex flex-col space-y-4 p-6 h-fit">
+        <go-button (click)="toogleVisible(true)" message="Show" [outline]="true"/>
+        <transactions-modal [visible]="visible" (onCancel)="toogleVisible($event)"></transactions-modal>
+    </div>
+</form>

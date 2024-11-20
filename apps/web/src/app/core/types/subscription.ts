@@ -1,4 +1,4 @@
-interface ISubscription {
+export interface ISubscription {
     name: string
     date: string
     logo?: string

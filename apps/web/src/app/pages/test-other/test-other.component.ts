@@ -8,6 +8,7 @@ import {ButtonComponent} from "../../core/components/input/button/button.compone
 import {DialogModule} from "primeng/dialog";
 import {TimelineModule} from "primeng/timeline";
 import {SelectButtonComponent} from "../../core/components/input/select-button/select-button.component";
+import {TransactionsComponent} from "../../core/components/modals/add-transactions/transactions.component";
 
 @Component({
     selector: 'app-test-input',
@@ -19,35 +20,20 @@ import {SelectButtonComponent} from "../../core/components/input/select-button/s
         DialogModule,
         TimelineModule,
         FormsModule,
-        SelectButtonComponent
+        SelectButtonComponent,
+        TransactionsComponent
     ],
-    templateUrl: './test-input.component.html'
+    templateUrl: './test-other.component.html'
 })
-export class TestInputComponent {
+export class TestOtherComponent {
     form: FormGroup
+    visible: boolean = true;
 
-    visible: boolean = false;
-
-    showDialog() {
-        this.visible = true;
+    toogleVisible(visible: boolean) {
+        this.visible = visible;
     }
 
     events: any[];
-
-    loading: boolean = false
-
-    countryOptions: IItem[] = [
-        {value: 'us', label: 'United States'},
-        {value: 'uk', label: 'United Kingdom'},
-        {value: 'ca', label: 'Canada'}
-    ]
-
-    dataYears: IItem[] = [
-        {value: 2022, label: '2022'},
-        {value: 2023, label: '2023'},
-        {value: 2024, label: '2024'},
-        {value: -1, label: 'Max'},
-    ]
 
     constructor(private fb: FormBuilder) {
         this.form = this.fb.group({
@@ -61,8 +47,6 @@ export class TestInputComponent {
             currency: ['', Validators.required],
             date: ['', Validators.required],
             textarea: ['', Validators.required],
-            ignore: [false],
-            ignoretwo: [false],
         })
 
         this.events = [
@@ -85,6 +69,4 @@ export class TestInputComponent {
         }
     }
 
-    protected readonly FieldType = FieldType
-    protected readonly currencyCatalog = currencyCatalog;
 }

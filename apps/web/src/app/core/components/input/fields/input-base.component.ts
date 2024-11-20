@@ -6,6 +6,7 @@ import {FieldType} from '../../../types/fields'
 @Directive()
 export abstract class BaseInputComponent {
     @Input() label = ''
+    @Input() subtitle = ''
     @Input() placeholder!: string
     @Input({required: true}) id = ''
     @Input({required: true}) type: FieldType = FieldType.TEXT

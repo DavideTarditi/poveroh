@@ -1,0 +1,77 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-5">
+    <field-input
+            id="title"
+            label="Titolo"
+            [type]="FieldType.TEXT"
+            [control]="form.get('title')!"
+    ></field-input>
+
+    <field-input
+            id="date"
+            label="Data"
+            [type]="FieldType.DATE"
+            [control]="form.get('date')!"
+    ></field-input>
+
+    <div class="flex flex-row items-center space-x-3">
+        <field-input
+                id="amount"
+                label="Importo"
+                [type]="FieldType.MONEY"
+                [control]="form.get('amount')!"
+                class="w-full"
+        ></field-input>
+
+        <field-input
+                id="currency"
+                label="Currency"
+                [type]="FieldType.SELECT"
+                [options]="currencyCatalog"
+                [control]="form.get('currency')!"
+                class="w-full"
+        ></field-input>
+    </div>
+
+    <field-input
+            label="Circuito/Conto"
+            id="bankAccount"
+            [type]="FieldType.SELECT"
+            [options]="bankAccount"
+            [control]="form.get('bankAccount')!"
+            class="w-full"
+    ></field-input>
+
+    <div class="flex flex-row items-center space-x-3">
+        <field-input
+                id="category"
+                label="Categoria"
+                [type]="FieldType.SELECT"
+                [options]="category"
+                [control]="form.get('category')!"
+                class="w-full"
+        ></field-input>
+
+        <field-input
+                id="subcategory"
+                label="Sottocategoria"
+                [type]="FieldType.SELECT"
+                [options]="subCategory"
+                [control]="form.get('subcategory')!"
+                class="w-full"
+        ></field-input>
+    </div>
+
+    <field-input
+            id="note"
+            label="Note"
+            [type]="FieldType.LONGTEXT"
+            [control]="form.get('note')!"
+    ></field-input>
+
+    <field-input
+            id="ignore"
+            label="Ignora transazione nel conteggio finale"
+            [type]="FieldType.BOOLEAN"
+            [control]="form.get('ignore')!"
+    ></field-input>
+</form>

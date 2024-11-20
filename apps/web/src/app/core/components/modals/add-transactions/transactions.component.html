@@ -1,0 +1,28 @@
+<p-dialog [draggable]="false" [dismissableMask]="true" [closeOnEscape]="true"
+          [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+          [style]="{ width: '40vw' }"
+          header="Aggiungi transazione"
+          [modal]="true" [(visible)]="visible" (visibleChange)="hideDialog()">
+    <div class="flex flex-col space-y-10 pt-5">
+        <select-button [data]="TransactionActionItem" [fullSize]="true" label="Azione"
+                       [required]="true" (onValueChange)="changeForm($event)"></select-button>
+        <giroconto-form [form]="form" *ngIf="selectedForm == TransactionAction.INTERNAL"></giroconto-form>
+        <entrate-form [form]="form" *ngIf="selectedForm == TransactionAction.ADD"></entrate-form>
+        <uscite-form [form]="form" [fb]="fb" *ngIf="selectedForm == TransactionAction.SUB"></uscite-form>
+    </div>
+    <ng-template pTemplate="footer">
+        <div class="flex flex-row items-center justify-between">
+            <field-input
+                    id="continueinsert"
+                    label="Continua ad inserire"
+                    subtitle="Non chiude il modal e permette di inserire altre transazioni"
+                    [type]="FieldType.BOOLEAN"
+                    [control]="formManagerModal.get('continueinsert')!"
+            ></field-input>
+            <div class="flex flex-row justify-between space-x-3">
+                <go-button message="Annulla" [outline]="true" (click)="hideDialog()"></go-button>
+                <go-button message="Inserisci" [disabled]="form.invalid"></go-button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>

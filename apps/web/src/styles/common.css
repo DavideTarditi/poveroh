@@ -10,56 +10,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    color-scheme: dark;
-}
-
-
 /* ----------- VARIABLE ----------- */
 :root {
-    --font-sans: '';
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.5rem;
-    color-scheme: light;
-
-
     /* ---- color ---- */
     --brand-color: #4e594a;
     --brand-color-2: #278664;
@@ -205,8 +157,12 @@ hr {
     background-color: var(--hr-color);
     border: none;
     display: block;
-    width: 100%;
-    height: 1px !important;
+
+}
+
+hr.vertical {
+    width: 1px !important;
+    height: 100%;
 }
 
 svg.small {
@@ -252,7 +208,7 @@ h2 {
     font-weight: var(--font-weight-bold);
 }
 
-h3 {
+h3, .p-dialog .p-dialog-header .p-dialog-title {
     font-size: var(--child-h3-size);
     font-weight: var(--font-weight-bold);
     color: var(--text-color);
@@ -454,7 +410,7 @@ input:disabled {
     border: 1px solid var(--white-color);
     color: var(--black-color);
     outline-style: none;
-    transition: all 1s ease;
+    /*transition: all 1s ease;*/
 }
 
 .form-input.button p {
@@ -597,100 +553,6 @@ input:disabled {
     color: var(--white-color);
 }
 
-
-/* ---- checkbox ---- */
-.checkbox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.md-switch {
-    cursor: pointer;
-    margin: 0;
-    min-height: 20px;
-}
-
-.md-switch input {
-    position: absolute;
-    cursor: pointer;
-    width: 36px;
-    height: 20px;
-    z-index: 1;
-    opacity: 0;
-    margin-left: -36px;
-}
-
-.md-switch input:checked + i:before {
-    background: var(--checkbox-color);
-    opacity: 0.5;
-}
-
-.md-switch input:checked + i:after {
-    background: var(--checkbox-color);
-    left: 16px;
-}
-
-.md-switch input[disabled] + i:before,
-fieldset[disabled] .md-switch input + i:before {
-    background-color: rgba(0, 0, 0, 0.12);
-}
-
-.md-switch input[disabled] + i:after,
-fieldset[disabled] .md-switch input + i:after {
-    background-color: #bdbdbd;
-}
-
-.md-switch i {
-    width: 0;
-    height: 18px;
-    line-height: 1;
-    margin-top: -2px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 44px;
-    position: relative;
-}
-
-.md-switch i:before {
-    content: "";
-    left: 1px;
-    width: 34px;
-    top: 3px;
-    height: 14px;
-    border-radius: 8px;
-    position: absolute;
-    background-color: #9e9e9e;
-    transition: all 0.2s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .md-switch i:before {
-        transition: none;
-    }
-}
-
-.md-switch i:after {
-    content: "";
-    position: absolute;
-    margin: 0;
-    left: 0;
-    top: 0;
-    outline: none;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    transition: all 0.2s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .md-switch i:after {
-        transition: none;
-    }
-}
-
 /* ---- checkbox ---- */
 .checkbox-wrapper * {
     box-sizing: border-box;
@@ -698,34 +560,42 @@ fieldset[disabled] .md-switch input + i:after {
 
 .checkbox-wrapper .cbx {
     -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
     cursor: pointer;
-    display: inline-block;
+    padding: 6px 8px;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    display: flex;
+    /*align-items: center;*/
+}
+
+.checkbox-wrapper .cbx:hover {
+    background: rgba(0, 119, 255, 0.06);
 }
 
 .checkbox-wrapper .cbx span {
-    float: left;
     vertical-align: middle;
     transform: translate3d(0, 0, 0);
 }
 
-.checkbox-wrapper .cbx span:first-child {
+.checkbox-wrapper .cbx .span-check {
     position: relative;
     width: 18px;
     height: 18px;
     border-radius: 4px;
     transform: scale(1);
-    border: 1px solid #121212;
+    border: 1px solid var(--white-color);
     transition: all 0.2s ease;
+    box-shadow: 0 1px 1px rgba(0, 16, 75, 0.05);
 }
 
-.checkbox-wrapper .cbx span:first-child svg {
+.checkbox-wrapper .cbx .span-check svg {
     position: absolute;
     top: 3px;
     left: 2px;
     fill: none;
-    stroke: #fff;
+    stroke: var(--black-color);
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -736,23 +606,26 @@ fieldset[disabled] .md-switch input + i:after {
     transform: translate3d(0, 0, 0);
 }
 
-.checkbox-wrapper .cbx span {
-    padding-left: 15px;
-    line-height: 18px;
+.checkbox-wrapper .cbx:hover .span-check {
+    border-color: var(--black-color);
 }
 
 .checkbox-wrapper .inp-cbx {
     position: absolute;
-    visibility: hidden;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;
 }
 
-.checkbox-wrapper .inp-cbx:checked + .cbx span:first-child {
-    background: #07f;
-    border-color: #07f;
+.checkbox-wrapper .inp-cbx:checked + .cbx .span-check {
+    background: var(--white-color);
+    border-color: var(--white-color);
     animation: wave-4 0.4s ease;
 }
 
-.checkbox-wrapper .inp-cbx:checked + .cbx span:first-child svg {
+.checkbox-wrapper .inp-cbx:checked + .cbx .span-check svg {
     stroke-dashoffset: 0;
 }
 
@@ -761,9 +634,38 @@ fieldset[disabled] .md-switch input + i:after {
     width: 0;
     height: 0;
     pointer-events: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
+}
+
+@media screen and (max-width: 640px) {
+    .checkbox-wrapper .cbx {
+        width: 100%;
+        display: inline-block;
+    }
+}
+
+@-moz-keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@-webkit-keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@-o-keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
 }
 
 /* ----------- LOADER ----------- */

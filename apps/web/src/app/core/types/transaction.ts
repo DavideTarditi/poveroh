@@ -1,4 +1,6 @@
-interface ITransaction {
+import {IItem} from "./item";
+
+export interface ITransaction {
     name: string
     date: string
     logo?: string
@@ -12,8 +14,14 @@ interface ITransaction {
     subcategory: string
 }
 
-enum TransactionAction {
+export enum TransactionAction {
     INTERNAL,
     ADD,
     SUB
 }
+
+export const TransactionActionItem: IItem[] = [
+    {value: TransactionAction.INTERNAL, label: 'Giroconto'},
+    {value: TransactionAction.ADD, label: 'Entrata'},
+    {value: TransactionAction.SUB, label: 'Uscita'}
+]

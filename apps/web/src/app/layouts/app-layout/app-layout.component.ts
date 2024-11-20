@@ -1,7 +1,7 @@
 import {Component} from '@angular/core'
 import {RouterLink, RouterOutlet} from '@angular/router'
 import {NgOptimizedImage} from "@angular/common";
-import {PopoverComponent} from "../../core/components/other/popover/popover.component"
+import {PopoverComponent} from "../../core/components/popover/popover.component"
 
 @Component({
     selector: 'app-app-layout',

@@ -74,6 +74,21 @@
                 [type]="FieldType.DATE"
                 [control]="form.get('date')!"
         ></field-input>
+
+        <field-input
+                id="ignore"
+                label="Test bello"
+                [type]="FieldType.BOOLEAN"
+                [control]="form.get('ignore')!"
+        ></field-input>
+
+        <field-input
+                id="ignoretwo"
+                label="Test bello"
+                subtitle="Yo ma come procede fratm"
+                [type]="FieldType.BOOLEAN"
+                [control]="form.get('ignoretwo')!"
+        ></field-input>
     </div>
     <div class="flex flex-col w-1/4 p-5 space-y-6">
         <field-input
@@ -82,6 +97,7 @@
                 [type]="FieldType.LONGTEXT"
                 [control]="form.get('textarea')!"
         ></field-input>
+        <select-button [data]="dataYears"></select-button>
     </div>
     <div class="flex flex-col space-y-4 p-6 h-fit">
         <div class="flex flex-row space-x-4 h-fit">
@@ -131,22 +147,5 @@
                        [loading]="loading"></go-button>
             <go-button message="Aggiungi" [outline]="true" [loading]="loading"></go-button>
         </div>
-    </div>
-
-    <div class="flex flex-col space-y-4 p-6 h-fit">
-        <go-button (click)="showDialog()" message="Show" [outline]="true"/>
-        <p-dialog [draggable]="false" [dismissableMask]="true" [closeOnEscape]="true" header="Edit Profile"
-                  [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
-            <span class="p-text-secondary block mb-5">Update your information.</span>
-            <div class="flex align-items-center gap-3 mb-3">
-                username
-            </div>
-            <div class="flex align-items-center gap-3 mb-5">
-                email
-            </div>
-            <div class="flex justify-content-end gap-2">
-                <go-button message="Ciao" (click)="visible = false"></go-button>
-            </div>
-        </p-dialog>
     </div>
 </form>

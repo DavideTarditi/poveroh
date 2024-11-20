@@ -8,6 +8,7 @@ import {LoginComponent} from './pages/login/login.component'
 import {ChangePasswordComponent} from './pages/change-password/change-password.component'
 import {TestInputComponent} from './pages/test-input/test-input.component'
 import {environment} from "../environments/environment";
+import {TestOtherComponent} from "./pages/test-other/test-other.component";
 
 export const routes: Routes = [
     {
@@ -27,5 +28,6 @@ export const routes: Routes = [
         ]
     },
     {path: 'test-input', component: TestInputComponent},
+    {path: 'test-other', component: TestOtherComponent},
     {path: '**', redirectTo: 'login'}
 ]
