@@ -6,6 +6,7 @@ import {BoxLayoutComponent} from "../../layouts/box-layout/box-layout.component"
 import {NgIf} from "@angular/common";
 import {Button} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
+import {TransactionsComponent} from "../../core/components/modals/add-transactions/transactions.component";
 
 
 @Component({
@@ -17,7 +18,8 @@ import {DialogModule} from "primeng/dialog";
         BoxLayoutComponent,
         NgIf,
         Button,
-        DialogModule
+        DialogModule,
+        TransactionsComponent
     ],
     templateUrl: './dashboard.component.html'
 })
@@ -26,9 +28,14 @@ export class DashboardComponent {
     public chartOptions: Partial<ChartOptions>;
 
     visible: boolean = false;
+    editingMode: boolean = false;
 
-    showDialog() {
-        this.visible = true;
+    toogleVisible(visible: boolean) {
+        this.visible = visible;
+    }
+
+    toogleEditingMode() {
+        this.editingMode = !this.editingMode;
     }
 
     constructor() {

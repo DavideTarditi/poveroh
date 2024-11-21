@@ -17,6 +17,7 @@ import {SelectButtonComponent} from "../../select-button/select-button.component
 export class FieldInputComponent extends BaseInputComponent implements OnInit {
     @Input() options: IItem[] = []
     @Input() disabled: boolean = false
+    @Input() showErrorMessage: boolean = true
 
     //number
     @Input() min: number = 0

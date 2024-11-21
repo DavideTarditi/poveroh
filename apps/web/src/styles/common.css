@@ -155,9 +155,9 @@ i.big {
 
 hr {
     background-color: var(--hr-color);
+    height: 1px;
     border: none;
     display: block;
-
 }
 
 hr.vertical {

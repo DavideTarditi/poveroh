@@ -29,7 +29,7 @@
                 <span class="mandatory" aria-label="Campo obbligatorio" data-cooltipz-dir="top">*</span>
             </p>
             <div class="flex flex-row space-x-3">
-                <div class="flex flex-row space-x-3" *ngIf="splittedAmount">
+                <div class="flex flex-row items-center space-x-3" *ngIf="splittedAmount">
                     <i class="ri-git-merge-line cursor-pointer" (click)="toogleSplitAmount()"></i>
                     <hr class="vertical">
                     <i class="ri-add-line cursor-pointer" (click)="addControl()"></i>
@@ -47,12 +47,13 @@
         ></field-input>
 
         <div class="flex flex-col space-y-3" *ngIf="splittedAmount">
-            <div class="flex flex-row items-center justify-between space-x-3"
+            <div class="flex flex-row justify-between items-center space-x-3"
                  *ngFor="let group of amountControls(); let i = index">
                 <app-new-amount-icon class="pl-2"></app-new-amount-icon>
                 <field-input
                         [id]="'bankaccount' + i"
                         placeholder="Seleziona un conto"
+                        [showErrorMessage]="false"
                         [type]="FieldType.SELECT"
                         [options]="bankAccount"
                         [control]="group.get('bankAccount')!"
@@ -61,6 +62,7 @@
                 <field-input
                         [id]="'amount' + i"
                         [type]="FieldType.MONEY"
+                        [showErrorMessage]="false"
                         [control]="group.get('amount')!"
                 ></field-input>
                 <i class="ri-delete-bin-line danger cursor-pointer" (click)="removeControl(i)"></i>
@@ -79,7 +81,7 @@
             *ngIf="!splittedAmount"
     ></field-input>
 
-    <div class="flex flex-row items-center space-x-3">
+    <div class="flex flex-row space-x-3">
         <field-input
                 id="category"
                 label="Categoria"

@@ -82,7 +82,7 @@
         </ng-container>
     </div>
 
-    <div *ngIf="isInvalid">
+    <div *ngIf="isInvalid && showErrorMessage">
         <p *ngFor="let error of errors" class="danger">{{ error }}</p>
     </div>
 </div>

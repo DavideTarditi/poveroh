@@ -5,7 +5,7 @@ import {ButtonComponent} from "../../input/button/button.component";
 import {FieldInputComponent} from "../../input/fields/field-input/field-input.component";
 import {FieldType} from "../../../types/fields";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {NgIf} from "@angular/common";
+import {NgIf, NgSwitch, NgSwitchCase} from "@angular/common";
 import {PrimeTemplate} from "primeng/api";
 import {DialogModule} from "primeng/dialog";
 import {GirocontoFormComponent} from "../../form/giroconto-form/giroconto-form.component";
@@ -25,7 +25,9 @@ import {IItem} from "../../../types/item";
         DialogModule,
         GirocontoFormComponent,
         EntrateFormComponent,
-        UsciteFormComponent
+        UsciteFormComponent,
+        NgSwitch,
+        NgSwitchCase
     ],
     templateUrl: './transactions.component.html',
 })

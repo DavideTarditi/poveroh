@@ -3,12 +3,12 @@
           [style]="{ width: '40vw' }"
           header="Aggiungi transazione"
           [modal]="true" [(visible)]="visible" (visibleChange)="hideDialog()">
-    <div class="flex flex-col space-y-10 pt-5">
+    <div class="flex flex-col space-y-10 pt-5" [ngSwitch]="selectedForm">
         <select-button [data]="TransactionActionItem" [fullSize]="true" label="Azione"
                        [required]="true" (onValueChange)="changeForm($event)"></select-button>
-        <giroconto-form [form]="form" *ngIf="selectedForm == TransactionAction.INTERNAL"></giroconto-form>
-        <entrate-form [form]="form" *ngIf="selectedForm == TransactionAction.ADD"></entrate-form>
-        <uscite-form [form]="form" [fb]="fb" *ngIf="selectedForm == TransactionAction.SUB"></uscite-form>
+        <giroconto-form [form]="form" *ngSwitchCase="TransactionAction.INTERNAL"></giroconto-form>
+        <entrate-form [form]="form" *ngSwitchCase="TransactionAction.ADD"></entrate-form>
+        <uscite-form [form]="form" [fb]="fb" *ngSwitchCase="TransactionAction.SUB"></uscite-form>
     </div>
     <ng-template pTemplate="footer">
         <div class="flex flex-row items-center justify-between">
