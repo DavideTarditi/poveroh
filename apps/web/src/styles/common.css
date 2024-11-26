@@ -19,6 +19,7 @@
     --danger-color: #eb3232;
     --danger-color-text: #ff5f5f;
     --success-color: #2dd181;
+    --success-color-dark: #198754;
     --black-color: #0d0d0d;
     --white-color: #ffffff;
     --hr-color: #393939;
@@ -28,6 +29,7 @@
     radial-gradient(circle 600px at top left, var(--brand-color-2), rgba(28, 28, 28, 0)), var(--bg-body-color);
     --bg-input-color: #313131;
     --bg-box-color: #212121;
+    --maskbg: rgba(0, 0, 0, 0.6);
     --text-color: var(--white-color);
     --text-label-color: #6A6A6A;
     --placeholder-color: var(--text-label-color);
@@ -44,6 +46,7 @@
     --max-width-input: 20rem;
     /* ---- border radius ---- */
     --radius-size: 1rem;
+    --radius-size-light: .5rem;
     --input-radius-size: 0.6rem;
     /* ---- font family ---- */
     --font-family: 'Inter', Arial, sans-serif;
@@ -116,6 +119,10 @@ html {
     background-color: var(--bg-box-color);
 }
 
+.bg-input-color {
+    background-color: var(--bg-input-color);
+}
+
 /* ----------- LOGO ----------- */
 .logo {
     display: block;
@@ -172,6 +179,10 @@ svg.small {
 
 .box-rounded {
     border-radius: var(--radius-size);
+}
+
+.box-rounded-light {
+    border-radius: var(--radius-size-light);
 }
 
 .box-rounded-just-left {
@@ -410,19 +421,31 @@ input:disabled {
     border: 1px solid var(--white-color);
     color: var(--black-color);
     outline-style: none;
-    /*transition: all 1s ease;*/
 }
 
 .form-input.button p {
     color: var(--black-color);
 }
 
-.form-input.button.outline p, .form-input.button.outline i {
-    color: var(--text-color);
+.form-input.button.outline p,
+.form-input.button.outline i,
+.form-input.button.filled p,
+.form-input.button.filled i,
+.form-input.button.danger p,
+.form-input.button.danger i,
+.form-input.button.filled i,
+.form-input.button.success p,
+.form-input.button.success i{
+    color: var(--text-color) !important;
 }
 
 .form-input.button.outline {
     background: none !important;
+}
+
+.form-input.button.filled {
+    background-color: var(--bg-input-color) !important;
+    border: 0 !important;
 }
 
 .form-input.button.with-icon path {
@@ -477,7 +500,7 @@ input:disabled {
 /* ---- input danger ---- */
 .form-input.danger,
 .error.danger {
-    background-color: var(--danger-color-text) !important;
+    background-color: var(--danger-color) !important;
     border: 0;
     color: var(--white-color) !important;
 }
@@ -492,9 +515,15 @@ input:disabled {
 
 /* ---- input success ---- */
 .form-input.success,
-.error.success {
-    background-color: var(--success-color) !important;
+.success {
+    border: 0 !important;
+    background-color: var(--success-color-dark) !important;
     color: var(--white-color) !important;
+}
+
+/* ---- input white border ---- */
+.form-input.white-border {
+    border: 1px solid var(--white-color)
 }
 
 /* ---- input only text ---- */
@@ -562,12 +591,11 @@ input:disabled {
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
-    padding: 6px 8px;
+    padding: 1px;
     border-radius: 6px;
     overflow: hidden;
     transition: all 0.2s ease;
     display: flex;
-    /*align-items: center;*/
 }
 
 .checkbox-wrapper .cbx:hover {
@@ -666,6 +694,32 @@ input:disabled {
     50% {
         transform: scale(0.9);
     }
+}
+
+/* ---- upload ---- */
+.file-upload {
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: var(--input-radius-size);
+    position: relative;
+    border: 1px dashed var(--white-color);
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.file-upload input[type=file] {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
 }
 
 /* ----------- LOADER ----------- */

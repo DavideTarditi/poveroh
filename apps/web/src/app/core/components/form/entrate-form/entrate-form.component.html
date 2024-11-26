@@ -4,6 +4,7 @@
             label="Titolo"
             [type]="FieldType.TEXT"
             [control]="form.get('title')!"
+            [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
@@ -11,6 +12,7 @@
             label="Data"
             [type]="FieldType.DATE"
             [control]="form.get('date')!"
+            [whiteBorder]="whiteBorder"
     ></field-input>
 
     <div class="flex flex-row items-center space-x-3">
@@ -19,6 +21,7 @@
                 label="Importo"
                 [type]="FieldType.MONEY"
                 [control]="form.get('amount')!"
+                [whiteBorder]="whiteBorder"
                 class="w-full"
         ></field-input>
 
@@ -28,6 +31,7 @@
                 [type]="FieldType.SELECT"
                 [options]="currencyCatalog"
                 [control]="form.get('currency')!"
+                [whiteBorder]="whiteBorder"
                 class="w-full"
         ></field-input>
     </div>
@@ -38,6 +42,7 @@
             [type]="FieldType.SELECT"
             [options]="bankAccount"
             [control]="form.get('bankAccount')!"
+            [whiteBorder]="whiteBorder"
             class="w-full"
     ></field-input>
 
@@ -48,6 +53,7 @@
                 [type]="FieldType.SELECT"
                 [options]="category"
                 [control]="form.get('category')!"
+                [whiteBorder]="whiteBorder"
                 class="w-full"
         ></field-input>
 
@@ -57,6 +63,7 @@
                 [type]="FieldType.SELECT"
                 [options]="subCategory"
                 [control]="form.get('subcategory')!"
+                [whiteBorder]="whiteBorder"
                 class="w-full"
         ></field-input>
     </div>
@@ -66,6 +73,7 @@
             label="Note"
             [type]="FieldType.LONGTEXT"
             [control]="form.get('note')!"
+            [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
@@ -73,5 +81,6 @@
             label="Ignora transazione nel conteggio finale"
             [type]="FieldType.BOOLEAN"
             [control]="form.get('ignore')!"
+            [whiteBorder]="whiteBorder"
     ></field-input>
 </form>

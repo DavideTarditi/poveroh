@@ -19,6 +19,7 @@ import {currencyCatalog} from "../../../types/general";
 })
 export class EntrateFormComponent {
     @Input() form!: FormGroup;
+    @Input() whiteBorder: boolean = false
 
     bankAccount: IItem[] = [
         {value: 'satispay', label: 'Satispay'},

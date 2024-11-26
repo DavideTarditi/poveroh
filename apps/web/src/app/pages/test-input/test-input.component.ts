@@ -61,6 +61,7 @@ export class TestInputComponent {
             currency: ['', Validators.required],
             date: ['', Validators.required],
             textarea: ['', Validators.required],
+            upload: ['', Validators.required],
             ignore: [false],
             ignoretwo: [false],
         })

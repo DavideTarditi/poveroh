@@ -18,6 +18,7 @@ import {IItem} from "../../../types/item";
 })
 export class GirocontoFormComponent {
     @Input() form!: FormGroup;
+    @Input() whiteBorder: boolean = false;
 
     bankAccount: IItem[] = [
         {value: 'satispay', label: 'Satispay'},

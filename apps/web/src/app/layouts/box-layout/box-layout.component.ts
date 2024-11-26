@@ -1,7 +1,7 @@
 import {Component, ContentChild, Input, TemplateRef} from '@angular/core';
 import {ButtonComponent} from "../../core/components/input/button/button.component";
 import {ChartComponent} from "ng-apexcharts";
-import {NgTemplateOutlet} from "@angular/common";
+import {NgIf, NgTemplateOutlet} from "@angular/common";
 
 @Component({
     selector: 'box-layout',
@@ -9,7 +9,8 @@ import {NgTemplateOutlet} from "@angular/common";
     imports: [
         ButtonComponent,
         ChartComponent,
-        NgTemplateOutlet
+        NgTemplateOutlet,
+        NgIf
     ],
     templateUrl: './box-layout.component.html',
     styleUrl: './box-layout.component.css'

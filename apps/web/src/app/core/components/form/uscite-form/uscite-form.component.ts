@@ -1,11 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FieldType} from "../../../types/fields";
-import {TransactionActionItem} from "../../../types/transaction";
 import {FieldInputComponent} from "../../input/fields/field-input/field-input.component";
 import {SelectButtonComponent} from "../../input/select-button/select-button.component";
 import {
     AbstractControl,
-    Form,
     FormArray,
     FormBuilder,
     FormGroup,
@@ -33,6 +31,7 @@ import {NewAmountIconComponent} from "../../other/new-amount-icon/new-amount-ico
     templateUrl: './uscite-form.component.html',
 })
 export class UsciteFormComponent implements OnInit {
+    @Input() whiteBorder: boolean = false;
     @Input() form!: FormGroup;
     @Input() fb!: FormBuilder;
 

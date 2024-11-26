@@ -1,5 +1,10 @@
 import {IItem} from "./item";
 
+export interface ITransactionBankAccountTransfer {
+    from: string;
+    to: string;
+}
+
 export interface ITransaction {
     name: string
     date: string
@@ -7,9 +12,7 @@ export interface ITransaction {
     action: TransactionAction
     amount: number
     currency: string
-    bankAccount?: string
-    from?: string
-    to?: string
+    bankAccount: ITransactionBankAccountTransfer | string | []
     category: string
     subcategory: string
 }

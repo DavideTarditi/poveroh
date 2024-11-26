@@ -18,6 +18,8 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
     @Input() options: IItem[] = []
     @Input() disabled: boolean = false
     @Input() showErrorMessage: boolean = true
+    @Input() smallText: boolean = false
+    @Input() whiteBorder: boolean = false
 
     //number
     @Input() min: number = 0
@@ -64,6 +66,17 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
         this.control.valueChanges.subscribe((v) => {
             console.log("Changed value", v);
         });
+    }
+
+    getInputClass(): string {
+        switch (this.localType) {
+            case FieldType.UPLOAD:
+                return 'input-file'
+            case FieldType.BOOLEAN:
+                return 'inp-cbx'
+            default:
+                return 'form-input'
+        }
     }
 
     toogleVisibility(): void {

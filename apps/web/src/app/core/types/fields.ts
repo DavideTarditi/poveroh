@@ -68,5 +68,10 @@ export enum FieldType {
     /**
      * A field that allows the user to select either true or false.
      */
-    BOOLEAN = 'checkbox'
+    BOOLEAN = 'checkbox',
+
+    /**
+     * A field that allows the user to upload files.
+     */
+    UPLOAD = 'file'
 }

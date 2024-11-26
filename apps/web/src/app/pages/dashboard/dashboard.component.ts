@@ -6,7 +6,9 @@ import {BoxLayoutComponent} from "../../layouts/box-layout/box-layout.component"
 import {NgIf} from "@angular/common";
 import {Button} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
-import {TransactionsComponent} from "../../core/components/modals/add-transactions/transactions.component";
+import {AddTransactionsComponent} from "../../core/components/modals/add-transactions/add-transactions.component";
+import {SelectButtonComponent} from "../../core/components/input/select-button/select-button.component";
+import {IItem} from "../../core/types/item";
 
 
 @Component({
@@ -19,7 +21,8 @@ import {TransactionsComponent} from "../../core/components/modals/add-transactio
         NgIf,
         Button,
         DialogModule,
-        TransactionsComponent
+        AddTransactionsComponent,
+        SelectButtonComponent
     ],
     templateUrl: './dashboard.component.html'
 })
@@ -37,6 +40,14 @@ export class DashboardComponent {
     toogleEditingMode() {
         this.editingMode = !this.editingMode;
     }
+
+    dataYears: IItem[] = [
+        {value: 2022, label: '2022'},
+        {value: 2023, label: '2023'},
+        {value: 2024, label: '2024'},
+        {value: -1, label: 'Max'},
+    ]
+
 
     constructor() {
         this.chartOptions = {

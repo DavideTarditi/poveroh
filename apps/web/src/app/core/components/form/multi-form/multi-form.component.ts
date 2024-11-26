@@ -1,62 +1,39 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {SelectButtonComponent} from "../../input/select-button/select-button.component";
-import {TransactionAction, TransactionActionItem} from "../../../types/transaction";
-import {ButtonComponent} from "../../input/button/button.component";
-import {FieldInputComponent} from "../../input/fields/field-input/field-input.component";
-import {FieldType} from "../../../types/fields";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {NgIf, NgSwitch, NgSwitchCase} from "@angular/common";
-import {PrimeTemplate} from "primeng/api";
-import {DialogModule} from "primeng/dialog";
-import {GirocontoFormComponent} from "../../form/giroconto-form/giroconto-form.component";
-import {EntrateFormComponent} from "../../form/entrate-form/entrate-form.component";
-import {UsciteFormComponent} from "../../form/uscite-form/uscite-form.component";
+import {Component, Input, OnInit} from '@angular/core';
+import {Form, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {IItem} from "../../../types/item";
+import {TransactionAction, TransactionActionItem} from '../../../types/transaction';
+import {FieldType} from '../../../types/fields';
+import {EntrateFormComponent} from "../entrate-form/entrate-form.component";
+import {GirocontoFormComponent} from "../giroconto-form/giroconto-form.component";
+import {NgSwitch, NgSwitchCase} from "@angular/common";
+import {SelectButtonComponent} from "../../input/select-button/select-button.component";
+import {UsciteFormComponent} from "../uscite-form/uscite-form.component";
 
 @Component({
-    selector: 'transactions-modal',
+    selector: 'multi-form',
     standalone: true,
     imports: [
-        SelectButtonComponent,
-        ButtonComponent,
-        FieldInputComponent,
-        NgIf,
-        PrimeTemplate,
-        DialogModule,
-        GirocontoFormComponent,
         EntrateFormComponent,
+        GirocontoFormComponent,
+        NgSwitchCase,
+        SelectButtonComponent,
         UsciteFormComponent,
-        NgSwitch,
-        NgSwitchCase
+        NgSwitch
     ],
-    templateUrl: './transactions.component.html',
+    templateUrl: './multi-form.component.html',
 })
-export class TransactionsComponent implements OnInit {
-    @Input() visible: boolean = false;
-    @Output() onCancel = new EventEmitter<boolean>();
+export class MultiFormComponent implements OnInit {
+    @Input() whiteBorder: boolean = false;
 
     form!: FormGroup;
-    formManagerModal: FormGroup;
-
-    fb: FormBuilder
 
     selectedForm: number = 0
 
+    constructor(protected fb: FormBuilder) {
+    }
+
     ngOnInit(): void {
-
-    }
-
-    hideDialog(): void {
-        this.visible = false;
-        this.onCancel.emit(false);
-    }
-
-    constructor(private localFb: FormBuilder) {
-        this.fb = localFb
         this.newForm(TransactionAction.INTERNAL)
-        this.formManagerModal = this.fb.group({
-            continueinsert: [''],
-        })
     }
 
     newForm(index: TransactionAction): void {
@@ -110,6 +87,7 @@ export class TransactionsComponent implements OnInit {
         this.selectedForm = newVal.value;
         this.newForm(newVal.value)
     }
+
     protected readonly TransactionAction = TransactionAction;
     protected readonly TransactionActionItem = TransactionActionItem;
     protected readonly FieldType = FieldType;

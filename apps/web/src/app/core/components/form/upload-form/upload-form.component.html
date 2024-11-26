@@ -1,0 +1,175 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-5">
+    <field-input
+            label="Circuito/Conto"
+            id="bankAccount"
+            [type]="FieldType.SELECT"
+            [options]="bankAccount"
+            [control]="form.get('bankAccount')!"
+            class="w-full"
+    ></field-input>
+
+    <field-input
+            id="upload"
+            label="Upload"
+            subtitle="Max 5MB. Formati supportati: CSV, XLSX, TXT, LOG o PDF"
+            [type]="FieldType.UPLOAD"
+            [control]="form.get('upload')!"
+    ></field-input>
+
+    <div class="flex flex-col space-y-3">
+        <p>File caricati</p>
+        <div class="flex flex-wrap gap-3 items-start">
+            <go-button message="satispay-1-07-024.csv" size="mid" icon="ri-close-line" [iconReverse]="true"
+                       mode="filled" class=w-fit></go-button>
+            <go-button message="satispay-1-07-024.csv" size="mid" icon="ri-close-line" [iconReverse]="true"
+                       mode="filled" class=w-fit></go-button>
+            <go-button message="satispay-1-07-024.csv" size="mid" icon="ri-close-line" [iconReverse]="true"
+                       mode="filled" class=w-fit></go-button>
+            <go-button message="satispay-1-.csv" size="mid" icon="ri-close-line" [iconReverse]="true" mode="filled"
+                       class=w-fit></go-button>
+        </div>
+    </div>
+
+    <div class="flex flex-col space-y-3">
+        <div class="flex flex-row items-center justify-between">
+            <p>File caricati (16)</p>
+            <div class="flex flex-row space-x-3">
+                <p-overlayPanel #deletePopupRef>
+                    <div class="flex flex-col space-y-3">
+                        <p>Sei sicuro di voler proseguire?</p>
+                        <div class="flex align-items-center gap-2 mt-3">
+                            <go-button message="Annulla" size="mid" mode="outline" class=w-fit
+                                       [validate]="true"></go-button>
+                            <go-button message="Prosegui" size="mid" mode="danger" class=w-fit
+                                       [validate]="true"></go-button>
+                        </div>
+                    </div>
+                </p-overlayPanel>
+
+                <p-overlayPanel #confirmPopupref>
+                    <div class="flex flex-col space-y-3">
+                        <p>Sei sicuro di voler proseguire?</p>
+                        <div class="flex align-items-center gap-2 mt-3">
+                            <go-button message="Annulla" size="mid" mode="outline" class=w-fit
+                                       [validate]="true"></go-button>
+                            <go-button message="Prosegui" size="mid" mode="success" class=w-fit
+                                       [validate]="true"></go-button>
+                        </div>
+                    </div>
+                </p-overlayPanel>
+
+                <go-button message="Rifiuta tutte" size="mid" mode="danger"
+                           class=w-fit (click)="deletePopupRef.toggle($event)" [validate]="true"></go-button>
+                <go-button message="Approva tutte" size="mid" mode="success"
+                           class=w-fit (click)="confirmPopupref.toggle($event)" [validate]="true"></go-button>
+            </div>
+        </div>
+        <div class="flex flex-col bg-input-color p-5 box-rounded-light space-y-3">
+            <div class="flex flex-row justify-between w-full" *ngIf="false">
+                <div>
+                    <div class="flex flex-row space-x-2 items-center">
+                        <p>Spotify</p>
+                        <i class="ri-pencil-fill"></i>
+                    </div>
+                    <p class="sub">Revolut</p>
+                </div>
+                <div class="flex flex-col items-end">
+                    <div class="flex flex-row space-x-1 items-center">
+                        <p class="danger">-</p>
+                        <p>&euro; 14.99</p>
+                    </div>
+                    <p class="sub">26 ott, 14:02</p>
+                </div>
+            </div>
+            <multi-form [formGroup]="form" [whiteBorder]="true"></multi-form>
+            <hr>
+            <div class="flex flex-row items-center justify-between">
+                <go-button message="Elimina" icon="ri-delete-bin-line" mode="danger"></go-button>
+                <div class="flex flex-row items-center space-x-3">
+                    <go-button message="Annulla" mode="outline"></go-button>
+                    <go-button message="Salva"></go-button>
+                </div>
+            </div>
+
+            <div class="flex flex-row items-center justify-between" *ngIf="false">
+                <field-input
+                        id="ignore1"
+                        label="Ignora transazione nel conteggio finale"
+                        [type]="FieldType.BOOLEAN"
+                        [control]="form.get('ignore')!"
+                        [smallText]="true"
+                ></field-input>
+                <div class="flex flex-row space-x-1">
+                    <i class="ri-close-line danger"></i>
+                    <i class="ri-check-line fc-success"></i>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col bg-input-color p-5 box-rounded-light space-y-3">
+            <div class="flex flex-row justify-between w-full">
+                <div>
+                    <div class="flex flex-row space-x-2 items-center">
+                        <p>Spotify</p>
+                        <i class="ri-pencil-fill"></i>
+                    </div>
+                    <p class="sub">Revolut</p>
+                </div>
+                <div class="flex flex-col items-end">
+                    <div class="flex flex-row space-x-1 items-center">
+                        <p class="danger">-</p>
+                        <p>&euro; 14.99</p>
+                    </div>
+                    <p class="sub">26 ott, 14:02</p>
+                </div>
+            </div>
+            <hr>
+            <div class="flex flex-row items-center justify-between">
+                <field-input
+                        id="ignore2"
+                        label="Ignora transazione nel conteggio finale"
+                        [type]="FieldType.BOOLEAN"
+                        [control]="form.get('ignore')!"
+                        [smallText]="true"
+                ></field-input>
+                <div class="flex flex-row space-x-1">
+                    <i class="ri-close-line danger"></i>
+                    <i class="ri-check-line fc-success"></i>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col bg-input-color p-5 box-rounded-light space-y-3">
+            <div class="flex flex-row justify-between w-full">
+                <div>
+                    <div class="flex flex-row space-x-2 items-center">
+                        <p>Spotify</p>
+                        <i class="ri-pencil-fill"></i>
+                    </div>
+                    <p class="sub">Revolut</p>
+                </div>
+                <div class="flex flex-col items-end">
+                    <div class="flex flex-row space-x-1 items-center">
+                        <p class="danger">-</p>
+                        <p>&euro; 14.99</p>
+                    </div>
+                    <p class="sub">26 ott, 14:02</p>
+                </div>
+            </div>
+            <hr>
+            <div class="flex flex-row items-center justify-between">
+                <field-input
+                        id="ignore3"
+                        label="Ignora transazione nel conteggio finale"
+                        [type]="FieldType.BOOLEAN"
+                        [control]="form.get('ignore')!"
+                        [smallText]="true"
+                ></field-input>
+                <div class="flex flex-row space-x-1">
+                    <i class="ri-close-line danger"></i>
+                    <i class="ri-check-line fc-success"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>

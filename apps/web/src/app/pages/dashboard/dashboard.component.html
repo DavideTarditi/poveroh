@@ -15,8 +15,8 @@
             <div class="flex flex-col space-y-1">
                 <p class="sub small">ENTRATE</p>
                 <div class="flex flex-row items-center">
-                    <i class="ri-arrow-up-s-fill big success"></i>
-                    <p class="success">+126.568,53 (1,05%)</p>
+                    <i class="ri-arrow-up-s-fill big fc-success"></i>
+                    <p class="fc-success">+126.568,53 (1,05%)</p>
                 </div>
             </div>
         </div>
@@ -29,23 +29,20 @@
         </div>
         <div class="flex relative" *ngIf="editingMode">
             <div class="flex flex-row items-center space-x-3 fc-white">
-                <go-button [outline]="true" message="Annulla" (click)="toogleEditingMode()"></go-button>
+                <go-button mode="outline" message="Annulla" (click)="toogleEditingMode()"></go-button>
                 <go-button message="Salva layout"></go-button>
             </div>
         </div>
     </div>
 
-    <transactions-modal [visible]="visible" (onCancel)="toogleVisible($event)"></transactions-modal>
+    <add-transactions-modal [visible]="visible" (onCancel)="toogleVisible($event)"></add-transactions-modal>
 
     <div class="flex flex-row space-x-5 w-full">
         <div class="flex flex-col space-y-5 w-full">
             <box-layout title="Trend">
                 <ng-template #header>
                     <div class="flex flex-row space-x-3">
-                        <go-button message="2022" size="mid" [outline]="true"></go-button>
-                        <go-button message="2023" size="mid" [outline]="true"></go-button>
-                        <go-button message="2024" size="mid" [outline]="true"></go-button>
-                        <go-button message="Max" size="mid"></go-button>
+                        <select-button [data]="dataYears"></select-button>
                     </div>
                 </ng-template>
                 <ng-template #body>
@@ -218,10 +215,7 @@
             <box-layout title="Trend">
                 <ng-template #header>
                     <div class="flex flex-row space-x-3">
-                        <go-button message="2022" size="mid" [outline]="true"></go-button>
-                        <go-button message="2023" size="mid" [outline]="true"></go-button>
-                        <go-button message="2024" size="mid" [outline]="true"></go-button>
-                        <go-button message="Max" size="mid"></go-button>
+                        <select-button [data]="dataYears"></select-button>
                     </div>
                 </ng-template>
                 <ng-template #body>

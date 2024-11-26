@@ -5,7 +5,7 @@
     </p>
     <div class="flex flex-row items-center space-x-3">
         @for (item of data; track item) {
-            <go-button [outline]="selectedValue != item" [message]="item.label" class="w-full" size="mid"
+            <go-button [mode]="(selectedValue != item) ? 'outline' : ''" [message]="item.label" class="w-full" size="mid"
                        (click)="changeValue(item)"></go-button>
         }
     </div>

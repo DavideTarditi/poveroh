@@ -1,21 +1,22 @@
 <div class="form-group flex flex-col h-full space-y-3">
 
     <div class="flex flex-col" *ngIf="localType != FieldType.BOOLEAN && label">
-        <p *ngIf="label">
+        <p *ngIf="label" [class.small]="smallText">
             {{ label }}
             <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio" data-cooltipz-dir="top">*</span>
         </p>
         <p *ngIf="subtitle" class="sub small">{{ subtitle }}</p>
     </div>
 
-
-    <div class="relative" [ngSwitch]="localType" [class.checkbox-wrapper]="localType == FieldType.BOOLEAN">
+    <div class="relative" [ngSwitch]="localType" [class.checkbox-wrapper]="localType == FieldType.BOOLEAN"
+         [class.file-upload]="localType == FieldType.UPLOAD">
         <select
                 *ngSwitchCase="FieldType.SELECT || FieldType.CURRENCY"
                 [id]="id"
                 [formControl]="getFormControl()"
                 class="form-input dropdown"
                 [class.incorrect]="isInvalid"
+                [class.white-border]="whiteBorder"
         >
             <option *ngIf="localType !== FieldType.CURRENCY" disabled value="">
                 {{ placeholder ? placeholder : 'Seleziona un valore' }}
@@ -34,6 +35,7 @@
                 rows="5"
                 class="form-input"
                 [class.incorrect]="isInvalid"
+                [class.white-border]="whiteBorder"
         ></textarea>
 
         <ng-container *ngSwitchDefault>
@@ -45,8 +47,9 @@
                     [min]="min && localType == FieldType.NUMBER"
                     [max]="max"
                     [step]="step"
-                    [ngClass]="localType == FieldType.BOOLEAN ? 'inp-cbx' : 'form-input'"
+                    [ngClass]="getInputClass()"
                     [class.incorrect]="isInvalid"
+                    [class.white-border]="whiteBorder"
             >
 
             <ng-container *ngIf="localType == FieldType.BOOLEAN">
@@ -57,7 +60,7 @@
                        </svg>
                    </span>
                     <div class="flex flex-col">
-                        <p>
+                        <p [class.small]="smallText">
                             {{ label }}
                             <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio"
                                   data-cooltipz-dir="top">*</span>
@@ -80,6 +83,8 @@
                 <i [ngClass]="passwordVisibility ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
             </span>
         </ng-container>
+
+        <i class="ri-upload-cloud-line" *ngIf="localType === FieldType.UPLOAD"></i>
     </div>
 
     <div *ngIf="isInvalid && showErrorMessage">

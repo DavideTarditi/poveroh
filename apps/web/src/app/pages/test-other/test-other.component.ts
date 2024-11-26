@@ -8,7 +8,7 @@ import {ButtonComponent} from "../../core/components/input/button/button.compone
 import {DialogModule} from "primeng/dialog";
 import {TimelineModule} from "primeng/timeline";
 import {SelectButtonComponent} from "../../core/components/input/select-button/select-button.component";
-import {TransactionsComponent} from "../../core/components/modals/add-transactions/transactions.component";
+import {AddTransactionsComponent} from "../../core/components/modals/add-transactions/add-transactions.component";
 
 @Component({
     selector: 'app-test-input',
@@ -21,7 +21,7 @@ import {TransactionsComponent} from "../../core/components/modals/add-transactio
         TimelineModule,
         FormsModule,
         SelectButtonComponent,
-        TransactionsComponent
+        AddTransactionsComponent
     ],
     templateUrl: './test-other.component.html'
 })

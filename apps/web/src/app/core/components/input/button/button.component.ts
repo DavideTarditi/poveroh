@@ -16,6 +16,7 @@ export class ButtonComponent {
     @Input() size: string = ''
     @Input() icon: string = ''
     @Input() iconReverse: boolean = false
-    @Input() outline: boolean = false
+    @Input() mode: 'success' | 'danger' | 'filled' | 'outline' | '' = ''
     @Input() loading: boolean = false
+    @Input() validate: boolean = true
 }

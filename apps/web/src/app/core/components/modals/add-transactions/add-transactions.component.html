@@ -3,13 +3,7 @@
           [style]="{ width: '40vw' }"
           header="Aggiungi transazione"
           [modal]="true" [(visible)]="visible" (visibleChange)="hideDialog()">
-    <div class="flex flex-col space-y-10 pt-5" [ngSwitch]="selectedForm">
-        <select-button [data]="TransactionActionItem" [fullSize]="true" label="Azione"
-                       [required]="true" (onValueChange)="changeForm($event)"></select-button>
-        <giroconto-form [form]="form" *ngSwitchCase="TransactionAction.INTERNAL"></giroconto-form>
-        <entrate-form [form]="form" *ngSwitchCase="TransactionAction.ADD"></entrate-form>
-        <uscite-form [form]="form" [fb]="fb" *ngSwitchCase="TransactionAction.SUB"></uscite-form>
-    </div>
+    <multi-form></multi-form>
     <ng-template pTemplate="footer">
         <div class="flex flex-row items-center justify-between">
             <field-input
@@ -20,8 +14,8 @@
                     [control]="formManagerModal.get('continueinsert')!"
             ></field-input>
             <div class="flex flex-row justify-between space-x-3">
-                <go-button message="Annulla" [outline]="true" (click)="hideDialog()"></go-button>
-                <go-button message="Inserisci" [disabled]="form.invalid"></go-button>
+                <go-button message="Annulla" mode="outline" (click)="hideDialog()"></go-button>
+                <go-button message="Inserisci"></go-button>
             </div>
         </div>
     </ng-template>

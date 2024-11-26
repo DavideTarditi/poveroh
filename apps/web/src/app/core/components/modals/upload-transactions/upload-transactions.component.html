@@ -1,0 +1,24 @@
+<p-dialog [draggable]="false" [dismissableMask]="true" [closeOnEscape]="true"
+          [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+          [style]="{ width: '40vw' }"
+          header="Upload transazione"
+          [modal]="true" [(visible)]="visible" (visibleChange)="hideDialog()">
+    <div class="flex flex-col space-y-10 pt-5">
+        <upload-form [form]="form" ></upload-form>
+    </div>
+    <ng-template pTemplate="footer">
+        <div class="flex flex-row items-center justify-between">
+            <field-input
+                    id="continueinsert"
+                    label="Continua ad inserire"
+                    subtitle="Non chiude il modal e permette di inserire altre transazioni"
+                    [type]="FieldType.BOOLEAN"
+                    [control]="formManagerModal.get('continueinsert')!"
+            ></field-input>
+            <div class="flex flex-row justify-between space-x-3">
+                <go-button message="Annulla" mode="outline" (click)="hideDialog()"></go-button>
+                <go-button message="Inserisci" [disabled]="form.invalid"></go-button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
