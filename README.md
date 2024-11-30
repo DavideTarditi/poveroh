@@ -92,8 +92,8 @@
 <summary>DevOps</summary>
   <ul>
     <li><a href="https://www.docker.com/">Docker</a></li>
-    <li><a href="https://www.jenkins.io/">Github Actions</a></li>
-    <li><a href="https://circleci.com/">A.W.S</a></li>
+    <li><a href="https://github.com/features/actions">Github Actions</a></li>
+    <li><a href="https://aws.amazon.com/it/">Amazon Web Services</a></li>
   </ul>
 </details>
 
@@ -165,3 +165,7 @@ Install dependencies
 ## :warning: License
 
 Distributed under the no License. See LICENSE.txt for more information.
+
+# :link: Useful links to get started
+-   [Github Repo](https://github.com/DavideTarditi/poveroh)
+-   [Design file](https://www.figma.com/design/SZz6f8cZ1mIE5s6Z4WGshu/Poveroh?node-id=232-100&t=1ozuf8X78WOqBXYH-1)
