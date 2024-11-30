@@ -132,7 +132,7 @@ This project uses:
 
 ## :running: Run Locally
 
-
+### Get start
 
 Clone the project
 
@@ -152,10 +152,55 @@ Install dependencies
   npm install
 ```
 
-Install dependencies
+### Backend
+
+Go to docker folder
 
 ```bash
-  npm install
+  cd apps/api/docker
+```
+
+Build docker file
+
+```bash
+  docker build -f db.dockerfile -t poveroh-db .
+```
+
+Replace `POSTGRES_PASSWORD` and run images
+
+```bash
+  docker run --name poveroh-db -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d poveroh-db
+```
+
+Go to prisma folder
+
+```bash
+  cd apps/api/prisma
+```
+
+Generate client
+
+```bash
+  prisma generate
+```
+
+Migrate and create models
+
+```bash
+  prisma migrate dev
+```
+
+Run backend project
+
+```bash
+  npm run dev:backend
+```
+
+### Frontend
+
+Run project
+```bash
+  npm run dev:frontend
 ```
 
 <!-- Roadmap -->

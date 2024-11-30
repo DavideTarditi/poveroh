@@ -7,6 +7,11 @@
 /bazel-out
 
 # Node
+/apps/api/node_modules
+/apps/api/dist
+/apps/api/dist/*
+!/apps/api/dist
+!/apps/api/dist/*
 /node_modules
 npm-debug.log
 yarn-error.log
@@ -42,7 +47,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-
-
-.nx/cache
-.nx/workspace-data
+# Env
+*.env
+!*.env
+/apps/api/.env
