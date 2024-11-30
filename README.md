@@ -169,7 +169,9 @@ Install dependencies
 
 ## :warning: License
 
-Distributed under the no License. See LICENSE.txt for more information.
+Poveroh is released under MIT license. You are free to use, modify and distribute this software, as long as the copyright header is left intact.
+
+See LICENSE.txt for more information.
 
 ## :link: Useful links
 
