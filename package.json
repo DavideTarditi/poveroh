@@ -6,16 +6,16 @@
     "apps/web"
   ],
   "scripts": {
-    "start-dev:frontend": "npm run --prefix apps/web start:dev",
-    "start-stage:frontend": "npm run --prefix apps/web start:stage",
-    "start-prod:frontend": "npm run --prefix apps/web start:prod",
+    "dev:backend": "npm run --prefix apps/api build && npm run --prefix apps/api start:dev",
+    "dev:frontend": "npm run --prefix apps/web start:dev",
+    "stage:frontend": "npm run --prefix apps/web start:stage",
+    "prod:frontend": "npm run --prefix apps/web start:prod",
     "build:frontend": "npm run --prefix apps/web build"
   },
   "dependencies": {
     "@angular/cdk": "^18.2.13",
+    "dotenv": "^16.4.5",
     "ng-apexcharts": "^1.12.0",
     "primeng": "^17.18.12"
-  },
-  "devDependencies": {
   }
 }
