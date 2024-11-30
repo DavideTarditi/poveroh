@@ -9,6 +9,9 @@
 # Node
 /apps/api/node_modules
 /apps/api/dist
+/apps/api/dist/*
+!/apps/api/dist
+!/apps/api/dist/*
 /node_modules
 npm-debug.log
 yarn-error.log
