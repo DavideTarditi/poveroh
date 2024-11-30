@@ -26,11 +26,12 @@ app.get("/", (request, response) => {
 app.get("/create", (request, response) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield prisma.user.create({
         data: {
-            email: 'elsa@prisma.io',
-            name: 'Elsa Prisma',
-        },
+            email: "elsa@prisma.io",
+            name: "Elsa Prisma"
+        }
     });
     console.log(user);
+    response.status(200).send(user);
 }));
 app.listen(PORT, () => {
     console.log("Server running at PORT: ", PORT);
