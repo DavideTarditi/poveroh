@@ -1,0 +1,7 @@
+<div class="flex flex-col space-y-10" [ngSwitch]="selectedForm">
+    <select-button [data]="TransactionActionItem" [fullSize]="true" label="Azione"
+                   [required]="true" (onValueChange)="changeForm($event)"></select-button>
+    <giroconto-form [form]="form" *ngSwitchCase="TransactionAction.INTERNAL" [whiteBorder]="whiteBorder"></giroconto-form>
+    <entrate-form [form]="form" *ngSwitchCase="TransactionAction.ADD" [whiteBorder]="whiteBorder"></entrate-form>
+    <uscite-form [form]="form" [fb]="fb" *ngSwitchCase="TransactionAction.SUB" [whiteBorder]="whiteBorder"></uscite-form>
+</div>

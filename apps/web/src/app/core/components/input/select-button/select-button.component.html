@@ -1,0 +1,12 @@
+<div class="flex flex-col space-y-3">
+    <p *ngIf="label">
+        {{ label }}
+        <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio" data-cooltipz-dir="top">*</span>
+    </p>
+    <div class="flex flex-row items-center space-x-3">
+        @for (item of data; track item) {
+            <go-button [mode]="(selectedValue != item) ? 'outline' : ''" [message]="item.label" class="w-full" size="mid"
+                       (click)="changeValue(item)"></go-button>
+        }
+    </div>
+</div>

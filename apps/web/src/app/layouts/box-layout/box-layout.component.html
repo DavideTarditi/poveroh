@@ -1,0 +1,15 @@
+<div class="flex flex-col bg-box-background space-y-7 p-6 w-full box-rounded">
+    <div class="flex flex-row items-center justify-between" *ngIf="title">
+        <h4 class="font-bold">{{ title }}</h4>
+        <ng-container *ngTemplateOutlet="header || defaultHeader"></ng-container>
+    </div>
+    <ng-container *ngTemplateOutlet="body || defaultBody"></ng-container>
+</div>
+
+<ng-template #defaultHeader let-data>
+    <div>Default header Content</div>
+</ng-template>
+
+<ng-template #defaultBody let-data>
+    <div>Default body content</div>
+</ng-template>

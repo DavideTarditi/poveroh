@@ -1,0 +1,30 @@
+<div class="flex flex-col space-y-14 w-[500px]">
+    <div class="flex flex-col space-y-3">
+        <h3>Accedi</h3>
+        <p class="sub">Inserisci le tue credenziali per accedere al sistema.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-14">
+        <div class="flex flex-col space-y-6">
+            <field-input
+                    id="email"
+                    label="E-mail"
+                    [type]="FieldType.EMAIL"
+                    [control]="form.get('email')!"
+            ></field-input>
+
+            <field-input
+                    id="password"
+                    label="Password"
+                    [type]="FieldType.PASSWORD"
+                    [control]="form.get('password')!"
+            ></field-input>
+        </div>
+        <div class="flex flex-col space-y-6">
+            <go-button message="Accedi" [disabled]="form.invalid"></go-button>
+            <div class="flex justify-end w-full">
+                <a routerLink="/change-password" class="items-self-end">Hai dimenticato la password?</a>
+            </div>
+        </div>
+    </form>
+
+</div>

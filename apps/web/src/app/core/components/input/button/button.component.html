@@ -1,0 +1,10 @@
+<button type="submit" class="form-input button" [formNoValidate]="validate" [ngClass]="size" [class]="mode" [class.loading]="loading"
+        [disabled]="disabled">
+    <span class="loader"></span>
+    <div class="flex space-x-1 justify-center items-center"
+         *ngIf="!loading"
+         [ngClass]="{ 'flex-row-reverse space-x-reverse': iconReverse }">
+        <i class="font-bold" *ngIf="icon" [class]="icon"></i>
+        <p class="font-bold">{{ message }}</p>
+    </div>
+</button>

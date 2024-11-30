@@ -1,0 +1,93 @@
+<div class="form-group flex flex-col h-full space-y-3">
+
+    <div class="flex flex-col" *ngIf="localType != FieldType.BOOLEAN && label">
+        <p *ngIf="label" [class.small]="smallText">
+            {{ label }}
+            <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio" data-cooltipz-dir="top">*</span>
+        </p>
+        <p *ngIf="subtitle" class="sub small">{{ subtitle }}</p>
+    </div>
+
+    <div class="relative" [ngSwitch]="localType" [class.checkbox-wrapper]="localType == FieldType.BOOLEAN"
+         [class.file-upload]="localType == FieldType.UPLOAD">
+        <select
+                *ngSwitchCase="FieldType.SELECT || FieldType.CURRENCY"
+                [id]="id"
+                [formControl]="getFormControl()"
+                class="form-input dropdown"
+                [class.incorrect]="isInvalid"
+                [class.white-border]="whiteBorder"
+        >
+            <option *ngIf="localType !== FieldType.CURRENCY" disabled value="">
+                {{ placeholder ? placeholder : 'Seleziona un valore' }}
+            </option>
+            <option *ngFor="let option of options; let i = index" [value]="option.value"
+                    [selected]="!i && localType == FieldType.CURRENCY">
+                {{ option.label }}
+            </option>
+        </select>
+
+        <textarea
+                *ngSwitchCase="FieldType.LONGTEXT"
+                [id]="id"
+                [formControl]="getFormControl()"
+                [placeholder]="placeholder"
+                rows="5"
+                class="form-input"
+                [class.incorrect]="isInvalid"
+                [class.white-border]="whiteBorder"
+        ></textarea>
+
+        <ng-container *ngSwitchDefault>
+            <input
+                    [type]="type"
+                    [id]="id"
+                    [formControl]="getFormControl()"
+                    [placeholder]="placeholder"
+                    [min]="min && localType == FieldType.NUMBER"
+                    [max]="max"
+                    [step]="step"
+                    [ngClass]="getInputClass()"
+                    [class.incorrect]="isInvalid"
+                    [class.white-border]="whiteBorder"
+            >
+
+            <ng-container *ngIf="localType == FieldType.BOOLEAN">
+                <label class="cbx space-x-3" [for]="id">
+                   <span class="span-check">
+                       <svg width="12px" height="10px" class="svg-check">
+                           <use xlink:href="#check-4"></use>
+                       </svg>
+                   </span>
+                    <div class="flex flex-col">
+                        <p [class.small]="smallText">
+                            {{ label }}
+                            <span *ngIf="required" class="mandatory" aria-label="Campo obbligatorio"
+                                  data-cooltipz-dir="top">*</span>
+                        </p>
+                        <p *ngIf="subtitle" class="sub small">{{ subtitle }}</p>
+                    </div>
+                </label>
+                <svg class="inline-svg">
+                    <symbol id="check-4" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </symbol>
+                </svg>
+            </ng-container>
+
+            <span
+                    *ngIf="localType === FieldType.PASSWORD"
+                    class="toggle-visibility-password"
+                    (click)="toogleVisibility()"
+            >
+                <i [ngClass]="passwordVisibility ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+            </span>
+        </ng-container>
+
+        <i class="ri-upload-cloud-line" *ngIf="localType === FieldType.UPLOAD"></i>
+    </div>
+
+    <div *ngIf="isInvalid && showErrorMessage">
+        <p *ngFor="let error of errors" class="danger">{{ error }}</p>
+    </div>
+</div>
