@@ -7,11 +7,9 @@
 #### A single platform to track poverty.
 
 <h4>
-    <a href="https://github.com/Louis3797/awesome-readme-template">Documentation</a>
+    <a href="https://github.com/DavideTarditi/poveroh/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Report Bug</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Request Feature</a>
+    <a href="https://github.com/DavideTarditi/poveroh/issues/">Request Feature</a>
   </h4>
 
 <div>
@@ -22,7 +20,7 @@
 
 ---
 
-> “I soldi non danno la felicità, ma preferisco piangere in una Ferrari.”
+> “Money doesn’t buy happiness, but I’d rather cry in a Ferrari.”
 
 </div>
 
@@ -30,24 +28,22 @@
 
 <!-- Table of Contents -->
 
-
-<!-- Table of Contents -->
-
-# :notebook_with_decorative_cover: Table of Contents
+## :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
 - [Tech Stack](#space_invader-tech-stack)
-  - [Client](#client)
-  - [Server](#server)
-  - [Database](#database)
-  - [DevOps](#devops)
+    - [Client](#client)
+    - [Server](#server)
+    - [Database](#database)
+    - [DevOps](#devops)
 - [Color Reference](#art-color-reference)
 - [Environment Variables](#key-environment-variables)
 - [Getting Started](#toolbox-getting-started)
-  - [Prerequisites](#bangbang-prerequisites)
-  - [Run Locally](#running-run-locally)
+    - [Prerequisites](#bangbang-prerequisites)
+    - [Run Locally](#running-run-locally)
 - [Roadmap](#compass-roadmap)
 - [License](#warning-license)
+
 <!-- About the Project -->
 
 ## :star2: About the Project
@@ -127,13 +123,16 @@ To run this project, you will need to add the following environment variables to
 ### :bangbang: Prerequisites
 
 This project uses:
+
 - Node.js: https://nodejs.org/en/download/package-manager
 - Docker: https://docs.docker.com/get-started/get-docker/
 - VSCode: https://code.visualstudio.com/
 
 <!-- Run Locally -->
 
-### :running: Run Locally
+## :running: Run Locally
+
+
 
 Clone the project
 
@@ -145,6 +144,12 @@ Go to the project directory
 
 ```bash
   cd poveroh
+```
+
+Install dependencies
+
+```bash
+  npm install
 ```
 
 Install dependencies
@@ -167,5 +172,6 @@ Install dependencies
 Distributed under the no License. See LICENSE.txt for more information.
 
 ## :link: Useful links
--   [Github Repo](https://github.com/DavideTarditi/poveroh)
--   [Design file](https://www.figma.com/design/SZz6f8cZ1mIE5s6Z4WGshu/Poveroh?node-id=232-100&t=1ozuf8X78WOqBXYH-1)
+
+- [Github Repo](https://github.com/DavideTarditi/poveroh)
+- [Design file](https://www.figma.com/design/SZz6f8cZ1mIE5s6Z4WGshu/Poveroh?node-id=232-100&t=1ozuf8X78WOqBXYH-1)
