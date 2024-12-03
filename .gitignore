@@ -6,6 +6,10 @@
 /out-tsc
 /bazel-out
 
+# Pisma
+/apps/api/prisma/migrations
+!/apps/api/prisma/migrations
+
 # Node
 /apps/api/node_modules
 /apps/api/dist
@@ -51,3 +55,5 @@ Thumbs.db
 *.env
 !*.env
 /apps/api/.env
+!/apps/api/prisma/migrations/
+/apps/api/prisma/migrations/
