@@ -65,3 +65,4 @@ Thumbs.db
 /apps/api/*.env
 !/apps/api/*.env
 !/apps/web/src/environments/
+/.env

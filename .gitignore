@@ -56,10 +56,9 @@ Thumbs.db
 .angular
 
 #Env
-.env
-!.env
+apps/api/.env
+!apps/api/.env
 *.env
-!*.env
 /apps/api/.env
 !/apps/api/.env
 /apps/api/*.env
