@@ -55,5 +55,6 @@ Thumbs.db
 *.env
 !*.env
 /apps/api/.env
+/apps/web/.env
 !/apps/api/prisma/migrations/
 /apps/api/prisma/migrations/

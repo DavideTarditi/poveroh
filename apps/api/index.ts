@@ -1,34 +1,26 @@
-import express, { Request, Response } from "express"
+import express from "express"
 import dotenv from "dotenv"
-import { PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
-
-// configures dotenv to work in your application
-dotenv.config()
-const app = express()
+import { userResolver } from "./resolvers/user.resolvers"
+import { createHandler } from "graphql-http/lib/use/express"
+import { schema } from "./core/schema"
 
 const PORT = process.env.PORT
 
-app.get("/", (request: Request, response: Response) => {
-  response.status(200).send("Hello World")
-})
+dotenv.config()
+const app = express()
 
-app.get("/create", async (request: Request, response: Response) => {
-  const user = await prisma.user.create({
-    data: {
-      email: "elsa@prisma.io",
-      name: "Elsa Prisma"
-    }
+const rootValue = {
+  ...userResolver
+}
+
+app.use(
+  "/graphql",
+  createHandler({
+    schema,
+    rootValue
   })
-
-  console.log(user)
-
-  response.status(200).send(user)
-})
+)
 
 app.listen(PORT, () => {
-  console.log("Server running at PORT: ", PORT)
-}).on("error", (error) => {
-  console.log(error)
+  console.log(`Server is running on http://localhost:${PORT}/graphql`)
 })
