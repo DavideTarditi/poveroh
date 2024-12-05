@@ -6,10 +6,16 @@
 /out-tsc
 /bazel-out
 
-# Node
+# dependencies
+node_modules
 /node_modules
 npm-debug.log
 yarn-error.log
+package-lock.json
+
+# Pisma
+/apps/api/src/prisma/migrations
+!/apps/api/src/prisma/migrations
 
 # IDEs and editors
 .idea/
@@ -21,6 +27,7 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -41,5 +48,18 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Nx
+.nx/cache
+.nx/workspace-data
+
+#Angular
+.angular
+
 #Env
-/src/environments/*
+*.env
+!*.env
+/apps/api/.env
+!/apps/api/.env
+/apps/api/*.env
+!/apps/api/*.env
+!/apps/web/src/environments/

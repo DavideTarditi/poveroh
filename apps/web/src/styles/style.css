@@ -1,6 +1,5 @@
 @import url('common.css');
 
-
 /* ---- nav ---- */
 .nav-app {
     backdrop-filter: saturate(180%) blur(20px);
@@ -170,7 +169,10 @@
 
 /* ---- ng layouts ---- */
 
-.p-dialog .p-dialog-content, .p-dialog .p-dialog-header, .p-dialog .p-dialog-footer, .p-overlaypanel {
+.p-dialog .p-dialog-content,
+.p-dialog .p-dialog-header,
+.p-dialog .p-dialog-footer,
+.p-overlaypanel {
     background-color: var(--bg-box-color);
     color: var(--text-color);
 }

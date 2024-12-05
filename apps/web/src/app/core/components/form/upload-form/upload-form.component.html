@@ -1,32 +1,32 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-5">
     <field-input
-            label="Circuito/Conto"
-            id="bankAccount"
-            [type]="FieldType.SELECT"
-            [options]="bankAccount"
-            [control]="form.get('bankAccount')!"
-            class="w-full"
+        label="Circuito/Conto"
+        id="bankAccount"
+        [type]="FieldType.SELECT"
+        [options]="bankAccount"
+        [control]="form.get('bankAccount')!"
+        class="w-full"
     ></field-input>
 
     <field-input
-            id="upload"
-            label="Upload"
-            subtitle="Max 5MB. Formati supportati: CSV, XLSX, TXT, LOG o PDF"
-            [type]="FieldType.UPLOAD"
-            [control]="form.get('upload')!"
+        id="upload"
+        label="Upload"
+        subtitle="Max 5MB. Formati supportati: CSV, XLSX, TXT, LOG o PDF"
+        [type]="FieldType.UPLOAD"
+        [control]="form.get('upload')!"
     ></field-input>
 
     <div class="flex flex-col space-y-3">
         <p>File caricati</p>
         <div class="flex flex-wrap gap-3 items-start">
             <go-button message="satispay-1-07-024.csv" size="mid" icon="ri-close-line" [iconReverse]="true"
-                       mode="filled" class=w-fit></go-button>
+                       mode="filled" class="w-fit"></go-button>
             <go-button message="satispay-1-07-024.csv" size="mid" icon="ri-close-line" [iconReverse]="true"
-                       mode="filled" class=w-fit></go-button>
+                       mode="filled" class="w-fit"></go-button>
             <go-button message="satispay-1-07-024.csv" size="mid" icon="ri-close-line" [iconReverse]="true"
-                       mode="filled" class=w-fit></go-button>
+                       mode="filled" class="w-fit"></go-button>
             <go-button message="satispay-1-.csv" size="mid" icon="ri-close-line" [iconReverse]="true" mode="filled"
-                       class=w-fit></go-button>
+                       class="w-fit"></go-button>
         </div>
     </div>
 
@@ -38,9 +38,9 @@
                     <div class="flex flex-col space-y-3">
                         <p>Sei sicuro di voler proseguire?</p>
                         <div class="flex align-items-center gap-2 mt-3">
-                            <go-button message="Annulla" size="mid" mode="outline" class=w-fit
+                            <go-button message="Annulla" size="mid" mode="outline" class="w-fit"
                                        [validate]="true"></go-button>
-                            <go-button message="Prosegui" size="mid" mode="danger" class=w-fit
+                            <go-button message="Prosegui" size="mid" mode="danger" class="w-fit"
                                        [validate]="true"></go-button>
                         </div>
                     </div>
@@ -50,18 +50,18 @@
                     <div class="flex flex-col space-y-3">
                         <p>Sei sicuro di voler proseguire?</p>
                         <div class="flex align-items-center gap-2 mt-3">
-                            <go-button message="Annulla" size="mid" mode="outline" class=w-fit
+                            <go-button message="Annulla" size="mid" mode="outline" class="w-fit"
                                        [validate]="true"></go-button>
-                            <go-button message="Prosegui" size="mid" mode="success" class=w-fit
+                            <go-button message="Prosegui" size="mid" mode="success" class="w-fit"
                                        [validate]="true"></go-button>
                         </div>
                     </div>
                 </p-overlayPanel>
 
                 <go-button message="Rifiuta tutte" size="mid" mode="danger"
-                           class=w-fit (click)="deletePopupRef.toggle($event)" [validate]="true"></go-button>
+                           class="w-fit" (click)="deletePopupRef.toggle($event)" [validate]="true"></go-button>
                 <go-button message="Approva tutte" size="mid" mode="success"
-                           class=w-fit (click)="confirmPopupref.toggle($event)" [validate]="true"></go-button>
+                           class="w-fit" (click)="confirmPopupref.toggle($event)" [validate]="true"></go-button>
             </div>
         </div>
         <div class="flex flex-col bg-input-color p-5 box-rounded-light space-y-3">
@@ -93,11 +93,11 @@
 
             <div class="flex flex-row items-center justify-between" *ngIf="false">
                 <field-input
-                        id="ignore1"
-                        label="Ignora transazione nel conteggio finale"
-                        [type]="FieldType.BOOLEAN"
-                        [control]="form.get('ignore')!"
-                        [smallText]="true"
+                    id="ignore1"
+                    label="Ignora transazione nel conteggio finale"
+                    [type]="FieldType.BOOLEAN"
+                    [control]="form.get('ignore')!"
+                    [smallText]="true"
                 ></field-input>
                 <div class="flex flex-row space-x-1">
                     <i class="ri-close-line danger"></i>
@@ -125,11 +125,11 @@
             <hr>
             <div class="flex flex-row items-center justify-between">
                 <field-input
-                        id="ignore2"
-                        label="Ignora transazione nel conteggio finale"
-                        [type]="FieldType.BOOLEAN"
-                        [control]="form.get('ignore')!"
-                        [smallText]="true"
+                    id="ignore2"
+                    label="Ignora transazione nel conteggio finale"
+                    [type]="FieldType.BOOLEAN"
+                    [control]="form.get('ignore')!"
+                    [smallText]="true"
                 ></field-input>
                 <div class="flex flex-row space-x-1">
                     <i class="ri-close-line danger"></i>
@@ -157,11 +157,11 @@
             <hr>
             <div class="flex flex-row items-center justify-between">
                 <field-input
-                        id="ignore3"
-                        label="Ignora transazione nel conteggio finale"
-                        [type]="FieldType.BOOLEAN"
-                        [control]="form.get('ignore')!"
-                        [smallText]="true"
+                    id="ignore3"
+                    label="Ignora transazione nel conteggio finale"
+                    [type]="FieldType.BOOLEAN"
+                    [control]="form.get('ignore')!"
+                    [smallText]="true"
                 ></field-input>
                 <div class="flex flex-row space-x-1">
                     <i class="ri-close-line danger"></i>

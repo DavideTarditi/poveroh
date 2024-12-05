@@ -1,29 +1,20 @@
-import {Component} from '@angular/core'
-import {FieldType} from '../../core/types/fields'
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms'
-import {FieldInputComponent} from '../../core/components/input/fields/field-input/field-input.component'
-import {IItem} from '../../core/types/item'
-import {currencyCatalog} from "../../core/types/general";
-import {ButtonComponent} from "../../core/components/input/button/button.component";
-import {DialogModule} from "primeng/dialog";
-import {TimelineModule} from "primeng/timeline";
-import {SelectButtonComponent} from "../../core/components/input/select-button/select-button.component";
-import {AddTransactionsComponent} from "../../core/components/modals/add-transactions/add-transactions.component";
+import { Component } from "@angular/core"
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms"
+import { ButtonComponent } from "../../core/components/input/button/button.component"
+import { DialogModule } from "primeng/dialog"
+import { TimelineModule } from "primeng/timeline"
 
 @Component({
     selector: 'app-test-input',
     standalone: true,
     imports: [
-        FieldInputComponent,
         ReactiveFormsModule,
         ButtonComponent,
         DialogModule,
         TimelineModule,
         FormsModule,
-        SelectButtonComponent,
-        AddTransactionsComponent
     ],
-    templateUrl: './test-other.component.html'
+    templateUrl: "./test-other.component.html"
 })
 export class TestOtherComponent {
     form: FormGroup
@@ -47,7 +38,7 @@ export class TestOtherComponent {
             currency: ['', Validators.required],
             date: ['', Validators.required],
             textarea: ['', Validators.required],
-        })
+        });
 
         this.events = [
             {
@@ -55,18 +46,32 @@ export class TestOtherComponent {
                 date: '15/10/2020 10:30',
                 icon: 'pi pi-shopping-cart',
                 color: '#9C27B0',
-                image: 'game-controller.jpg'
+                image: "game-controller.jpg"
             },
-            {status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7'},
-            {status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800'},
-            {status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B'}
+            {
+                status: "Processing",
+                date: "15/10/2020 14:00",
+                icon: "pi pi-cog",
+                color: "#673AB7"
+            },
+            {
+                status: "Shipped",
+                date: "15/10/2020 16:15",
+                icon: "pi pi-shopping-cart",
+                color: "#FF9800"
+            },
+            {
+                status: "Delivered",
+                date: "16/10/2020 10:00",
+                icon: "pi pi-check",
+                color: "#607D8B"
+            }
         ];
     }
 
     onSubmit() {
         if (this.form.valid) {
-            console.log('Form submitted:', this.form.value)
+            console.log("Form submitted:", this.form.value)
         }
     }
-
 }
