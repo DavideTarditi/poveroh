@@ -1,32 +1,34 @@
-import {FieldType} from '../types/fields'
+import { FieldType } from '../types/fields';
 
-export function getDefaultValue(fieldType: FieldType): number | string | boolean {
+export function getDefaultValue(
+    fieldType: FieldType
+): number | string | boolean {
     switch (fieldType) {
         case FieldType.NUMBER:
-            return 0
+            return 0;
         case FieldType.BOOLEAN:
-            return false
+            return false;
         default:
-            return ''
+            return '';
     }
 }
 
 export function getPlaceholder(fieldType: FieldType): string {
     switch (fieldType) {
         case FieldType.EMAIL:
-            return 'example@email.com'
+            return 'example@email.com';
         case FieldType.PASSWORD:
-            return `${String.fromCharCode(8226).repeat(4)}`
+            return `${String.fromCharCode(8226).repeat(4)}`;
         case FieldType.PHONE:
-            return '+01 000 000 0000'
+            return '+01 000 000 0000';
         case FieldType.NUMBER:
-            return '0'
+            return '0';
         case FieldType.MONEY:
-            return '0,000'
+            return '0,000';
         case FieldType.LONGTEXT:
-            return 'Inserisci una nota'
+            return 'Inserisci una nota';
         default:
-            return ''
+            return '';
     }
 }
 
@@ -36,7 +38,7 @@ export function getDefaultErrorMessage(error: string): string {
         email: 'Inserisci un indirizzo email valido',
         minlength: 'L&apos;input è troppo corto',
         maxlength: 'L&apos;input è troppo lungo',
-        pattern: 'Formato non valido'
-    }
-    return defaultMessages[error] || 'Invalid input'
+        pattern: 'Formato non valido',
+    };
+    return defaultMessages[error] || 'Invalid input';
 }

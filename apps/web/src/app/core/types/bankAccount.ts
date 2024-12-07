@@ -1,5 +1,5 @@
 export interface IBankAccount {
-    name: string
-    type: string
-    logo?: string
+    name: string;
+    type: string;
+    logo?: string;
 }

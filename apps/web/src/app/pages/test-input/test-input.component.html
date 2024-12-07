@@ -1,109 +1,109 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-row">
     <div class="flex flex-col w-1/4 p-5 space-y-6">
         <field-input
-                id="email"
-                label="E-mail"
-                [type]="FieldType.EMAIL"
-                [control]="form.get('email')!"
+            id="email"
+            label="E-mail"
+            [type]="FieldType.EMAIL"
+            [control]="form.get('email')!"
         ></field-input>
 
         <field-input
-                id="password"
-                label="Password"
-                [type]="FieldType.PASSWORD"
-                [control]="form.get('password')!"
+            id="password"
+            label="Password"
+            [type]="FieldType.PASSWORD"
+            [control]="form.get('password')!"
         ></field-input>
 
         <field-input
-                id="phone"
-                label="Phone"
-                [type]="FieldType.PHONE"
-                [control]="form.get('phone')!"
+            id="phone"
+            label="Phone"
+            [type]="FieldType.PHONE"
+            [control]="form.get('phone')!"
         ></field-input>
 
         <field-input
-                id="text"
-                label="Text"
-                [type]="FieldType.TEXT"
-                [control]="form.get('text')!"
+            id="text"
+            label="Text"
+            [type]="FieldType.TEXT"
+            [control]="form.get('text')!"
         ></field-input>
 
         <field-input
-                id="sel"
-                label="Select"
-                [type]="FieldType.SELECT"
-                [options]="countryOptions"
-                [control]="form.get('select')!"
+            id="sel"
+            label="Select"
+            [type]="FieldType.SELECT"
+            [options]="countryOptions"
+            [control]="form.get('select')!"
         ></field-input>
 
         <field-input
-                id="number"
-                label="Number"
-                [min]="0"
-                [max]="50"
-                [step]="0.5"
-                [type]="FieldType.NUMBER"
-                [control]="form.get('number')!"
+            id="number"
+            label="Number"
+            [min]="0"
+            [max]="50"
+            [step]="0.5"
+            [type]="FieldType.NUMBER"
+            [control]="form.get('number')!"
         ></field-input>
 
         <div class="flex flex-row space-x-2">
             <field-input
-                    id="amount"
-                    label="Amount"
-                    class="w-3/4"
-                    [type]="FieldType.MONEY"
-                    [control]="form.get('amount')!"
+                id="amount"
+                label="Amount"
+                class="w-3/4"
+                [type]="FieldType.MONEY"
+                [control]="form.get('amount')!"
             ></field-input>
 
             <field-input
-                    id="currency"
-                    label="Currency"
-                    class="w-1/4"
-                    [type]="FieldType.CURRENCY"
-                    [options]="currencyCatalog"
-                    [control]="form.get('currency')!"
+                id="currency"
+                label="Currency"
+                class="w-1/4"
+                [type]="FieldType.CURRENCY"
+                [options]="currencyCatalog"
+                [control]="form.get('currency')!"
             ></field-input>
         </div>
 
         <field-input
-                id="date"
-                label="Date"
-                [min]="0"
-                [max]="50"
-                [step]="0.5"
-                [type]="FieldType.DATE"
-                [control]="form.get('date')!"
+            id="date"
+            label="Date"
+            [min]="0"
+            [max]="50"
+            [step]="0.5"
+            [type]="FieldType.DATE"
+            [control]="form.get('date')!"
         ></field-input>
 
         <field-input
-                id="ignore"
-                label="Test bello"
-                [type]="FieldType.BOOLEAN"
-                [control]="form.get('ignore')!"
+            id="ignore"
+            label="Test bello"
+            [type]="FieldType.BOOLEAN"
+            [control]="form.get('ignore')!"
         ></field-input>
 
         <field-input
-                id="ignoretwo"
-                label="Test bello"
-                subtitle="Yo ma come procede fratm"
-                [type]="FieldType.BOOLEAN"
-                [control]="form.get('ignoretwo')!"
+            id="ignoretwo"
+            label="Test bello"
+            subtitle="Yo ma come procede fratm"
+            [type]="FieldType.BOOLEAN"
+            [control]="form.get('ignoretwo')!"
         ></field-input>
     </div>
     <div class="flex flex-col w-1/4 p-5 space-y-6">
         <field-input
-                id="textarea"
-                label="Longarea"
-                [type]="FieldType.LONGTEXT"
-                [control]="form.get('textarea')!"
+            id="textarea"
+            label="Longarea"
+            [type]="FieldType.LONGTEXT"
+            [control]="form.get('textarea')!"
         ></field-input>
         <select-button [data]="dataYears"></select-button>
         <field-input
-                id="upload"
-                label="Upload"
-                subtitle="Max 5MB. Formati supportati: CSV, XLSX, TXT, LOG o PDF"
-                [type]="FieldType.UPLOAD"
-                [control]="form.get('upload')!"
+            id="upload"
+            label="Upload"
+            subtitle="Max 5MB. Formati supportati: CSV, XLSX, TXT, LOG o PDF"
+            [type]="FieldType.UPLOAD"
+            [control]="form.get('upload')!"
         ></field-input>
     </div>
     <div class="flex flex-col space-y-4 p-6 h-fit">

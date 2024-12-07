@@ -1,68 +1,67 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FieldType} from "../../../types/fields";
-import {FieldInputComponent} from "../../input/fields/field-input/field-input.component";
-import {SelectButtonComponent} from "../../input/select-button/select-button.component";
+import { Component, Input, OnInit } from '@angular/core';
+import { FieldType } from '../../../types/fields';
+import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
 import {
     AbstractControl,
     FormArray,
     FormBuilder,
     FormGroup,
     ReactiveFormsModule,
-    Validators
-} from "@angular/forms";
-import {IItem} from "../../../types/item";
-import {currencyCatalog} from "../../../types/general";
-import {NgForOf, NgIf} from "@angular/common";
-import {ButtonComponent} from "../../input/button/button.component";
-import {NewAmountIconComponent} from "../../other/new-amount-icon/new-amount-icon.component";
+    Validators,
+} from '@angular/forms';
+import { IItem } from '../../../types/item';
+import { currencyCatalog } from '../../../types/general';
+import { NgForOf, NgIf } from '@angular/common';
+import { ButtonComponent } from '../../input/button/button.component';
+import { NewAmountIconComponent } from '../../other/new-amount-icon/new-amount-icon.component';
 
 @Component({
     selector: 'uscite-form',
     standalone: true,
     imports: [
         FieldInputComponent,
-        SelectButtonComponent,
         ReactiveFormsModule,
         NgIf,
         ButtonComponent,
         NewAmountIconComponent,
-        NgForOf
+        NgForOf,
     ],
     templateUrl: './uscite-form.component.html',
 })
 export class UsciteFormComponent implements OnInit {
-    @Input() whiteBorder: boolean = false;
+    @Input() whiteBorder = false;
     @Input() form!: FormGroup;
     @Input() fb!: FormBuilder;
 
-    splittedAmount: boolean = false
-    firstTimeOpened: boolean = true;
+    splittedAmount = false;
+    firstTimeOpened = true;
 
     bankAccount: IItem[] = [
-        {value: 'satispay', label: 'Satispay'},
-        {value: 'revolut', label: 'Revolut'},
-        {value: 'traderepublic', label: 'Trade Republic'},
-    ]
+        { value: 'satispay', label: 'Satispay' },
+        { value: 'revolut', label: 'Revolut' },
+        { value: 'traderepublic', label: 'Trade Republic' },
+    ];
 
     category: IItem[] = [
-        {value: 'food', label: 'Cibo'},
-        {value: 'vestiti', label: 'Vistiti'},
-        {value: 'salute', label: 'Salute'},
-    ]
+        { value: 'food', label: 'Cibo' },
+        { value: 'vestiti', label: 'Vistiti' },
+        { value: 'salute', label: 'Salute' },
+    ];
 
     subCategory: IItem[] = [
-        {value: 'bar', label: 'Bar'},
-        {value: 'zara', label: 'Zara'},
-        {value: 'dentista', label: 'Dentista'},
-    ]
+        { value: 'bar', label: 'Bar' },
+        { value: 'zara', label: 'Zara' },
+        { value: 'dentista', label: 'Dentista' },
+    ];
 
     protected readonly FieldType = FieldType;
 
     onSubmit() {
-
+        console.log('onSubmit');
     }
 
-    ngOnInit(): void {
+    ngOnInit() {
+        console.log('ngOnInit');
     }
 
     toogleSplitAmount() {
@@ -70,7 +69,7 @@ export class UsciteFormComponent implements OnInit {
 
         if (this.firstTimeOpened) {
             this.firstTimeOpened = false;
-            this.addControl()
+            this.addControl();
         }
     }
 

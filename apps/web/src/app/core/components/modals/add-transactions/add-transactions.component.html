@@ -1,17 +1,20 @@
-<p-dialog [draggable]="false" [dismissableMask]="true" [closeOnEscape]="true"
-          [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
-          [style]="{ width: '40vw' }"
-          header="Aggiungi transazione"
-          [modal]="true" [(visible)]="visible" (visibleChange)="hideDialog()">
+<
+<mat-dialog-content>
+
+    <!--    <p-dialog [draggable]="false" [dismissableMask]="true" [closeOnEscape]="true"-->
+    <!--          [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"-->
+    <!--          [style]="{ width: '40vw' }"-->
+    <!--          header="Aggiungi transazione"-->
+    <!--          [modal]="true" [(visible)]="visible" (visibleChange)="hideDialog()">-->
     <multi-form></multi-form>
     <ng-template pTemplate="footer">
         <div class="flex flex-row items-center justify-between">
             <field-input
-                    id="continueinsert"
-                    label="Continua ad inserire"
-                    subtitle="Non chiude il modal e permette di inserire altre transazioni"
-                    [type]="FieldType.BOOLEAN"
-                    [control]="formManagerModal.get('continueinsert')!"
+                id="continueinsert"
+                label="Continua ad inserire"
+                subtitle="Non chiude il modal e permette di inserire altre transazioni"
+                [type]="FieldType.BOOLEAN"
+                [control]="formManagerModal.get('continueinsert')!"
             ></field-input>
             <div class="flex flex-row justify-between space-x-3">
                 <go-button message="Annulla" mode="outline" (click)="hideDialog()"></go-button>
@@ -19,4 +22,4 @@
             </div>
         </div>
     </ng-template>
-</p-dialog>
+</mat-dialog-content>

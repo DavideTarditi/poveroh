@@ -8,7 +8,7 @@
     <div class="flex flex-row items-center justify-between">
         <h2>Transazioni</h2>
         <div class="flex flex-row items-center space-x-3 fc-white">
-            <p-overlayPanel #exportPopover>
+            <mat-menu #exportPopover>
                 <div class="flex flex-col space-y-5">
                     <div class="flex items-center space-x-2 w-full">
                         <i class="ri-gallery-view-2"></i>
@@ -20,9 +20,9 @@
                         <p>Exporta filtrati</p>
                     </div>
                 </div>
-            </p-overlayPanel>
+            </mat-menu>
 
-            <p-overlayPanel #importPopover>
+            <mat-menu #importPopover>
                 <div class="flex flex-col space-y-5">
                     <div class="flex items-center space-x-2 w-full cursor-pointer"
                          (click)="toogleVisible('upload', true)">
@@ -36,21 +36,21 @@
                         <p>Inserisci manualmente</p>
                     </div>
                 </div>
-            </p-overlayPanel>
+            </mat-menu>
 
             <go-button mode="outline" icon="ri-download-line" message="Esporta"
-                       (click)="exportPopover.toggle($event)"></go-button>
+                       mat-button [matMenuTriggerFor]="exportPopover"></go-button>
             <go-button icon="ri-add-line" message="Inserisci"
-                       (click)="importPopover.toggle($event)"></go-button>
+                       mat-button [matMenuTriggerFor]="importPopover"></go-button>
         </div>
     </div>
 
     <div class="flex flex-col w-[500px]">
         <field-input
-                id="search"
-                placeholder="Amazon, Revolut, 15.07 ..."
-                [type]="FieldType.TEXT"
-                [control]="form.get('search')!"
+            id="search"
+            placeholder="Amazon, Revolut, 15.07 ..."
+            [type]="FieldType.TEXT"
+            [control]="form.get('search')!"
         ></field-input>
     </div>
 

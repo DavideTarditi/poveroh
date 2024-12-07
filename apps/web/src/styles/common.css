@@ -3,9 +3,6 @@
 @import url('cooltipz.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

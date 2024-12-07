@@ -1,86 +1,86 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-5">
     <field-input
-            id="title"
-            label="Titolo"
-            [type]="FieldType.TEXT"
-            [control]="form.get('title')!"
-            [whiteBorder]="whiteBorder"
+        id="title"
+        label="Titolo"
+        [type]="FieldType.TEXT"
+        [control]="form.get('title')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="date"
-            label="Data"
-            [type]="FieldType.DATE"
-            [control]="form.get('date')!"
-            [whiteBorder]="whiteBorder"
+        id="date"
+        label="Data"
+        [type]="FieldType.DATE"
+        [control]="form.get('date')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <div class="flex flex-row items-center space-x-3">
         <field-input
-                id="amount"
-                label="Importo"
-                [type]="FieldType.MONEY"
-                [control]="form.get('amount')!"
-                [whiteBorder]="whiteBorder"
-                class="w-full"
-        ></field-input>
-
-        <field-input
-                id="currency"
-                label="Currency"
-                [type]="FieldType.SELECT"
-                [options]="currencyCatalog"
-                [control]="form.get('currency')!"
-                [whiteBorder]="whiteBorder"
-                class="w-full"
-        ></field-input>
-    </div>
-
-    <field-input
-            label="Circuito/Conto"
-            id="bankAccount"
-            [type]="FieldType.SELECT"
-            [options]="bankAccount"
-            [control]="form.get('bankAccount')!"
+            id="amount"
+            label="Importo"
+            [type]="FieldType.MONEY"
+            [control]="form.get('amount')!"
             [whiteBorder]="whiteBorder"
             class="w-full"
-    ></field-input>
-
-    <div class="flex flex-row items-center space-x-3">
-        <field-input
-                id="category"
-                label="Categoria"
-                [type]="FieldType.SELECT"
-                [options]="category"
-                [control]="form.get('category')!"
-                [whiteBorder]="whiteBorder"
-                class="w-full"
         ></field-input>
 
         <field-input
-                id="subcategory"
-                label="Sottocategoria"
-                [type]="FieldType.SELECT"
-                [options]="subCategory"
-                [control]="form.get('subcategory')!"
-                [whiteBorder]="whiteBorder"
-                class="w-full"
+            id="currency"
+            label="Currency"
+            [type]="FieldType.SELECT"
+            [options]="currencyCatalog"
+            [control]="form.get('currency')!"
+            [whiteBorder]="whiteBorder"
+            class="w-full"
         ></field-input>
     </div>
 
     <field-input
-            id="note"
-            label="Note"
-            [type]="FieldType.LONGTEXT"
-            [control]="form.get('note')!"
+        label="Circuito/Conto"
+        id="bankAccount"
+        [type]="FieldType.SELECT"
+        [options]="bankAccount"
+        [control]="form.get('bankAccount')!"
+        [whiteBorder]="whiteBorder"
+        class="w-full"
+    ></field-input>
+
+    <div class="flex flex-row items-center space-x-3">
+        <field-input
+            id="category"
+            label="Categoria"
+            [type]="FieldType.SELECT"
+            [options]="category"
+            [control]="form.get('category')!"
             [whiteBorder]="whiteBorder"
+            class="w-full"
+        ></field-input>
+
+        <field-input
+            id="subcategory"
+            label="Sottocategoria"
+            [type]="FieldType.SELECT"
+            [options]="subCategory"
+            [control]="form.get('subcategory')!"
+            [whiteBorder]="whiteBorder"
+            class="w-full"
+        ></field-input>
+    </div>
+
+    <field-input
+        id="note"
+        label="Note"
+        [type]="FieldType.LONGTEXT"
+        [control]="form.get('note')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="ignore"
-            label="Ignora transazione nel conteggio finale"
-            [type]="FieldType.BOOLEAN"
-            [control]="form.get('ignore')!"
-            [whiteBorder]="whiteBorder"
+        id="ignore"
+        label="Ignora transazione nel conteggio finale"
+        [type]="FieldType.BOOLEAN"
+        [control]="form.get('ignore')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 </form>
