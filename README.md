@@ -193,14 +193,14 @@ Migrate and create models
 Run backend project
 
 ```bash
-nx serve api
+  nx serve api
 ```
 
 ### Frontend
 
 Run project
 ```bash
-nx serve web
+  nx serve web
 ```
 
 <!-- Roadmap -->
@@ -221,4 +221,4 @@ See LICENSE.txt for more information.
 ## :link: Useful links
 
 - [Github Repo](https://github.com/DavideTarditi/poveroh)
-- [Design file](https://www.figma.com/design/SZz6f8cZ1mIE5s6Z4WGshu/Poveroh?node-id=232-100&t=1ozuf8X78WOqBXYH-1)
+- [Figma file](https://www.figma.com/design/SZz6f8cZ1mIE5s6Z4WGshu/Poveroh?node-id=232-100&t=1ozuf8X78WOqBXYH-1)
