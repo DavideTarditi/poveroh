@@ -6,11 +6,12 @@ import { getPlaceholder } from '../../../../services/fields';
 import { BaseInputComponent } from '../input-base.component';
 import { IItem } from '../../../../types/item';
 import { PASSWORD_REGEX, PHONE_REGEX } from '../../../../types/constants';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'field-input',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [CommonModule, ReactiveFormsModule, MatIcon],
     templateUrl: './field-input.component.html',
 })
 export class FieldInputComponent extends BaseInputComponent implements OnInit {

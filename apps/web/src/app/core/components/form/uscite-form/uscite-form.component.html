@@ -33,11 +33,11 @@
             </p>
             <div class="flex flex-row space-x-3">
                 <div class="flex flex-row items-center space-x-3" *ngIf="splittedAmount">
-                    <i class="ri-git-merge-line cursor-pointer" (click)="toogleSplitAmount()"></i>
+                    <mat-icon aria-label="icon" fontIcon="call_merge" class="cursor-pointer fc-white" (click)="toogleSplitAmount()"></mat-icon>
                     <hr class="vertical">
-                    <i class="ri-add-line cursor-pointer" (click)="addControl()"></i>
+                    <mat-icon aria-label="icon" fontIcon="add" class="cursor-pointer fc-white" (click)="addControl()"></mat-icon>
                 </div>
-                <go-button message="Split" size="small" icon="ri-git-branch-line" mode="outline"
+                <go-button message="Split" size="small" icon="call_split" mode="outline"
                            (click)="toogleSplitAmount()" *ngIf="!splittedAmount"></go-button>
             </div>
         </div>
@@ -71,7 +71,8 @@
                     [control]="group.get('amount')!"
                     [whiteBorder]="whiteBorder"
                 ></field-input>
-                <i class="ri-delete-bin-line danger cursor-pointer" (click)="removeControl(i)"></i>
+
+                <mat-icon aria-label="icon" fontIcon="delete" class="cursor-pointer danger" (click)="removeControl(i)"></mat-icon>
             </div>
         </div>
 

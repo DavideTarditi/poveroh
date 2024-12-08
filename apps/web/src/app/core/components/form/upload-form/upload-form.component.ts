@@ -7,6 +7,7 @@ import { ButtonComponent } from '../../input/button/button.component';
 import { NgIf } from '@angular/common';
 import { MultiFormComponent } from '../multi-form/multi-form.component';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'upload-form',
@@ -19,6 +20,7 @@ import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
         NgIf,
         MatMenu,
         MatMenuTrigger,
+        MatIcon,
     ],
     providers: [],
     templateUrl: './upload-form.component.html',

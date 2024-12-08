@@ -14,12 +14,11 @@
         </div>
         <div class="hidden items-center space-x-6 lg:flex">
             <div class="popover-container relative">
-                <div  class="user-box">
-<!--                    (click)="popover.toggle($event)"-->
+                <div class="user-box" mat-button [matMenuTriggerFor]="accountPopover">
                     <p>Davide Tarditi</p>
                 </div>
 
-                <mat-menu #menu="matMenu">
+                <mat-menu #accountPopover xPosition="before">
                     <div class="flex flex-col space-y-5 w-[200px]">
                         <div class="space-y-2">
                             <p class="font-bold">Davide Tarditi</p>
@@ -28,11 +27,11 @@
                         <hr />
                         <div class="flex flex-col space-y-5">
                             <a class="flex items-center space-x-2 w-full" href="/settings">
-                                <i class="ri-settings-2-line"></i>
+                                <mat-icon aria-label="icon" fontIcon="settings"></mat-icon>
                                 <p>Impostazioni</p>
                             </a>
                             <a class="flex items-center space-x-2 w-full danger-all" href="/logout">
-                                <i class="ri-logout-box-line"></i>
+                                <mat-icon aria-label="icon" fontIcon="logout"></mat-icon>
                                 <p>Esci</p>
                             </a>
                         </div>

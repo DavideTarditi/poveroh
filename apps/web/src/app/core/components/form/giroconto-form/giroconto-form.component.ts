@@ -4,11 +4,12 @@ import { TransactionActionItem } from '../../../types/transaction';
 import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IItem } from '../../../types/item';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'giroconto-form',
     standalone: true,
-    imports: [FieldInputComponent, ReactiveFormsModule],
+    imports: [FieldInputComponent, ReactiveFormsModule, MatIcon],
     templateUrl: './giroconto-form.component.html',
 })
 export class GirocontoFormComponent {

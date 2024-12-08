@@ -30,6 +30,7 @@
     --text-color: var(--white-color);
     --text-label-color: #6A6A6A;
     --placeholder-color: var(--text-label-color);
+    --hamburger-color: var(--white-color);
     /* ---- font size ---- */
     --parent-size: 14px;
     --child-p-size: 1.07rem;
@@ -41,6 +42,7 @@
     --child-h4-size: 1.42rem;
     /* ---- size ---- */
     --max-width-input: 20rem;
+    --max-min-width-modal-size: 40vw;
     /* ---- border radius ---- */
     --radius-size: 1rem;
     --radius-size-light: .5rem;
@@ -57,7 +59,23 @@
     --internal-padding-input-for-icon: 0.675rem 3rem;
     /* ---- icon ---- */
     --icon-cash: url("/icon/cash-for-bg.svg");
-    --icon-arrow-down: url("/icon/apple-keyboard-control.svg")
+    --icon-arrow-down: url("/icon/apple-keyboard-control.svg");
+    /* ---- material ---- */
+    --mat-menu-item-label-text-font: var(--font-family);
+    --mat-menu-container-color: var(--bg-box-color);
+    --mat-menu-container-shape: var(--radius-size);
+    --item-spacing: 1.1rem;
+
+    --mdc-dialog-container-shape: 1rem;
+    --mdc-dialog-subhead-tracking: 0;
+    --mdc-dialog-container-color: var(--bg-box-color);
+    --mdc-dialog-subhead-font: var(--font-family);
+    --mdc-dialog-subhead-size: var(--child-h4-size);
+    --mdc-dialog-subhead-color: var(--white-color);
+    --mdc-dialog-subhead-weight: var(--font-weight-bold);
+
+    --mat-dialog-container-max-width: var(--max-min-width-modal-size);
+    --mat-dialog-container-min-width: var(--max-min-width-modal-size);
 }
 
 :host {
@@ -259,6 +277,7 @@ p {
 p.danger,
 a.danger,
 i.danger,
+mat-icon.danger,
 .danger-all,
 .danger-all p,
 .danger-all > * .danger-all:hover,
@@ -279,6 +298,7 @@ i.danger,
 .fc-warning,
 p.warning,
 a.warning,
+mat-icon.warning,
 .warning-all,
 .warning-all > * .warning-all:hover,
 .warning-all:hover > *,
@@ -290,6 +310,7 @@ a.warning,
 p.success,
 a.success,
 i.success,
+mat-icon.success,
 .success-all,
 .success-all p,
 .success-all > * .success-all:hover,
@@ -432,7 +453,7 @@ input:disabled {
 .form-input.button.danger i,
 .form-input.button.filled i,
 .form-input.button.success p,
-.form-input.button.success i{
+.form-input.button.success i {
     color: var(--text-color) !important;
 }
 
@@ -511,8 +532,7 @@ input:disabled {
 }
 
 /* ---- input success ---- */
-.form-input.success,
-.success {
+.form-input.success {
     border: 0 !important;
     background-color: var(--success-color-dark) !important;
     color: var(--white-color) !important;
@@ -776,6 +796,46 @@ input:disabled {
     }
 }
 
+/* ---- MATERIAL ANGULAR ---- */
+
+.mat-mdc-menu-content {
+    padding: 1.5rem !important;
+}
+
+.mat-icon {
+    overflow: visible !important;
+    width: fit-content;
+}
+
+.mat-icon.mid {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+.mat-icon.small {
+    width: 1rem !important;
+    height: 1rem !important;
+}
+
+.mat-mdc-dialog-title {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.mat-mdc-dialog-title::before {
+    height: 0 !important;
+}
+
+.mat-mdc-dialog-actions {
+    width: 100%;
+}
+
+/*.p-dialog .p-dialog-footer {*/
+/*    padding: 1.5rem;*/
+/*    text-align: left;*/
+/*    border-top: 1px solid var(--hr-color);*/
+/*}*/
+
 /* ----------- BRANDS ----------- */
 .brands {
     width: 40px;
@@ -792,15 +852,30 @@ input:disabled {
 }
 
 /* ---- medium devices | tablets, less than 992px ---- */
-@media (max-width: 992px) {
+@media screen and  (max-width: 992px) {
+    :root {
+        --max-min-width-modal-size: 90vw !important;
+    }
 
+    .mat-mdc-dialog-panel {
+        width: var(--max-min-width-modal-size);
+    }
 }
 
 /* ---- large devices | desktops, less than 1200px ---- */
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
+    :root {
+        --max-min-width-modal-size: 75vw !important;
+    }
+
+    .mat-mdc-dialog-panel {
+        width: var(--max-min-width-modal-size);
+    }
 }
 
 /* ---- large devices | large desktops, less than 1400px ---- */
-@media (max-width: 1450px) {
-
+@media screen and (max-width: 1450px) {
+    .mat-mdc-dialog-panel {
+        width: var(--max-min-width-modal-size);
+    }
 }

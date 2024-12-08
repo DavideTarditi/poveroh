@@ -80,11 +80,11 @@
                 class="toggle-visibility-password"
                 (click)="toogleVisibility()"
             >
-                <i [ngClass]="passwordVisibility ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+                <mat-icon aria-label="icon" [fontIcon]="passwordVisibility ? 'visibility' : 'visibility_off'"></mat-icon>
             </span>
         </ng-container>
 
-        <i class="ri-upload-cloud-line" *ngIf="localType === FieldType.UPLOAD"></i>
+        <mat-icon aria-label="icon" fontIcon="cloud_upload" *ngIf="localType === FieldType.UPLOAD"></mat-icon>
     </div>
 
     <div *ngIf="isInvalid && showErrorMessage">

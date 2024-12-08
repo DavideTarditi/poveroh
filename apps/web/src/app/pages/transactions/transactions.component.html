@@ -1,8 +1,8 @@
-<add-transactions-modal [visible]="visibleManualInsertModal"
-                        (onCancel)="toogleVisible('manual', $event)"></add-transactions-modal>
+<!--<add-transactions-modal [visible]="visibleManualInsertModal"-->
+<!--                        (onCancel)="toogleVisible('manual', $event)"></add-transactions-modal>-->
 
-<upload-transactions-modal [visible]="visibleManualUploadModal"
-                           (onCancel)="toogleVisible('upload', $event)"></upload-transactions-modal>
+<!--<upload-transactions-modal [visible]="visibleManualUploadModal"-->
+<!--                           (onCancel)="toogleVisible('upload', $event)"></upload-transactions-modal>-->
 
 <div class="space-y-12">
     <div class="flex flex-row items-center justify-between">
@@ -11,12 +11,12 @@
             <mat-menu #exportPopover>
                 <div class="flex flex-col space-y-5">
                     <div class="flex items-center space-x-2 w-full">
-                        <i class="ri-gallery-view-2"></i>
+                        <mat-icon aria-hidden="false" aria-label="icon" fontIcon="select_all"></mat-icon>
                         <p>Esporta tutti</p>
                     </div>
                     <hr>
                     <div class="flex items-center space-x-2 w-full">
-                        <i class="ri-gallery-view"></i>
+                        <mat-icon aria-hidden="false" aria-label="icon" fontIcon="deselect"></mat-icon>
                         <p>Exporta filtrati</p>
                     </div>
                 </div>
@@ -25,22 +25,22 @@
             <mat-menu #importPopover>
                 <div class="flex flex-col space-y-5">
                     <div class="flex items-center space-x-2 w-full cursor-pointer"
-                         (click)="toogleVisible('upload', true)">
-                        <i class="ri-upload-line"></i>
+                         (click)="openDialog('upload')">
+                        <mat-icon aria-hidden="false" aria-label="icon" fontIcon="cloud_upload"></mat-icon>
                         <p>Importa da file</p>
                     </div>
                     <hr>
                     <div class="flex items-center space-x-2 w-full cursor-pointer"
-                         (click)="toogleVisible('manual', true)">
-                        <i class="ri-add-line"></i>
+                         (click)="openDialog('manual')">
+                        <mat-icon aria-hidden="false" aria-label="icon" fontIcon="add"></mat-icon>
                         <p>Inserisci manualmente</p>
                     </div>
                 </div>
             </mat-menu>
 
-            <go-button mode="outline" icon="ri-download-line" message="Esporta"
+            <go-button mode="outline" icon="download" message="Esporta"
                        mat-button [matMenuTriggerFor]="exportPopover"></go-button>
-            <go-button icon="ri-add-line" message="Inserisci"
+            <go-button icon="add" message="Inserisci"
                        mat-button [matMenuTriggerFor]="importPopover"></go-button>
         </div>
     </div>

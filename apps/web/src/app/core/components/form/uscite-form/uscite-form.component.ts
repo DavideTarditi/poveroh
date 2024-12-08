@@ -14,6 +14,7 @@ import { currencyCatalog } from '../../../types/general';
 import { NgForOf, NgIf } from '@angular/common';
 import { ButtonComponent } from '../../input/button/button.component';
 import { NewAmountIconComponent } from '../../other/new-amount-icon/new-amount-icon.component';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'uscite-form',
@@ -25,6 +26,7 @@ import { NewAmountIconComponent } from '../../other/new-amount-icon/new-amount-i
         ButtonComponent,
         NewAmountIconComponent,
         NgForOf,
+        MatIcon,
     ],
     templateUrl: './uscite-form.component.html',
 })

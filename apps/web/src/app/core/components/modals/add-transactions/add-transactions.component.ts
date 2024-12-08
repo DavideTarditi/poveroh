@@ -4,7 +4,7 @@ import { FieldInputComponent } from '../../input/fields/field-input/field-input.
 import { FieldType } from '../../../types/fields';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MultiFormComponent } from '../../form/multi-form/multi-form.component';
-import { MatDialogContent } from '@angular/material/dialog';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
 
 @Component({
     selector: 'add-transactions-modal',
@@ -14,12 +14,14 @@ import { MatDialogContent } from '@angular/material/dialog';
         FieldInputComponent,
         MultiFormComponent,
         MatDialogContent,
+        MatDialogTitle,
+        MatDialogActions,
+        MatDialogClose,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './add-transactions.component.html',
 })
-export class AddTransactionsComponent implements OnInit {
-    @Input() visible: boolean = false;
+export class AddTransactionsModal implements OnInit {
     @Output() onCancel = new EventEmitter<boolean>();
 
     form!: FormGroup;
@@ -27,11 +29,6 @@ export class AddTransactionsComponent implements OnInit {
     formBuilder: FormBuilder;
 
     ngOnInit(): void {}
-
-    hideDialog(): void {
-        this.visible = false;
-        this.onCancel.emit(false);
-    }
 
     constructor(private fb: FormBuilder) {
         this.formBuilder = fb;

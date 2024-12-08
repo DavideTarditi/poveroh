@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../core/components/input/button/button.component';
 import { BoxLayoutComponent } from '../../layouts/box-layout/box-layout.component';
 import { FieldInputComponent } from '../../core/components/input/fields/field-input/field-input.component';
 import { FieldType } from '../../core/types/fields';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AddTransactionsComponent } from '../../core/components/modals/add-transactions/add-transactions.component';
+import { AddTransactionsModal } from '../../core/components/modals/add-transactions/add-transactions.component';
 import { BoxItemComponent } from '../../core/components/other/box-item/box-item.component';
-import { UploadTransactionsComponent } from '../../core/components/modals/upload-transactions/upload-transactions.component';
+import { UploadTransactionsModal } from '../../core/components/modals/upload-transactions/upload-transactions.component';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { MatIcon } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-dashboard',
@@ -16,30 +18,34 @@ import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
         ButtonComponent,
         BoxLayoutComponent,
         FieldInputComponent,
-        AddTransactionsComponent,
         BoxItemComponent,
-        UploadTransactionsComponent,
         MatMenu,
         MatMenuTrigger,
+        MatIcon,
     ],
     templateUrl: './transactions.component.html',
 })
 export class TransactionsComponent implements OnInit {
-    form: FormGroup;
+    readonly dialog = inject(MatDialog);
 
-    visibleManualInsertModal: boolean = false;
-    visibleManualUploadModal: boolean = true;
+    openDialog(modal: 'manual' | 'upload') {
+        let dialogRef;
 
-    toogleVisible(modal: 'manual' | 'upload', visible: boolean) {
         switch (modal) {
             case 'manual':
-                this.visibleManualInsertModal = visible;
+                dialogRef = this.dialog.open(AddTransactionsModal);
                 break;
             case 'upload':
-                this.visibleManualUploadModal = visible;
+                dialogRef = this.dialog.open(UploadTransactionsModal);
                 break;
         }
+
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log(`Dialog result: ${result}`);
+        });
     }
+
+    form: FormGroup;
 
     constructor(private fb: FormBuilder) {
         this.form = this.fb.group({
