@@ -193,14 +193,14 @@ Migrate and create models
 Run backend project
 
 ```bash
-  npm run dev:backend
+nx serve api
 ```
 
 ### Frontend
 
 Run project
 ```bash
-  npm run dev:frontend
+nx serve web
 ```
 
 <!-- Roadmap -->
