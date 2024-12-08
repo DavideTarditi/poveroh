@@ -1,4 +1,4 @@
-import prisma from "../prisma/client"
+import prisma from "../core/prisma"
 
 export const userResolver = {
     getUsers: async () => {

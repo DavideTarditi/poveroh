@@ -1,13 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Form, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IItem} from "../../../types/item";
-import {TransactionAction, TransactionActionItem} from '../../../types/transaction';
-import {FieldType} from '../../../types/fields';
-import {EntrateFormComponent} from "../entrate-form/entrate-form.component";
-import {GirocontoFormComponent} from "../giroconto-form/giroconto-form.component";
-import {NgSwitch, NgSwitchCase} from "@angular/common";
-import {SelectButtonComponent} from "../../input/select-button/select-button.component";
-import {UsciteFormComponent} from "../uscite-form/uscite-form.component";
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IItem } from '../../../types/item';
+import {
+    TransactionAction,
+    TransactionActionItem,
+} from '../../../types/transaction';
+import { FieldType } from '../../../types/fields';
+import { EntrateFormComponent } from '../entrate-form/entrate-form.component';
+import { GirocontoFormComponent } from '../giroconto-form/giroconto-form.component';
+import { NgSwitch, NgSwitchCase } from '@angular/common';
+import { SelectButtonComponent } from '../../input/select-button/select-button.component';
+import { UsciteFormComponent } from '../uscite-form/uscite-form.component';
 
 @Component({
     selector: 'multi-form',
@@ -18,22 +21,21 @@ import {UsciteFormComponent} from "../uscite-form/uscite-form.component";
         NgSwitchCase,
         SelectButtonComponent,
         UsciteFormComponent,
-        NgSwitch
+        NgSwitch,
     ],
     templateUrl: './multi-form.component.html',
 })
 export class MultiFormComponent implements OnInit {
-    @Input() whiteBorder: boolean = false;
+    @Input() whiteBorder = false;
 
     form!: FormGroup;
 
-    selectedForm: number = 0
+    selectedForm = 0;
 
-    constructor(protected fb: FormBuilder) {
-    }
+    constructor(protected fb: FormBuilder) {}
 
     ngOnInit(): void {
-        this.newForm(TransactionAction.INTERNAL)
+        this.newForm(TransactionAction.INTERNAL);
     }
 
     newForm(index: TransactionAction): void {
@@ -47,8 +49,8 @@ export class MultiFormComponent implements OnInit {
                     bankAccountTo: ['', Validators.required],
                     note: [''],
                     ignore: [false],
-                })
-                break
+                });
+                break;
             case TransactionAction.ADD:
                 this.form = this.fb.group({
                     title: ['', Validators.required],
@@ -61,8 +63,8 @@ export class MultiFormComponent implements OnInit {
                     files: ['', Validators.required],
                     note: [''],
                     ignore: [false],
-                })
-                break
+                });
+                break;
             case TransactionAction.SUB:
                 this.form = this.fb.group({
                     title: ['', Validators.required],
@@ -76,8 +78,8 @@ export class MultiFormComponent implements OnInit {
                     files: ['', Validators.required],
                     note: [''],
                     ignore: [false],
-                })
-                break
+                });
+                break;
         }
     }
 
@@ -85,8 +87,8 @@ export class MultiFormComponent implements OnInit {
         if (this.selectedForm === newVal.value) return;
 
         this.selectedForm = newVal.value;
-        this.newForm(newVal.value)
-    }
+        this.newForm(newVal.value);
+    };
 
     protected readonly TransactionAction = TransactionAction;
     protected readonly TransactionActionItem = TransactionActionItem;

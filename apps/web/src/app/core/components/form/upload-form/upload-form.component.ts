@@ -1,15 +1,13 @@
-import { Component, Input } from "@angular/core"
-import { FieldType } from "../../../types/fields"
-import { FieldInputComponent } from "../../input/fields/field-input/field-input.component"
-import { FormGroup, ReactiveFormsModule } from "@angular/forms"
-import { IItem } from "../../../types/item"
-import { ButtonComponent } from "../../input/button/button.component"
-import { ConfirmPopupModule } from "primeng/confirmpopup"
-import { ToastModule } from "primeng/toast"
-import { ConfirmationService, MessageService } from "primeng/api"
-import { OverlayPanelModule } from "primeng/overlaypanel"
-import { NgIf } from "@angular/common"
-import { MultiFormComponent } from "../multi-form/multi-form.component"
+import { Component, Input } from '@angular/core';
+import { FieldType } from '../../../types/fields';
+import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { IItem } from '../../../types/item';
+import { ButtonComponent } from '../../input/button/button.component';
+import { NgIf } from '@angular/common';
+import { MultiFormComponent } from '../multi-form/multi-form.component';
+import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'upload-form',
@@ -18,38 +16,40 @@ import { MultiFormComponent } from "../multi-form/multi-form.component"
         FieldInputComponent,
         ReactiveFormsModule,
         ButtonComponent,
-        ConfirmPopupModule,
-        ToastModule,
-        OverlayPanelModule,
         MultiFormComponent,
-        NgIf
+        NgIf,
+        MatMenu,
+        MatMenuTrigger,
+        MatIcon,
     ],
-    providers: [ConfirmationService, MessageService],
+    providers: [],
     templateUrl: './upload-form.component.html',
 })
 export class UploadFormComponent {
     @Input() form!: FormGroup;
-    @Input() whiteBorder: boolean = false;
+    @Input() whiteBorder = false;
 
     bankAccount: IItem[] = [
-        { value: "satispay", label: "Satispay" },
-        { value: "revolut", label: "Revolut" },
-        { value: "traderepublic", label: "Trade Republic" }
+        { value: 'satispay', label: 'Satispay' },
+        { value: 'revolut', label: 'Revolut' },
+        { value: 'traderepublic', label: 'Trade Republic' },
     ];
 
     category: IItem[] = [
-        { value: "food", label: "Cibo" },
-        { value: "vestiti", label: "Vistiti" },
-        { value: "salute", label: "Salute" }
+        { value: 'food', label: 'Cibo' },
+        { value: 'vestiti', label: 'Vistiti' },
+        { value: 'salute', label: 'Salute' },
     ];
 
     subCategory: IItem[] = [
-        { value: "bar", label: "Bar" },
-        { value: "zara", label: "Zara" },
-        { value: "dentista", label: "Dentista" }
+        { value: 'bar', label: 'Bar' },
+        { value: 'zara', label: 'Zara' },
+        { value: 'dentista', label: 'Dentista' },
     ];
 
-    onSubmit() {}
+    onSubmit() {
+        console.log(this.form);
+    }
 
     protected readonly FieldType = FieldType;
 }

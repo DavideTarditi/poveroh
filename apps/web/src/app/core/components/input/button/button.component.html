@@ -4,7 +4,7 @@
     <div class="flex space-x-1 justify-center items-center"
          *ngIf="!loading"
          [ngClass]="{ 'flex-row-reverse space-x-reverse': iconReverse }">
-        <i class="font-bold" *ngIf="icon" [class]="icon"></i>
+        <mat-icon aria-label="icon" class="font-bold" [class.fc-white]="getIconColor()" *ngIf="icon" [fontIcon]="icon"></mat-icon>
         <p class="font-bold">{{ message }}</p>
     </div>
 </button>

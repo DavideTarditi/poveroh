@@ -10,17 +10,17 @@ dotenv.config()
 const app = express()
 
 const rootValue = {
-    ...userResolver
+  ...userResolver
 }
 
 app.use(
-    "/graphql",
-    createHandler({
-        schema,
-        rootValue
-    })
+  "/graphql",
+  createHandler({
+    schema,
+    rootValue
+  })
 )
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}/graphql`)
+  console.log(`Server is running on http://localhost:${PORT}/graphql`)
 })

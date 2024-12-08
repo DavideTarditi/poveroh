@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    appName: "Poveroh",
-    apiUrl: ""
-}
+    appName: 'Poveroh',
+    apiUrl: '',
+};
