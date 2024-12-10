@@ -110,9 +110,13 @@
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+- `PORT` (suggest `4201`)
 
-`ANOTHER_API_KEY`
+- `NX_DAEMON` (default is `TRUE`; for DEV mode, `FALSE` is suggested)
+
+- `DATABASE_URL`, structure is `postgresql://poveroh:[user]@[password]:5432/poveroh?schema=public`.
+Replace `[user]` and `[password]` with data you choose.
+
 
 <!-- Getting Started -->
 
@@ -151,6 +155,8 @@ Install dependencies
 ```bash
   npm install
 ```
+
+If you haven't already, create the `.env` file.
 
 ### Backend
 
