@@ -7,7 +7,6 @@ export const schema = buildSchema(`
     surname: String!
     email: String!
     created_at: String!
-    transactions: [Transaction!]!
   }
 
   type Transaction {
@@ -21,8 +20,5 @@ export const schema = buildSchema(`
   type Query {
     getUsers: [User!]!
     getUser(id: ID!): User
-  }
-
-  type Mutation {
   }
 `)

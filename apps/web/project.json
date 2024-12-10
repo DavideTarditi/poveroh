@@ -22,7 +22,8 @@
                 "assets": [
                     {
                         "glob": "**/*",
-                        "input": "apps/web/public"
+                        "input": "apps/web/public",
+                        "output": "/"
                     }
                 ],
                 "styles": [
@@ -73,7 +74,10 @@
             }
         },
         "lint": {
-            "executor": "@nx/eslint:lint"
+            "executor": "@nx/eslint:lint",
+            "options": {
+                "lintFilePatterns": ["apps/web/**/*.ts"]
+            }
         },
         "test": {
             "executor": "@nx/jest:jest",
@@ -81,7 +85,8 @@
                 "{workspaceRoot}/coverage/{projectRoot}"
             ],
             "options": {
-                "jestConfig": "apps/web/jest.config.ts"
+                "jestConfig": "apps/web/jest.config.ts",
+                "passWithNoTests": true
             }
         },
         "serve-static": {

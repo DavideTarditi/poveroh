@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FieldType } from '../../core/types/fields';
 import {
     FormBuilder,
     FormGroup,
@@ -7,49 +6,27 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { FieldInputComponent } from '../../core/components/input/fields/field-input/field-input.component';
-import { IItem } from '../../core/types/item';
-import { currencyCatalog } from '../../core/types/general';
-import { ButtonComponent } from '../../core/components/input/button/button.component';
-import { SelectButtonComponent } from '../../core/components/input/select-button/select-button.component';
+import { ButtonComponent } from '../../../core/components/input/button/button.component';
 
 @Component({
     selector: 'app-test-input',
     standalone: true,
     imports: [
-        FieldInputComponent,
         ReactiveFormsModule,
         ButtonComponent,
         FormsModule,
-        SelectButtonComponent,
     ],
-    templateUrl: './test-input.component.html',
+    templateUrl: './test-other.component.html',
 })
-export class TestInputComponent {
+export class TestOtherComponent {
     form: FormGroup;
+    visible: boolean = true;
 
-    visible: boolean = false;
-
-    showDialog() {
-        this.visible = true;
+    toogleVisible(visible: boolean) {
+        this.visible = visible;
     }
 
     events: any[];
-
-    loading: boolean = false;
-
-    countryOptions: IItem[] = [
-        { value: 'us', label: 'United States' },
-        { value: 'uk', label: 'United Kingdom' },
-        { value: 'ca', label: 'Canada' },
-    ];
-
-    dataYears: IItem[] = [
-        { value: 2022, label: '2022' },
-        { value: 2023, label: '2023' },
-        { value: 2024, label: '2024' },
-        { value: -1, label: 'Max' },
-    ];
 
     constructor(private fb: FormBuilder) {
         this.form = this.fb.group({
@@ -63,9 +40,6 @@ export class TestInputComponent {
             currency: ['', Validators.required],
             date: ['', Validators.required],
             textarea: ['', Validators.required],
-            upload: ['', Validators.required],
-            ignore: [false],
-            ignoretwo: [false],
         });
 
         this.events = [
@@ -102,7 +76,4 @@ export class TestInputComponent {
             console.log('Form submitted:', this.form.value);
         }
     }
-
-    protected readonly FieldType = FieldType;
-    protected readonly currencyCatalog = currencyCatalog;
 }

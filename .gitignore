@@ -45,3 +45,5 @@ Thumbs.db
 !/.env
 /.env
 .env
+!/apps/web/src/environments
+!/apps/api/prisma/migrations/

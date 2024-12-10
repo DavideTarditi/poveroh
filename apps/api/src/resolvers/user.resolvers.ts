@@ -3,7 +3,7 @@ import prisma from "../core/prisma"
 export const userResolver = {
     getUsers: async () => {
         return prisma.user.findMany({
-            include: { transactions: true }
+            include: { transactions: false }
         })
     },
     getUser: async ({ id }: { id: string }) => {
