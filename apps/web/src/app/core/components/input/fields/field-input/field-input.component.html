@@ -47,6 +47,7 @@
                 [min]="min && localType == FieldType.NUMBER"
                 [max]="max"
                 [step]="step"
+                [autocomplete]="localType == FieldType.PASSWORD"
                 [ngClass]="getInputClass()"
                 [class.incorrect]="isInvalid"
                 [class.white-border]="whiteBorder"

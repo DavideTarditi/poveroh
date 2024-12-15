@@ -12,15 +12,19 @@ const app = express();
 
 app.use(
     cors({
-        origin: '*', // Allow requests from this origin
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-        allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+        origin: '*',
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
     })
 );
 
 const rootValue = {
     ...userResolver,
 };
+
+app.get('/ciao', (req, res) => {
+    return res.status(200).json('hello ciao world!');
+})
 
 app.use(
     '/graphql',

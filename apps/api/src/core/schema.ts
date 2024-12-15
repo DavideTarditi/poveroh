@@ -18,7 +18,6 @@ export const schema = buildSchema(`
   }
 
   type Query {
-    getUsers: [User!]!
-    getUser(id: ID!): User
+    login(email: String!, password: String!): User
   }
 `)

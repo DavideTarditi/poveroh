@@ -1,15 +1,12 @@
-import prisma from "../core/prisma"
+import prisma from '../core/prisma';
 
 export const userResolver = {
-    getUsers: async () => {
-        return prisma.user.findMany({
-            include: { transactions: false }
-        })
-    },
-    getUser: async ({ id }: { id: string }) => {
+    login: async ({ email, password }) => {
         return prisma.user.findUnique({
-            where: { id },
-            include: { transactions: true }
-        })
-    }
-}
+            where: {
+                email: email,
+                password: password,
+            },
+        });
+    },
+};

@@ -9,7 +9,6 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { TestInputComponent } from './pages/test/test-input/test-input.component';
 import { TestOtherComponent } from './pages/test/test-other/test-other.component';
 import { TransactionsComponent } from './pages/transactions/transactions.component';
-import { TestGraphqlComponent } from './pages/test/test-graphql/test-graphql.component';
 import { environment } from '../environments/environment';
 
 export const routes: Routes = [
@@ -36,6 +35,5 @@ export const routes: Routes = [
     },
     { path: 'test-input', component: TestInputComponent },
     { path: 'test-other', component: TestOtherComponent },
-    { path: 'test-graphql', component: TestGraphqlComponent },
     { path: '**', redirectTo: 'login' },
 ];
