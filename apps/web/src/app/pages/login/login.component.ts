@@ -9,8 +9,8 @@ import { FieldType } from '../../core/types/fields';
 import { ButtonComponent } from '../../core/components/input/button/button.component';
 import { RouterLink } from '@angular/router';
 import { FieldInputComponent } from '../../core/components/input/fields/field-input/field-input.component';
-import { UserService } from '../../core/services/user';
-import { encryptString } from '../../core/utils/tools'
+import { encryptString } from '../../core/utils/tools';
+import { AuthService } from '../../core/services/auth.services';
 
 @Component({
     selector: 'page-login',
@@ -27,7 +27,7 @@ import { encryptString } from '../../core/utils/tools'
 export class LoginComponent {
     form: FormGroup;
 
-    constructor(private fb: FormBuilder, private userService: UserService) {
+    constructor(private fb: FormBuilder, private authService: AuthService) {
         this.form = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required]],
@@ -36,9 +36,11 @@ export class LoginComponent {
 
     async onSubmit() {
         if (this.form.valid) {
-            this.userService.login(this.form.value.email, await encryptString(this.form.value.password)).subscribe((result) => {
-                console.log('Result:', result.data.login);
-            })
+            this.authService.login({
+                email: this.form.value.email,
+                password: await encryptString(this.form.value.password),
+            });
+
             console.log('Form submitted:', this.form.value);
         } else {
             console.log('Form non submitted');

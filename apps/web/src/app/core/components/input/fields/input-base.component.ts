@@ -1,6 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, FormControl } from '@angular/forms';
-import { getDefaultErrorMessage } from '../../../services/fields';
+import { getDefaultErrorMessage } from '../../../services/fields.services';
 import { FieldType } from '../../../types/fields';
 
 @Directive()

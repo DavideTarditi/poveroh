@@ -8,7 +8,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTransactionsModal } from '../../core/components/modals/add-transactions/add-transactions.component';
 import { ChartComponent } from 'ng-apexcharts';
-import { ChartOptions } from '../../core/services/charts';
+import { ChartOptions } from '../../core/services/charts.services';
 
 @Component({
     selector: 'app-dashboard',

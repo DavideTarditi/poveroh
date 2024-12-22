@@ -73,7 +73,6 @@
     <li><a href="https://nodejs.org/en">Node.js</a></li>
     <li><a href="https://expressjs.com/">Express.js</a></li>
     <li><a href="https://www.prisma.io/">Prisma</a></li>
-    <li><a href="https://graphql.org/">GraphQL</a></li>
   </ul>
 </details>
 
@@ -115,8 +114,9 @@ To run this project, you will need to add the following environment variables to
 - `NX_DAEMON` (default is `TRUE`; for DEV mode, `FALSE` is suggested)
 
 - `DATABASE_URL`, structure is `postgresql://poveroh:[user]@[password]:5432/poveroh?schema=public`.
-Replace `[user]` and `[password]` with data you choose.
+  Replace `[user]` and `[password]` with data you choose.
 
+- `JWT`, key for encrypt local, storage or cookie
 
 <!-- Getting Started -->
 
@@ -175,7 +175,7 @@ Build docker file
 Replace `POSTGRES_PASSWORD` and run images
 
 ```bash
-  docker run --name poveroh-db -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d poveroh-db
+  docker run --name poveroh-db -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -v postgres-data:/var/lib/postgresql/data-d poveroh-db
 ```
 
 Go to prisma folder
@@ -205,6 +205,7 @@ Run backend project
 ### Frontend
 
 Run project
+
 ```bash
   nx serve web
 ```

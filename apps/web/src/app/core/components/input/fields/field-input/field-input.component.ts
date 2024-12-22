@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FieldType } from '../../../../types/fields';
-import { getPlaceholder } from '../../../../services/fields';
+import { getPlaceholder } from '../../../../services/fields.services';
 import { BaseInputComponent } from '../input-base.component';
 import { IItem } from '../../../../types/item';
 import { PASSWORD_REGEX, PHONE_REGEX } from '../../../../types/constants';
@@ -43,7 +43,7 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
 
         switch (this.localType) {
             case FieldType.PASSWORD:
-                this.control.addValidators(Validators.pattern(PASSWORD_REGEX));
+                // this.control.addValidators(Validators.pattern(PASSWORD_REGEX));
                 break;
             case FieldType.EMAIL:
                 this.control.addValidators(Validators.email);
@@ -70,7 +70,6 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
         }
 
         this.control.valueChanges.subscribe((v) => {
-            console.log('Changed value', v);
         });
     }
 

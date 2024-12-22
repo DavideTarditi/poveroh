@@ -1,39 +1,33 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { createHandler } from 'graphql-http/lib/use/express';
-import { userResolver } from './resolvers/user.resolvers';
 import cors from 'cors';
+import authRoutes from './routes/auth';
+import cookieParser from 'cookie-parser';
 
-import { schema } from './core/schema';
-
-const PORT = process.env.PORT;
+const PORT: string = process.env.PORT;
 dotenv.config();
+
 const app = express();
 
+app.use(express.json());
+app.use(cookieParser());
 app.use(
     cors({
-        origin: '*',
+        origin: 'http://localhost:4200',
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
+        credentials: true,
     })
 );
+app.use((req, res, next) => {
+    next();
+});
 
-const rootValue = {
-    ...userResolver,
-};
+app.get('/', (req, res) => {
+    res.status(200).json({});
+});
 
-app.get('/ciao', (req, res) => {
-    return res.status(200).json('hello ciao world!');
-})
-
-app.use(
-    '/graphql',
-    createHandler({
-        schema,
-        rootValue,
-    })
-);
+app.use('/auth', authRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}/graphql`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

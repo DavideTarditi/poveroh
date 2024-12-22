@@ -10,6 +10,7 @@ import { TestInputComponent } from './pages/test/test-input/test-input.component
 import { TestOtherComponent } from './pages/test/test-other/test-other.component';
 import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { environment } from '../environments/environment';
+import { AuthGuard } from './core/guards/auth.guards';
 
 export const routes: Routes = [
     {
@@ -21,6 +22,7 @@ export const routes: Routes = [
                 path: 'login',
                 component: LoginComponent,
                 title: 'Login - ' + environment.APP_NAME,
+                canActivate: [AuthGuard],
             },
             { path: 'change-password', component: ChangePasswordComponent },
         ],
@@ -29,8 +31,16 @@ export const routes: Routes = [
         path: '',
         component: AppLayoutComponent,
         children: [
-            { path: 'dashboard', component: DashboardComponent },
-            { path: 'transactions', component: TransactionsComponent },
+            {
+                path: 'dashboard',
+                component: DashboardComponent,
+                canActivate: [AuthGuard],
+            },
+            {
+                path: 'transactions',
+                component: TransactionsComponent,
+                canActivate: [AuthGuard],
+            },
         ],
     },
     { path: 'test-input', component: TestInputComponent },
