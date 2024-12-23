@@ -246,6 +246,10 @@ In running order:
 * [ ] Subscriptions
 * [ ] Reports
 * [ ] Investments
+* [ ] Mobile app (iOS/Android) [probably in Flutter]
+
+To give it an extra boost:
+
 * [ ] Live investments
 * [ ] Memes
 * [ ] Open banking
