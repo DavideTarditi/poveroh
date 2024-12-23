@@ -52,6 +52,26 @@
   <img src="./assets/dashboard_screenshot.png" alt="screenshot" />
 </div>
 
+Poveroh is an open-source, web-based platform for tracking personal finances.
+
+### Why?
+
+This platform was born from the desire to track personal finances in a detailed and structured way.
+
+Ok, there are thousands of similar applications out there, but none of them truly fit my needs or convince me entirely. That’s why, driven by the wish to learn new technologies, improve my skills, and create something of my own, I decided to develop this platform—without any big ambitions, just as a personal project.
+
+Currently, I track my finances using a Google Spreadsheet. This platform is essentially the web version of that spreadsheet (with some cool features to make everything more user-friendly).
+
+### How it works?
+The platform aggregates multiple bank accounts.
+
+Users can manually input transactions or upload them via CSV or PDF.
+
+Since it’s designed to track personal wealth, a snapshot of the month (including investments) will be taken on the last day of each month. This allows users to keep a historical record, generate reports, and monitor the growth of their assets over time.
+
+In addition to individual transactions and bank account aggregation, the goal is to provide a platform for tracking investments as well, allowing to add financial products such as ETFs, stocks, bonds, crypto, and more.
+
+> **Note**: This platform is currently tailored to meet my personal needs. It may not be fully complete or include features and services that others might find essential.
 
 <!-- TechStack -->
 
