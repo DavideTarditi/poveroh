@@ -237,16 +237,17 @@ Run project
 In running order:
 
 * [x] Login
-* [ ] Category & subcategory
-* [ ] Bank account
+* [ ] Categories & subcategories
+* [ ] Bank accounts
 * [ ] Transaction
   * [ ] Manual insert
   * [ ] Upload from CSV or PDF
-* [ ] Subscription
+* [ ] Month's snapshot
+* [ ] Subscriptions
 * [ ] Reports
 * [ ] Investments
 * [ ] Live investments
-* [ ] Meme
+* [ ] Memes
 * [ ] Open banking
 
 <!-- License -->
