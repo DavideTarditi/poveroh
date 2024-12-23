@@ -1,23 +1,15 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# compiled output
+dist
+tmp
+out-tsc
 
-# Node
-/apps/api/node_modules
-/apps/api/dist
-/apps/api/dist/*
-!/apps/api/dist
-!/apps/api/dist/*
-/node_modules
-npm-debug.log
-yarn-error.log
+# dependencies
+node_modules
 
 # IDEs and editors
-.idea/
+/.idea
 .project
 .classpath
 .c9/
@@ -25,29 +17,35 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
-.vscode
+# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
+# misc
+/.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
+npm-debug.log
+yarn-error.log
 testem.log
 /typings
 
-# System files
+# System Files
 .DS_Store
 Thumbs.db
 
-# Env
-*.env
-!*.env
-/apps/api/.env
+.nx/cache
+.nx/workspace-data
+
+.angular
+!/.env
+/.env
+.env
+!/apps/web/src/environments
+/apps/api/src/prisma/migrations
+!/apps/api/src/prisma/migrations/
+debug.log

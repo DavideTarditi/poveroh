@@ -8,23 +8,23 @@
             <div class="flex flex-col space-y-1">
                 <p class="sub small">USCITE</p>
                 <div class="flex flex-row items-center danger-all">
-                    <i class="ri-arrow-down-s-fill big danger"></i>
+                    <mat-icon aria-label="icon" fontIcon="arrow_drop_down"></mat-icon>
                     <p>-126.568,53 (0,05%)</p>
                 </div>
             </div>
             <div class="flex flex-col space-y-1">
                 <p class="sub small">ENTRATE</p>
-                <div class="flex flex-row items-center">
-                    <i class="ri-arrow-up-s-fill big fc-success"></i>
-                    <p class="fc-success">+126.568,53 (1,05%)</p>
+                <div class="flex flex-row items-center success-all">
+                    <mat-icon aria-label="icon" fontIcon="arrow_drop_up"></mat-icon>
+                    <p>+126.568,53 (1,05%)</p>
                 </div>
             </div>
         </div>
         <div class="flex relative" *ngIf="!editingMode">
             <div class="flex flex-row items-center space-x-3 fc-white">
-                <i class="ri-pencil-fill cursor-pointer" (click)="toogleEditingMode()"></i>
+                <mat-icon aria-label="icon" fontIcon="edit" class="cursor-pointer" (click)="toogleEditingMode()"></mat-icon>
                 <hr class="vertical">
-                <i class="ri-restart-line cursor-pointer"></i>
+                <mat-icon aria-label="icon" fontIcon="restart_alt"></mat-icon>
             </div>
         </div>
         <div class="flex relative" *ngIf="editingMode">
@@ -34,8 +34,6 @@
             </div>
         </div>
     </div>
-
-    <add-transactions-modal [visible]="visible" (onCancel)="toogleVisible($event)"></add-transactions-modal>
 
     <div class="flex flex-row space-x-5 w-full">
         <div class="flex flex-col space-y-5 w-full">
@@ -47,11 +45,11 @@
                 </ng-template>
                 <ng-template #body>
                     <apx-chart
-                            class="w-full"
-                            [series]="chartOptions.series"
-                            [chart]="chartOptions.chart"
-                            [xaxis]="chartOptions.xaxis"
-                            [title]="chartOptions.title"
+                        class="w-full"
+                        [series]="chartOptions.series"
+                        [chart]="chartOptions.chart"
+                        [xaxis]="chartOptions.xaxis"
+                        [title]="chartOptions.title"
                     ></apx-chart>
                 </ng-template>
             </box-layout>
@@ -136,8 +134,8 @@
         <div class="flex flex-col space-y-5 w-full">
             <box-layout title="Ultime transazioni">
                 <ng-template #header>
-                    <go-button message="Inserisci" icon="ri-add-line" size="mid"
-                               (click)="toogleVisible(true)"></go-button>
+                    <go-button message="Inserisci" icon="add" size="mid"
+                               (click)="openDialog()"></go-button>
                 </ng-template>
                 <ng-template #body>
                     <div class="flex flex-col space-y-5 w-full">
@@ -220,11 +218,11 @@
                 </ng-template>
                 <ng-template #body>
                     <apx-chart
-                            class="w-full"
-                            [series]="chartOptions.series"
-                            [chart]="chartOptions.chart"
-                            [xaxis]="chartOptions.xaxis"
-                            [title]="chartOptions.title"
+                        class="w-full"
+                        [series]="chartOptions.series"
+                        [chart]="chartOptions.chart"
+                        [xaxis]="chartOptions.xaxis"
+                        [title]="chartOptions.title"
                     ></apx-chart>
                 </ng-template>
             </box-layout>

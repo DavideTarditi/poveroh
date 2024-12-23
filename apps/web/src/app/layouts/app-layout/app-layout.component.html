@@ -3,7 +3,7 @@
         <div class="flex space-x-20 items-center">
             <a routerLink="/dashboard">
                 <img ngSrc="/logo/white/logo_horizontal_white_bold.svg" alt="logo" width="120" height="50"
-                     priority/>
+                     priority />
             </a>
             <div class="flex flex-row space-x-6">
                 <a routerLink="/transactions">Transazioni</a>
@@ -14,24 +14,24 @@
         </div>
         <div class="hidden items-center space-x-6 lg:flex">
             <div class="popover-container relative">
-                <div (click)="popover.toggle($event)" class="user-box">
+                <div class="user-box" mat-button [matMenuTriggerFor]="accountPopover">
                     <p>Davide Tarditi</p>
                 </div>
 
-                <p-overlayPanel #popover>
+                <mat-menu #accountPopover xPosition="before">
                     <div class="flex flex-col space-y-5 w-[200px]">
                         <div class="space-y-2">
                             <p class="font-bold">Davide Tarditi</p>
                             <p class="small font-bold sub">dt.davide.tarditi&#64;gmail.com</p>
                         </div>
-                        <hr/>
+                        <hr />
                         <div class="flex flex-col space-y-5">
                             <a class="flex items-center space-x-2 w-full" href="/settings">
-                                <i class="ri-settings-2-line"></i>
+                                <mat-icon aria-label="icon" fontIcon="settings"></mat-icon>
                                 <p>Impostazioni</p>
                             </a>
                             <a class="flex items-center space-x-2 w-full danger-all" href="/logout">
-                                <i class="ri-logout-box-line"></i>
+                                <mat-icon aria-label="icon" fontIcon="logout"></mat-icon>
                                 <p>Esci</p>
                             </a>
                         </div>
@@ -42,7 +42,7 @@
                             <p class="sub small">v1.0.0</p>
                         </div>
                     </div>
-                </p-overlayPanel>
+                </mat-menu>
             </div>
         </div>
     </div>

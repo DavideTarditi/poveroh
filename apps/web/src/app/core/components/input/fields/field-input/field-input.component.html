@@ -11,12 +11,12 @@
     <div class="relative" [ngSwitch]="localType" [class.checkbox-wrapper]="localType == FieldType.BOOLEAN"
          [class.file-upload]="localType == FieldType.UPLOAD">
         <select
-                *ngSwitchCase="FieldType.SELECT || FieldType.CURRENCY"
-                [id]="id"
-                [formControl]="getFormControl()"
-                class="form-input dropdown"
-                [class.incorrect]="isInvalid"
-                [class.white-border]="whiteBorder"
+            *ngSwitchCase="FieldType.SELECT || FieldType.CURRENCY"
+            [id]="id"
+            [formControl]="getFormControl()"
+            class="form-input dropdown"
+            [class.incorrect]="isInvalid"
+            [class.white-border]="whiteBorder"
         >
             <option *ngIf="localType !== FieldType.CURRENCY" disabled value="">
                 {{ placeholder ? placeholder : 'Seleziona un valore' }}
@@ -28,28 +28,29 @@
         </select>
 
         <textarea
-                *ngSwitchCase="FieldType.LONGTEXT"
-                [id]="id"
-                [formControl]="getFormControl()"
-                [placeholder]="placeholder"
-                rows="5"
-                class="form-input"
-                [class.incorrect]="isInvalid"
-                [class.white-border]="whiteBorder"
+            *ngSwitchCase="FieldType.LONGTEXT"
+            [id]="id"
+            [formControl]="getFormControl()"
+            [placeholder]="placeholder"
+            rows="5"
+            class="form-input"
+            [class.incorrect]="isInvalid"
+            [class.white-border]="whiteBorder"
         ></textarea>
 
         <ng-container *ngSwitchDefault>
             <input
-                    [type]="type"
-                    [id]="id"
-                    [formControl]="getFormControl()"
-                    [placeholder]="placeholder"
-                    [min]="min && localType == FieldType.NUMBER"
-                    [max]="max"
-                    [step]="step"
-                    [ngClass]="getInputClass()"
-                    [class.incorrect]="isInvalid"
-                    [class.white-border]="whiteBorder"
+                [type]="type"
+                [id]="id"
+                [formControl]="getFormControl()"
+                [placeholder]="placeholder"
+                [min]="min && localType == FieldType.NUMBER"
+                [max]="max"
+                [step]="step"
+                [autocomplete]="localType == FieldType.PASSWORD"
+                [ngClass]="getInputClass()"
+                [class.incorrect]="isInvalid"
+                [class.white-border]="whiteBorder"
             >
 
             <ng-container *ngIf="localType == FieldType.BOOLEAN">
@@ -76,15 +77,15 @@
             </ng-container>
 
             <span
-                    *ngIf="localType === FieldType.PASSWORD"
-                    class="toggle-visibility-password"
-                    (click)="toogleVisibility()"
+                *ngIf="localType === FieldType.PASSWORD"
+                class="toggle-visibility-password"
+                (click)="toogleVisibility()"
             >
-                <i [ngClass]="passwordVisibility ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+                <mat-icon aria-label="icon" [fontIcon]="passwordVisibility ? 'visibility' : 'visibility_off'"></mat-icon>
             </span>
         </ng-container>
 
-        <i class="ri-upload-cloud-line" *ngIf="localType === FieldType.UPLOAD"></i>
+        <mat-icon aria-label="icon" fontIcon="cloud_upload" *ngIf="localType === FieldType.UPLOAD"></mat-icon>
     </div>
 
     <div *ngIf="isInvalid && showErrorMessage">

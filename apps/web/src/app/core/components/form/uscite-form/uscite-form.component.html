@@ -1,28 +1,28 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-5">
     <field-input
-            id="title"
-            label="Titolo"
-            [type]="FieldType.TEXT"
-            [control]="form.get('title')!"
-            [whiteBorder]="whiteBorder"
+        id="title"
+        label="Titolo"
+        [type]="FieldType.TEXT"
+        [control]="form.get('title')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="date"
-            label="Data"
-            [type]="FieldType.DATE"
-            [control]="form.get('date')!"
-            [whiteBorder]="whiteBorder"
+        id="date"
+        label="Data"
+        [type]="FieldType.DATE"
+        [control]="form.get('date')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="currency"
-            label="Currency"
-            [type]="FieldType.SELECT"
-            [options]="currencyCatalog"
-            [control]="form.get('currency')!"
-            [whiteBorder]="whiteBorder"
-            class="w-full"
+        id="currency"
+        label="Currency"
+        [type]="FieldType.SELECT"
+        [options]="currencyCatalog"
+        [control]="form.get('currency')!"
+        [whiteBorder]="whiteBorder"
+        class="w-full"
     ></field-input>
 
     <div class="flex flex-col space-y-3">
@@ -33,21 +33,21 @@
             </p>
             <div class="flex flex-row space-x-3">
                 <div class="flex flex-row items-center space-x-3" *ngIf="splittedAmount">
-                    <i class="ri-git-merge-line cursor-pointer" (click)="toogleSplitAmount()"></i>
+                    <mat-icon aria-label="icon" fontIcon="call_merge" class="cursor-pointer fc-white" (click)="toogleSplitAmount()"></mat-icon>
                     <hr class="vertical">
-                    <i class="ri-add-line cursor-pointer" (click)="addControl()"></i>
+                    <mat-icon aria-label="icon" fontIcon="add" class="cursor-pointer fc-white" (click)="addControl()"></mat-icon>
                 </div>
-                <go-button message="Split" size="small" icon="ri-git-branch-line" mode="outline"
+                <go-button message="Split" size="small" icon="call_split" mode="outline"
                            (click)="toogleSplitAmount()" *ngIf="!splittedAmount"></go-button>
             </div>
         </div>
 
         <field-input
-                id="amount"
-                [type]="FieldType.MONEY"
-                [control]="form.get('baseAmount')!"
-                [whiteBorder]="whiteBorder"
-                class="w-full"
+            id="amount"
+            [type]="FieldType.MONEY"
+            [control]="form.get('baseAmount')!"
+            [whiteBorder]="whiteBorder"
+            class="w-full"
         ></field-input>
 
         <div class="flex flex-col space-y-3" *ngIf="splittedAmount">
@@ -55,74 +55,75 @@
                  *ngFor="let group of amountControls(); let i = index">
                 <app-new-amount-icon class="pl-2"></app-new-amount-icon>
                 <field-input
-                        [id]="'bankaccount' + i"
-                        placeholder="Seleziona un conto"
-                        [showErrorMessage]="false"
-                        [type]="FieldType.SELECT"
-                        [options]="bankAccount"
-                        [control]="group.get('bankAccount')!"
-                        [whiteBorder]="whiteBorder"
-                        class="w-full"
+                    [id]="'bankaccount' + i"
+                    placeholder="Seleziona un conto"
+                    [showErrorMessage]="false"
+                    [type]="FieldType.SELECT"
+                    [options]="bankAccount"
+                    [control]="group.get('bankAccount')!"
+                    [whiteBorder]="whiteBorder"
+                    class="w-full"
                 ></field-input>
                 <field-input
-                        [id]="'amount' + i"
-                        [type]="FieldType.MONEY"
-                        [showErrorMessage]="false"
-                        [control]="group.get('amount')!"
-                        [whiteBorder]="whiteBorder"
+                    [id]="'amount' + i"
+                    [type]="FieldType.MONEY"
+                    [showErrorMessage]="false"
+                    [control]="group.get('amount')!"
+                    [whiteBorder]="whiteBorder"
                 ></field-input>
-                <i class="ri-delete-bin-line danger cursor-pointer" (click)="removeControl(i)"></i>
+
+                <mat-icon aria-label="icon" fontIcon="delete" class="cursor-pointer danger" (click)="removeControl(i)"></mat-icon>
             </div>
         </div>
 
     </div>
 
     <field-input
-            label="Circuito/Conto"
-            id="bankAccount"
-            [type]="FieldType.SELECT"
-            [options]="bankAccount"
-            [control]="form.get('baseBankAccount')!"
-            [whiteBorder]="whiteBorder"
-            class="w-full"
-            *ngIf="!splittedAmount"
+        label="Circuito/Conto"
+        id="bankAccount"
+        [type]="FieldType.SELECT"
+        [options]="bankAccount"
+        [control]="form.get('baseBankAccount')!"
+        [whiteBorder]="whiteBorder"
+        class="w-full"
+        *ngIf="!splittedAmount"
     ></field-input>
 
     <div class="flex flex-row space-x-3">
         <field-input
-                id="category"
-                label="Categoria"
-                [type]="FieldType.SELECT"
-                [options]="category"
-                [whiteBorder]="whiteBorder"
-                [control]="form.get('category')!"
-                class="w-full"
+            id="category"
+            label="Categoria"
+            [type]="FieldType.SELECT"
+            [options]="category"
+            [whiteBorder]="whiteBorder"
+            [control]="form.get('category')!"
+            class="w-full"
         ></field-input>
 
         <field-input
-                id="subcategory"
-                label="Sottocategoria"
-                [type]="FieldType.SELECT"
-                [options]="subCategory"
-                [whiteBorder]="whiteBorder"
-                [control]="form.get('subcategory')!"
-                class="w-full"
+            id="subcategory"
+            label="Sottocategoria"
+            [type]="FieldType.SELECT"
+            [options]="subCategory"
+            [whiteBorder]="whiteBorder"
+            [control]="form.get('subcategory')!"
+            class="w-full"
         ></field-input>
     </div>
 
     <field-input
-            id="note"
-            label="Note"
-            [type]="FieldType.LONGTEXT"
-            [control]="form.get('note')!"
-            [whiteBorder]="whiteBorder"
+        id="note"
+        label="Note"
+        [type]="FieldType.LONGTEXT"
+        [control]="form.get('note')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="ignore"
-            label="Ignora transazione nel conteggio finale"
-            [type]="FieldType.BOOLEAN"
-            [control]="form.get('ignore')!"
-            [whiteBorder]="whiteBorder"
+        id="ignore"
+        label="Ignora transazione nel conteggio finale"
+        [type]="FieldType.BOOLEAN"
+        [control]="form.get('ignore')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 </form>

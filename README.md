@@ -73,7 +73,6 @@
     <li><a href="https://nodejs.org/en">Node.js</a></li>
     <li><a href="https://expressjs.com/">Express.js</a></li>
     <li><a href="https://www.prisma.io/">Prisma</a></li>
-    <li><a href="https://graphql.org/">GraphQL</a></li>
   </ul>
 </details>
 
@@ -110,9 +109,14 @@
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+- `PORT` (suggest `4201`)
 
-`ANOTHER_API_KEY`
+- `NX_DAEMON` (default is `TRUE`; for DEV mode, `FALSE` is suggested)
+
+- `DATABASE_URL`, structure is `postgresql://poveroh:[user]@[password]:5432/poveroh?schema=public`.
+  Replace `[user]` and `[password]` with data you choose.
+
+- `JWT`, key for encrypt local, storage or cookie
 
 <!-- Getting Started -->
 
@@ -152,6 +156,8 @@ Install dependencies
   npm install
 ```
 
+If you haven't already, create the `.env` file.
+
 ### Backend
 
 Go to docker folder
@@ -169,7 +175,7 @@ Build docker file
 Replace `POSTGRES_PASSWORD` and run images
 
 ```bash
-  docker run --name poveroh-db -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d poveroh-db
+  docker run --name poveroh-db -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -v postgres-data:/var/lib/postgresql/data-d poveroh-db
 ```
 
 Go to prisma folder
@@ -193,22 +199,35 @@ Migrate and create models
 Run backend project
 
 ```bash
-  npm run dev:backend
+  nx serve api
 ```
 
 ### Frontend
 
 Run project
+
 ```bash
-  npm run dev:frontend
+  nx serve web
 ```
 
 <!-- Roadmap -->
 
 ## :compass: Roadmap
 
+In running order:
+
+* [x] Login
+* [ ] Category & subcategory
+* [ ] Bank account
+* [ ] Transaction
+  * [ ] Manual insert
+  * [ ] Upload from CSV or PDF
+* [ ] Subscription
+* [ ] Reports
+* [ ] Investments
+* [ ] Live investments
 * [ ] Meme
-* [ ] Investimenti live
+* [ ] Open banking
 
 <!-- License -->
 
@@ -221,4 +240,4 @@ See LICENSE.txt for more information.
 ## :link: Useful links
 
 - [Github Repo](https://github.com/DavideTarditi/poveroh)
-- [Design file](https://www.figma.com/design/SZz6f8cZ1mIE5s6Z4WGshu/Poveroh?node-id=232-100&t=1ozuf8X78WOqBXYH-1)
+- [Figma file](https://www.figma.com/design/SZz6f8cZ1mIE5s6Z4WGshu/Poveroh?node-id=232-100&t=1ozuf8X78WOqBXYH-1)

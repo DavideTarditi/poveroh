@@ -1,26 +1,26 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-5">
     <field-input
-            id="title"
-            label="Titolo"
-            [type]="FieldType.TEXT"
-            [control]="form.get('title')!"
-            [whiteBorder]="whiteBorder"
+        id="title"
+        label="Titolo"
+        [type]="FieldType.TEXT"
+        [control]="form.get('title')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="date"
-            label="Data"
-            [type]="FieldType.DATE"
-            [control]="form.get('date')!"
-            [whiteBorder]="whiteBorder"
+        id="date"
+        label="Data"
+        [type]="FieldType.DATE"
+        [control]="form.get('date')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="amount"
-            label="Importo"
-            [type]="FieldType.MONEY"
-            [control]="form.get('amount')!"
-            [whiteBorder]="whiteBorder"
+        id="amount"
+        label="Importo"
+        [type]="FieldType.MONEY"
+        [control]="form.get('amount')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <div class="flex flex-col space-y-3">
@@ -30,38 +30,38 @@
         </p>
         <div class="flex flex-row items-center justify-between space-x-3">
             <field-input
-                    id="bankAccountFrom"
-                    [type]="FieldType.SELECT"
-                    [options]="bankAccount"
-                    [control]="form.get('bankAccountFrom')!"
-                    [whiteBorder]="whiteBorder"
-                    class="w-full"
+                id="bankAccountFrom"
+                [type]="FieldType.SELECT"
+                [options]="bankAccount"
+                [control]="form.get('bankAccountFrom')!"
+                [whiteBorder]="whiteBorder"
+                class="w-full"
             ></field-input>
-            <i class="font-bold ri-arrow-right-line"></i>
+            <mat-icon aria-label="icon" fontIcon="east" class="fc-white"></mat-icon>
             <field-input
-                    id="bankAccountTo"
-                    [type]="FieldType.SELECT"
-                    [options]="bankAccount"
-                    [control]="form.get('bankAccountTo')!"
-                    [whiteBorder]="whiteBorder"
-                    class="w-full"
+                id="bankAccountTo"
+                [type]="FieldType.SELECT"
+                [options]="bankAccount"
+                [control]="form.get('bankAccountTo')!"
+                [whiteBorder]="whiteBorder"
+                class="w-full"
             ></field-input>
         </div>
     </div>
 
     <field-input
-            id="note"
-            label="Note"
-            [type]="FieldType.LONGTEXT"
-            [control]="form.get('note')!"
-            [whiteBorder]="whiteBorder"
+        id="note"
+        label="Note"
+        [type]="FieldType.LONGTEXT"
+        [control]="form.get('note')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 
     <field-input
-            id="ignore"
-            label="Ignora transazione nel conteggio finale"
-            [type]="FieldType.BOOLEAN"
-            [control]="form.get('ignore')!"
-            [whiteBorder]="whiteBorder"
+        id="ignore"
+        label="Ignora transazione nel conteggio finale"
+        [type]="FieldType.BOOLEAN"
+        [control]="form.get('ignore')!"
+        [whiteBorder]="whiteBorder"
     ></field-input>
 </form>

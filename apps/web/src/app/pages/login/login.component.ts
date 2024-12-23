@@ -1,9 +1,16 @@
-import {Component} from '@angular/core'
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms'
-import {FieldType} from '../../core/types/fields'
-import {ButtonComponent} from '../../core/components/input/button/button.component'
-import {RouterLink} from '@angular/router'
-import {FieldInputComponent} from '../../core/components/input/fields/field-input/field-input.component'
+import { Component } from '@angular/core';
+import {
+    FormBuilder,
+    FormGroup,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
+import { FieldType } from '../../core/types/fields';
+import { ButtonComponent } from '../../core/components/input/button/button.component';
+import { RouterLink } from '@angular/router';
+import { FieldInputComponent } from '../../core/components/input/fields/field-input/field-input.component';
+import { encryptString } from '../../core/utils/tools';
+import { AuthService } from '../../core/services/auth.services';
 
 @Component({
     selector: 'page-login',
@@ -13,25 +20,32 @@ import {FieldInputComponent} from '../../core/components/input/fields/field-inpu
         ReactiveFormsModule,
         ButtonComponent,
         RouterLink,
-        FieldInputComponent
+        FieldInputComponent,
     ],
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
 })
 export class LoginComponent {
-    form: FormGroup
+    form: FormGroup;
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private authService: AuthService) {
         this.form = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required]]
-        })
+            password: ['', [Validators.required]],
+        });
     }
 
-    onSubmit() {
+    async onSubmit() {
         if (this.form.valid) {
-            console.log('Form submitted:', this.form.value)
+            this.authService.login({
+                email: this.form.value.email,
+                password: await encryptString(this.form.value.password),
+            });
+
+            console.log('Form submitted:', this.form.value);
+        } else {
+            console.log('Form non submitted');
         }
     }
 
-    protected readonly FieldType = FieldType
+    protected readonly FieldType = FieldType;
 }
