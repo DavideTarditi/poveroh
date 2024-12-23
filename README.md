@@ -214,8 +214,20 @@ Run project
 
 ## :compass: Roadmap
 
+In running order:
+
+* [x] Login
+* [ ] Category & subcategory
+* [ ] Bank account
+* [ ] Transaction
+  * [ ] Manual insert
+  * [ ] Upload from CSV or PDF
+* [ ] Subscription
+* [ ] Reports
+* [ ] Investments
+* [ ] Live investments
 * [ ] Meme
-* [ ] Investimenti live
+* [ ] Open banking
 
 <!-- License -->
 
