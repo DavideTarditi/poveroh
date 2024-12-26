@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-app-layout',
@@ -14,6 +15,7 @@ import { MatIcon } from '@angular/material/icon';
         MatMenu,
         MatMenuTrigger,
         MatIcon,
+        TranslatePipe,
     ],
     templateUrl: './app-layout.component.html',
 })

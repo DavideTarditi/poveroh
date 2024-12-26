@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddTransactionsModal } from '../../core/components/modals/add-transactions/add-transactions.component';
 import { ChartComponent } from 'ng-apexcharts';
 import { ChartOptions } from '../../core/services/charts.services';
+import { TranslatePipe } from '@ngx-translate/core';
+import { TranslationService } from '../../core/services/translation.services';
 
 @Component({
     selector: 'app-dashboard',
@@ -20,6 +22,7 @@ import { ChartOptions } from '../../core/services/charts.services';
         SelectButtonComponent,
         MatIcon,
         ChartComponent,
+        TranslatePipe,
     ],
     templateUrl: './dashboard.component.html',
 })
@@ -49,7 +52,7 @@ export class DashboardComponent {
         { value: -1, label: 'Max' },
     ];
 
-    constructor() {
+    constructor(protected i18n: TranslationService) {
         this.chartOptions = {
             series: [
                 {

@@ -11,6 +11,8 @@ import { RouterLink } from '@angular/router';
 import { FieldInputComponent } from '../../core/components/input/fields/field-input/field-input.component';
 import { encryptString } from '../../core/utils/tools';
 import { AuthService } from '../../core/services/auth.services';
+import { TranslatePipe } from '@ngx-translate/core';
+import { TranslationService } from '../../core/services/translation.services';
 
 @Component({
     selector: 'page-login',
@@ -21,13 +23,18 @@ import { AuthService } from '../../core/services/auth.services';
         ButtonComponent,
         RouterLink,
         FieldInputComponent,
+        TranslatePipe,
     ],
     templateUrl: './login.component.html',
 })
 export class LoginComponent {
     form: FormGroup;
 
-    constructor(private fb: FormBuilder, private authService: AuthService) {
+    constructor(
+        private fb: FormBuilder,
+        private authService: AuthService,
+        protected i18n: TranslationService
+    ) {
         this.form = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required]],

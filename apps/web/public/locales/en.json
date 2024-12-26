@@ -1,0 +1,41 @@
+{
+    "buttons": {
+        "add": "Inserisci"
+    },
+    "logout": {
+        "title": "Logout"
+    },
+    "login": {
+        "title": "Login",
+        "subtitle": "Enter your credentials to access the system.",
+        "buttons": {
+            "signIn": "Sign in",
+            "forgotPassword": "Forgot your password?"
+        }
+    },
+    "dashboard": {
+        "totalBalance": "Total balance",
+        "expenses": "Expenses",
+        "income": "Income"
+    },
+    "widget": {
+        "lastTransactions": "Last transactions",
+        "nextPayments": "Next subscription payments",
+        "trend": "Trend"
+    },
+    "settings": {
+        "title": "Settings"
+    },
+    "transactions": {
+        "title": "Transactions"
+    },
+    "subscriptions": {
+        "title": "Subscriptions"
+    },
+    "investments": {
+        "title": "Investments"
+    },
+    "reports": {
+        "title": "Reports"
+    }
+}

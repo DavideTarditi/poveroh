@@ -11,6 +11,7 @@ import { TestOtherComponent } from './pages/test/test-other/test-other.component
 import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './core/guards/auth.guards';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 export const routes: Routes = [
     {
@@ -39,6 +40,11 @@ export const routes: Routes = [
             {
                 path: 'transactions',
                 component: TransactionsComponent,
+                canActivate: [AuthGuard],
+            },
+            {
+                path: 'settings',
+                component: SettingsComponent,
                 canActivate: [AuthGuard],
             },
         ],
