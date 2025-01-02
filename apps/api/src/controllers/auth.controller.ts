@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import prisma from '../core/prisma';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '../middleware/auth.middleware';
+import useragent from 'useragent';
 
 export class AuthController {
     static async login(req: Request, res: Response) {
@@ -10,6 +11,21 @@ export class AuthController {
         });
 
         if (user) {
+            const agent = useragent.parse(req.headers['user-agent']);
+
+            const browser = `${agent.family} ${agent.major}`;
+            const os = `${agent.os.family} ${agent.os.major}`;
+
+            await prisma.user_login.create({
+                data: {
+                    device: os,
+                    browser: browser,
+                    ip: '-',
+                    location: '-',
+                    user_id: user.id,
+                },
+            });
+
             const token: string = jwt.sign(
                 { id: user.id, email: user.email },
                 JWT_SECRET,
