@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ITransaction } from '../../../types/transaction';
-import { ISubscription } from '../../../types/subscription';
-import { IBankAccount } from '../../../types/bankAccount';
+import { IBankAccount, ISubscription, ITransaction } from '@poveroh/types';
 
 @Component({
     selector: 'box-item',

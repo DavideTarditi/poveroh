@@ -20,6 +20,7 @@
     --black-color: #0d0d0d;
     --white-color: #ffffff;
     --hr-color: #393939;
+    --border-color: #393939;
     --checkbox-color: #3478ff;
     --bg-body-color: #1c1c1c;
     --bg-body-gradient-color: radial-gradient(circle 600px at bottom right, var(--brand-color-2), rgba(28, 28, 28, 0)),
@@ -234,6 +235,10 @@ h2 {
     font-weight: var(--font-weight-bold);
 }
 
+.size-h2 {
+    font-size: var(--child-h2-size) !important;
+}
+
 h3, .p-dialog .p-dialog-header .p-dialog-title {
     font-size: var(--child-h3-size);
     font-weight: var(--font-weight-bold);
@@ -323,6 +328,7 @@ mat-icon.success,
 }
 
 a {
+    font-size: var(--child-p-size);
     color: var(--text-color);
     display: block;
     width: fit-content;

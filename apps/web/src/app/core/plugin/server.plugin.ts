@@ -1,8 +1,7 @@
-import { ServerRequest } from '../types/server';
 import { environment } from '../../../environments/environment';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import notifyPlugin from './notify.plugin';
-import { NotifyStatus } from '../types/notify';
+import { NotifyStatus, ServerRequest } from '@poveroh/types';
 
 function ServerPlugin() {
     const status = async () => {
@@ -14,13 +13,13 @@ function ServerPlugin() {
         );
     };
 
-    const send = async (
+    function send<T>(
         type: ServerRequest,
         url: string,
         data: any,
         source: string
-    ): Promise<any> => {
-        return new Promise<any>(async (resolve, reject) => {
+    ): Promise<T> {
+        return new Promise<T>(async (resolve, reject) => {
             try {
                 url = environment.API_URL + url;
 
@@ -42,7 +41,7 @@ function ServerPlugin() {
                     throw new Error(res.data?.message || 'An error occurred');
                 }
 
-                resolve(res.data);
+                resolve(res.data as T);
             } catch (error) {
                 if (error instanceof Error) {
                     notifyPlugin().notifyHandleNotification({
@@ -56,7 +55,7 @@ function ServerPlugin() {
                 reject(error);
             }
         });
-    };
+    }
 
     return {
         status,

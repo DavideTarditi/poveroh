@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FieldType } from '../../../core/types/fields';
 import {
     FormBuilder,
     FormGroup,
@@ -8,10 +7,9 @@ import {
     Validators,
 } from '@angular/forms';
 import { FieldInputComponent } from '../../../core/components/input/fields/field-input/field-input.component';
-import { IItem } from '../../../core/types/item';
-import { currencyCatalog } from '../../../core/types/general';
 import { ButtonComponent } from '../../../core/components/input/button/button.component';
 import { SelectButtonComponent } from '../../../core/components/input/select-button/select-button.component';
+import { currencyCatalog, FieldType, IItem } from '@poveroh/types';
 
 @Component({
     selector: 'app-test-input',

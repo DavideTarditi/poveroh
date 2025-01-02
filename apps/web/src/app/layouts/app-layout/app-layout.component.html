@@ -15,14 +15,14 @@
         <div class="hidden items-center space-x-6 lg:flex">
             <div class="popover-container relative">
                 <div class="user-box" mat-button [matMenuTriggerFor]="accountPopover">
-                    <p>Davide Tarditi</p>
+                    <p>{{ userService.fullName() }}</p>
                 </div>
 
                 <mat-menu #accountPopover xPosition="before">
                     <div class="flex flex-col space-y-5 w-[200px]">
                         <div class="space-y-2">
-                            <p class="font-bold">Davide Tarditi</p>
-                            <p class="small font-bold sub">dt.davide.tarditi&#64;gmail.com</p>
+                            <p class="font-bold">{{ userService.fullName() }}</p>
+                            <p class="font-bold sub">{{ user?.email }}</p>
                         </div>
                         <hr />
                         <div class="flex flex-col space-y-5">

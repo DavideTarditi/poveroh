@@ -5,7 +5,6 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { FieldType } from '../../core/types/fields';
 import { ButtonComponent } from '../../core/components/input/button/button.component';
 import { RouterLink } from '@angular/router';
 import { FieldInputComponent } from '../../core/components/input/fields/field-input/field-input.component';
@@ -13,6 +12,7 @@ import { encryptString } from '../../core/utils/tools';
 import { AuthService } from '../../core/services/auth.services';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslationService } from '../../core/services/translation.services';
+import { FieldType } from '@poveroh/types';
 
 @Component({
     selector: 'page-login',

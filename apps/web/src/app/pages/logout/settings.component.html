@@ -1,0 +1,64 @@
+<div class="space-y-12">
+    <div class="flex flex-row items-center justify-between">
+        <h2>{{ 'settings.title' | translate }}</h2>
+    </div>
+    <div class="flex flex-col space-y-5">
+        <h4>{{ 'settings.account.title' | translate }}</h4>
+        <div class="flex flex-row space-x-5">
+            <a routerLink="/account/edit" class="flex flex-col space-y-10 p-10 settings-card">
+                <mat-icon aria-label="icon" fontIcon="person" class="size-h2"></mat-icon>
+                <div class="flex flex-col space-y-1">
+                    <p class="font-bold">{{ 'settings.account.personalInfo.title' | translate }}</p>
+                    <p>{{ 'settings.account.personalInfo.subtitle' | translate }}</p>
+                </div>
+            </a>
+            <a routerLink="/account/security" class="flex flex-col space-y-10 p-10 settings-card">
+                <mat-icon aria-label="icon" fontIcon="shield" class="size-h2"></mat-icon>
+                <div class="flex flex-col space-y-1">
+                    <p class="font-bold">{{ 'settings.account.security.title' | translate }}</p>
+                    <p>{{ 'settings.account.security.subtitle' | translate }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="flex flex-col space-y-5">
+        <h4>{{ 'settings.manage.title' | translate }}</h4>
+        <div class="flex flex-row space-x-5">
+            <div class="flex flex-col space-y-10 p-10 settings-card">
+                <mat-icon aria-label="icon" fontIcon="account_balance" class="size-h2"></mat-icon>
+                <div class="flex flex-col space-y-1">
+                    <p class="font-bold">{{ 'settings.manage.bankAccount.title' | translate }}</p>
+                    <p>{{ 'settings.manage.bankAccount.subtitle' | translate }}</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-10 p-10 settings-card">
+                <mat-icon aria-label="icon" fontIcon="category" class="size-h2"></mat-icon>
+                <div class="flex flex-col space-y-1">
+                    <p class="font-bold">{{ 'settings.manage.category.title' | translate }}</p>
+                    <p>{{ 'settings.manage.category.subtitle' | translate }}</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-10 p-10 settings-card">
+                <mat-icon aria-label="icon" fontIcon="subscriptions" class="size-h2"></mat-icon>
+                <div class="flex flex-col space-y-1">
+                    <p class="font-bold">{{ 'settings.manage.subscriptions.title' | translate }}</p>
+                    <p>{{ 'settings.manage.subscriptions.subtitle' | translate }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col space-y-5">
+        <h4>{{ 'settings.system.title' | translate }}</h4>
+        <div class="flex flex-row space-x-5">
+            <div class="flex flex-col space-y-10 p-10 settings-card">
+                <mat-icon aria-label="icon" fontIcon="settings" class="size-h2"></mat-icon>
+                <div class="flex flex-col space-y-1">
+                    <p class="font-bold">{{ 'settings.system.globalPreferences.title' | translate }}</p>
+                    <p>{{ 'settings.system.globalPreferences.subtitle' | translate }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="sub">{{ 'version' | translate }} {{ environment.APP_VERSION }}</p>
+</div>
+

@@ -1,6 +1,19 @@
 {
+    "version": "Version",
+    "messages": {
+        "mandatory": "Mandatory",
+        "selectValue": "Select a value",
+        "errors": {
+            "required": "This field is required",
+            "email": "Enter a valid email address",
+            "minlength": "The input is too short",
+            "maxlength": "The input is too long",
+            "pattern": "Invalid format"
+        }
+    },
     "buttons": {
-        "add": "Inserisci"
+        "add": "Add",
+        "save": "Save"
     },
     "logout": {
         "title": "Logout"
@@ -24,10 +37,71 @@
         "trend": "Trend"
     },
     "settings": {
-        "title": "Settings"
+        "title": "Settings",
+        "account": {
+            "title": "Account",
+            "personalInfo": {
+                "title": "Personal information",
+                "subtitle": "Edit your personal information.",
+                "form": {
+                    "generalities": {
+                        "title": "Generalities",
+                        "name": "Name",
+                        "surname": "Surname",
+                        "email": {
+                            "label": "E-mail",
+                            "subTitle": "The email change requires logging out."
+                        },
+                        "phone": "Phone",
+                        "messages": {
+                            "success": "User is saved successfully."
+                        }
+                    }
+                }
+            },
+            "security": {
+                "title": "Security",
+                "subtitle": "Update password and protect account.",
+                "form": {
+                    "password": {
+                        "title": "Password",
+                        "password": "Password",
+                        "confirmPassword": "Confirm password",
+                        "description": "It must contain:<br/> - At least one uppercase letter<br/> - At least one number<br/>- At least 8 characters in length"
+                    }
+                }
+            }
+        },
+        "manage": {
+            "title": "Manage",
+            "bankAccount": {
+                "title": "Bank accounts",
+                "subtitle": "Manage, add, or edit accounts and networks."
+            },
+            "category": {
+                "title": "Categories & subcategories",
+                "subtitle": "Manage, add, or edit categories and subcategories."
+            },
+            "subscriptions": {
+                "title": "Subscriptions",
+                "subtitle": "Manage, add, or edit templates for subscriptions."
+            }
+        },
+        "system": {
+            "title": "System",
+            "globalPreferences": {
+                "title": "Global preferences",
+                "subtitle": "Set appearance, time zones, and currency."
+            }
+        }
     },
     "transactions": {
-        "title": "Transactions"
+        "title": "Transactions",
+        "types": {
+            "internalTransfer": "Internal transfer",
+            "income": "Income",
+            "expenses": "Expenses"
+        }
     },
     "subscriptions": {
         "title": "Subscriptions"

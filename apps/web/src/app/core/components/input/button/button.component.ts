@@ -19,6 +19,8 @@ export class ButtonComponent {
     @Input() validate: boolean = true;
 
     getIconColor(): boolean {
-        return ['success', 'danger', 'outline', 'filled'].some((x) => x === this.mode);
+        return ['success', 'danger', 'outline', 'filled'].some(
+            (x) => x === this.mode
+        );
     }
 }

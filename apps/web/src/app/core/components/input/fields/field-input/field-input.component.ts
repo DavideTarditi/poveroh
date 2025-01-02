@@ -1,12 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, Validators } from '@angular/forms';
-import { FieldType } from '../../../../types/fields';
-import { getPlaceholder } from '../../../../services/fields.services';
-import { BaseInputComponent } from '../input-base.component';
-import { IItem } from '../../../../types/item';
-import { PASSWORD_REGEX, PHONE_REGEX } from '../../../../types/constants';
+import {
+    AbstractControl,
+    FormControl,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
+import { FieldType, IItem, PHONE_REGEX } from '@poveroh/types';
+import { FieldsService } from '../../../../services/fields.services';
+import { TranslationService } from '../../../../services/translation.services';
 
 @Component({
     selector: 'field-input',
@@ -14,17 +17,32 @@ import { MatIcon } from '@angular/material/icon';
     imports: [CommonModule, ReactiveFormsModule, MatIcon],
     templateUrl: './field-input.component.html',
 })
-export class FieldInputComponent extends BaseInputComponent implements OnInit {
+export class FieldInputComponent implements OnInit {
     @Input() options: IItem[] = [];
     @Input() disabled: boolean = false;
     @Input() showErrorMessage: boolean = true;
     @Input() smallText: boolean = false;
     @Input() whiteBorder: boolean = false;
 
+    @Input() label = '';
+    @Input() subtitle = '';
+    @Input() placeholder!: string;
+    @Input({ required: true }) id = '';
+    @Input({ required: true }) type: FieldType = FieldType.TEXT;
+    @Input() errorMessages: { [key: string]: string } = {};
+
+    @Input()
+    get control(): AbstractControl {
+        return this._control;
+    }
+
     //number
     @Input() min: number = 0;
     @Input() max: number = 0;
     @Input() step: number = 0.1;
+
+    required = false;
+    private _control!: AbstractControl;
 
     //password
     passwordVisibility: boolean = false;
@@ -32,13 +50,13 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
     protected localType: FieldType = FieldType.TEXT;
     protected readonly FieldType: typeof FieldType = FieldType;
 
-    constructor() {
-        super();
-    }
+    constructor(private fieldService: FieldsService, protected i18n: TranslationService) {}
 
     ngOnInit() {
         this.localType = this.type;
-        this.placeholder = this.placeholder ?? getPlaceholder(this.localType);
+        this.placeholder =
+            this.placeholder ??
+            this.fieldService.getPlaceholder(this.localType);
         this.required = this.control.hasValidator(Validators.required);
 
         switch (this.localType) {
@@ -69,8 +87,7 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
                 break;
         }
 
-        this.control.valueChanges.subscribe((v) => {
-        });
+        this.control.valueChanges.subscribe((v) => {});
     }
 
     getInputClass(): string {
@@ -82,6 +99,30 @@ export class FieldInputComponent extends BaseInputComponent implements OnInit {
             default:
                 return 'form-input';
         }
+    }
+
+    set control(value: AbstractControl) {
+        this._control = value;
+    }
+
+    protected getFormControl(): FormControl {
+        return this.control as FormControl;
+    }
+
+    get isInvalid(): boolean {
+        return (
+            this.control?.invalid &&
+            (this.control?.touched || this.control?.dirty)
+        );
+    }
+
+    get errors(): string[] {
+        if (!this.control?.errors) return [];
+        return Object.keys(this.control.errors).map(
+            (key) =>
+                this.errorMessages[key] ||
+                this.fieldService.getDefaultErrorMessage(key)
+        );
     }
 
     toogleVisibility(): void {

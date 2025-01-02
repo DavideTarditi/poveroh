@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import authRoutes from './routes/auth';
+import userRoutes from './routes/user';
 import cookieParser from 'cookie-parser';
 
 const PORT: string = process.env.PORT;
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRoutes);
+app.use('/user', userRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

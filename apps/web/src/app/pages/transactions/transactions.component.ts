@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../core/components/input/button/button.component';
 import { BoxLayoutComponent } from '../../layouts/box-layout/box-layout.component';
 import { FieldInputComponent } from '../../core/components/input/fields/field-input/field-input.component';
-import { FieldType } from '../../core/types/fields';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddTransactionsModal } from '../../core/components/modals/add-transactions/add-transactions.component';
 import { BoxItemComponent } from '../../core/components/other/box-item/box-item.component';
@@ -10,6 +9,7 @@ import { UploadTransactionsModal } from '../../core/components/modals/upload-tra
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
+import { FieldType } from '@poveroh/types';
 
 @Component({
     selector: 'app-dashboard',

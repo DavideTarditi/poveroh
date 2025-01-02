@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IItem } from '../../../types/item';
 import { ButtonComponent } from '../button/button.component';
 import { NgIf } from '@angular/common';
+import { IItem } from '@poveroh/types';
 
 @Component({
     selector: 'select-button',

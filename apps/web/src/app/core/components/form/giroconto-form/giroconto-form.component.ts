@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { FieldType } from '../../../types/fields';
-import { TransactionActionItem } from '../../../types/transaction';
 import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { IItem } from '../../../types/item';
 import { MatIcon } from '@angular/material/icon';
+import { FieldType, IItem } from '@poveroh/types';
+import { TranslationService } from '../../../services/translation.services';
 
 @Component({
     selector: 'giroconto-form',
@@ -16,16 +15,23 @@ export class GirocontoFormComponent {
     @Input() form!: FormGroup;
     @Input() whiteBorder = false;
 
+    constructor(private i18n: TranslationService) {
+        this.TransactionActionItem =
+            this.i18n.translateKey('translation.types');
+
+        const ciao = 'c';
+    }
+
     bankAccount: IItem[] = [
         { value: 'satispay', label: 'Satispay' },
         { value: 'revolut', label: 'Revolut' },
         { value: 'traderepublic', label: 'Trade Republic' },
     ];
 
-    protected readonly FieldType = FieldType;
-    protected readonly TransactionActionItem = TransactionActionItem;
-
     onSubmit() {
         console.log(this.form);
     }
+
+    protected readonly FieldType = FieldType;
+    private TransactionActionItem;
 }

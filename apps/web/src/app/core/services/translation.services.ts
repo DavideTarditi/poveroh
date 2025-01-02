@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -13,7 +12,13 @@ export class TranslationService {
         this.translate.addLangs(this.langList);
         this.translate.setDefaultLang(this.defaultLang);
 
-        translate.use(translate.getBrowserLang() || this.defaultLang);
+        const browserLang = this.translate.getBrowserLang()?.toLowerCase();
+        const langToUse =
+            browserLang && this.langList.includes(browserLang)
+                ? browserLang
+                : this.defaultLang;
+
+        this.translate.use(langToUse);
     }
 
     getCurrentLang(): string {
@@ -24,7 +29,7 @@ export class TranslationService {
         this.translate.use(lang);
     }
 
-    translateKey(key: string, params?: object): Observable<string> {
+    translateKey(key: string, params?: object) {
         return this.translate.get(key, params);
     }
 

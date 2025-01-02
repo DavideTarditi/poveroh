@@ -20,9 +20,9 @@
             ></field-input>
         </div>
         <div class="flex flex-col space-y-6">
-            <go-button [message]="i18n.t('login.button.signIn')" [disabled]="form.invalid"></go-button>
+            <go-button [message]="i18n.t('login.buttons.signIn')" [disabled]="form.invalid"></go-button>
             <div class="flex justify-end w-full">
-                <a routerLink="/change-password" class="items-self-end">{{ 'login.button.forgotPassword' | translate }}</a>
+                <a routerLink="/change-password" class="items-self-end">{{ 'login.buttons.forgotPassword' | translate }}</a>
             </div>
         </div>
     </form>

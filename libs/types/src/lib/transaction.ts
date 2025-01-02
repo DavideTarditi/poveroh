@@ -1,5 +1,3 @@
-import { IItem } from './item';
-
 export interface ITransactionBankAccountTransfer {
     from: string;
     to: string;
@@ -19,12 +17,6 @@ export interface ITransaction {
 
 export enum TransactionAction {
     INTERNAL,
-    ADD,
-    SUB,
+    INCOME,
+    EXPENSES,
 }
-
-export const TransactionActionItem: IItem[] = [
-    { value: TransactionAction.INTERNAL, label: 'Giroconto' },
-    { value: TransactionAction.ADD, label: 'Entrata' },
-    { value: TransactionAction.SUB, label: 'Uscita' },
-];

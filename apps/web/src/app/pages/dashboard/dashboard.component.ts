@@ -3,7 +3,6 @@ import { ButtonComponent } from '../../core/components/input/button/button.compo
 import { BoxLayoutComponent } from '../../layouts/box-layout/box-layout.component';
 import { NgIf } from '@angular/common';
 import { SelectButtonComponent } from '../../core/components/input/select-button/select-button.component';
-import { IItem } from '../../core/types/item';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTransactionsModal } from '../../core/components/modals/add-transactions/add-transactions.component';
@@ -11,6 +10,7 @@ import { ChartComponent } from 'ng-apexcharts';
 import { ChartOptions } from '../../core/services/charts.services';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslationService } from '../../core/services/translation.services';
+import { IItem } from '@poveroh/types';
 
 @Component({
     selector: 'app-dashboard',
