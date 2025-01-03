@@ -20,10 +20,9 @@ function ServerPlugin() {
         source: string
     ): Promise<T> {
         return new Promise<T>(async (resolve, reject) => {
+            let res: AxiosResponse;
             try {
                 url = environment.API_URL + url;
-
-                let res: AxiosResponse;
                 switch (type) {
                     case ServerRequest.GET:
                         res = await axios.get(url);
@@ -43,14 +42,18 @@ function ServerPlugin() {
 
                 resolve(res.data as T);
             } catch (error) {
-                if (error instanceof Error) {
-                    notifyPlugin().notifyHandleNotification({
-                        status: NotifyStatus.ERROR,
-                        description: error.message,
-                    });
-                } else if (error instanceof AxiosError) {
-                    console.error(error);
+                let errorMessage: string = 'Error occurred';
+
+                if (error instanceof AxiosError) {
+                    errorMessage = error.response?.data.message;
+                } else if (error instanceof Error) {
+                    errorMessage = error.message;
                 }
+
+                notifyPlugin().notifyHandleNotification({
+                    status: NotifyStatus.ERROR,
+                    description: errorMessage,
+                });
 
                 reject(error);
             }

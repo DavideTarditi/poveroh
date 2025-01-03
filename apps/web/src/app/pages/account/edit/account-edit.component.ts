@@ -5,7 +5,12 @@ import { ButtonComponent } from '../../../core/components/input/button/button.co
 import { FieldInputComponent } from '../../../core/components/input/fields/field-input/field-input.component';
 import { MatIcon } from '@angular/material/icon';
 import { TranslatePipe } from '@ngx-translate/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+    FormBuilder,
+    FormGroup,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
 import { FieldType, IUser } from '@poveroh/types';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../../core/services/user.services';
@@ -20,6 +25,7 @@ import NotifyPlugin from '../../../core/plugin/notify.plugin';
         MatIcon,
         TranslatePipe,
         RouterLink,
+        ReactiveFormsModule,
     ],
     templateUrl: './account-edit.component.html',
 })
@@ -49,6 +55,8 @@ export class AccountEditComponent implements OnInit {
     }
 
     async onSubmit() {
+        if (!this.form.valid) return;
+
         const user: IUser = await this.userService.me();
 
         const res: boolean = await this.userService.save(this.form.value);

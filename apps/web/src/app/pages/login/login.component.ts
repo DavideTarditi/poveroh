@@ -47,10 +47,6 @@ export class LoginComponent {
                 email: this.form.value.email,
                 password: await encryptString(this.form.value.password),
             });
-
-            console.log('Form submitted:', this.form.value);
-        } else {
-            console.log('Form non submitted');
         }
     }
 

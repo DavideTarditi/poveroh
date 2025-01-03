@@ -15,7 +15,7 @@ export class AuthService {
 
     login(user: IUserLogin) {
         this.server
-            .send(ServerRequest.POST, '/auth/login', user, 'login')
+            .send<boolean>(ServerRequest.POST, '/auth/login', user, 'login')
             .then((result) => {
                 this.router.navigate(['/dashboard']);
             });

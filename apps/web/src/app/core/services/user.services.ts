@@ -42,6 +42,15 @@ export class UserService {
         );
     }
 
+    async updatePassword(userToSave: any): Promise<boolean> {
+        return await this.server.send<boolean>(
+            ServerRequest.POST,
+            '/user/set-password',
+            userToSave,
+            'setpassword'
+        );
+    }
+
     fullName(reverse?: boolean): string {
         const storage = new StoragePlugin(StorageType.LOCAL);
 

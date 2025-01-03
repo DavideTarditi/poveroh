@@ -8,7 +8,8 @@
             "email": "Enter a valid email address",
             "minlength": "The input is too short",
             "maxlength": "The input is too long",
-            "pattern": "Invalid format"
+            "pattern": "Invalid format",
+            "passwordMismatch": "Passwords do not match. Please try again."
         }
     },
     "buttons": {
@@ -65,9 +66,13 @@
                 "form": {
                     "password": {
                         "title": "Password",
-                        "password": "Password",
+                        "oldpassword": "Old password",
+                        "newpassword": "New password",
                         "confirmPassword": "Confirm password",
-                        "description": "It must contain:<br/> - At least one uppercase letter<br/> - At least one number<br/>- At least 8 characters in length"
+                        "description": "It must contain:<br/> - At least one uppercase letter<br/> - At least one number<br/>- At least 8 characters in length",
+                        "messages": {
+                            "success": "Password is updated successfully"
+                        }
                     }
                 }
             }

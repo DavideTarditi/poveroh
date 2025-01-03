@@ -6,11 +6,25 @@ import useragent from 'useragent';
 
 export class AuthController {
     static async login(req: Request, res: Response) {
-        const user = await prisma.user.findUnique({
-            where: req.body,
-        });
+        try {
+            const { email, password } = req.body;
 
-        if (user) {
+            if (!email || !password) {
+                res.status(400).json({
+                    message: 'Email and password are required',
+                });
+                return;
+            }
+
+            const user = await prisma.user.findUnique({
+                where: req.body,
+            });
+
+            if (!user) {
+                res.status(401).json({ message: 'Invalid credentials' });
+                return;
+            }
+
             const agent = useragent.parse(req.headers['user-agent']);
 
             const browser = `${agent.family} ${agent.major}`;
@@ -36,9 +50,13 @@ export class AuthController {
 
             res.cookie('token', token, { maxAge: 24 * 60 * 60 * 1000 });
 
-            res.status(200).json({});
-        } else {
-            res.status(401).json({ message: 'Invalid credentials' });
+            res.status(200).json(true);
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                message: 'An error occurred during login',
+                error: error.message,
+            });
         }
     }
 }
