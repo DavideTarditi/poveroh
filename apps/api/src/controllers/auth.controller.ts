@@ -16,7 +16,7 @@ export class AuthController {
                 return;
             }
 
-            const user = await prisma.user.findUnique({
+            const user = await prisma.users.findUnique({
                 where: req.body,
             });
 
@@ -30,7 +30,7 @@ export class AuthController {
             const browser = `${agent.family} ${agent.major}`;
             const os = `${agent.os.family} ${agent.os.major}`;
 
-            await prisma.user_login.create({
+            await prisma.users_login.create({
                 data: {
                     device: os,
                     browser: browser,

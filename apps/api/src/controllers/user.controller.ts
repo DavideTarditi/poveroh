@@ -4,7 +4,7 @@ import prisma from '../core/prisma';
 export class UserController {
     static async me(req: Request, res: Response) {
         try {
-            const user = await prisma.user.findUnique({
+            const user = await prisma.users.findUnique({
                 where: { email: req.user.email },
                 select: {
                     id: true,
@@ -28,7 +28,7 @@ export class UserController {
 
     static async save(req: Request, res: Response) {
         try {
-            const user = await prisma.user.findUnique({
+            const user = await prisma.users.findUnique({
                 where: {
                     email: req.user.email,
                 },
@@ -39,7 +39,7 @@ export class UserController {
                 return;
             }
 
-            await prisma.user.update({
+            await prisma.users.update({
                 where: { email: req.user.email },
                 data: req.body,
             });
@@ -54,7 +54,7 @@ export class UserController {
         try {
             const { oldpassword, newpassword } = req.body;
 
-            const user = await prisma.user.findUnique({
+            const user = await prisma.users.findUnique({
                 where: { email: req.user.email },
             });
 
@@ -65,7 +65,7 @@ export class UserController {
                 return;
             }
 
-            await prisma.user.update({
+            await prisma.users.update({
                 where: { email: req.user.email },
                 data: { password: newpassword },
             });

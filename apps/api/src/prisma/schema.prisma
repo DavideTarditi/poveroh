@@ -7,7 +7,7 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model user {
+model users {
     id         String   @id @default(uuid())
     name       String
     surname    String
@@ -15,14 +15,14 @@ model user {
     password   String
     created_at DateTime @default(now())
 
-    transactions      transaction[]
+    transactions      transactions[]
     internal_transfer internal_transfer[]
-    subscriptions     subscription[]
-    category          category[]
-    login             user_login[]
+    subscriptions     subscriptions[]
+    categories        categories[]
+    login             users_login[]
 }
 
-model user_login {
+model users_login {
     id         String   @id @default(uuid())
     device     String
     browser    String
@@ -30,11 +30,11 @@ model user_login {
     location   String
     created_at DateTime @default(now())
 
-    user    user   @relation(fields: [user_id], references: [id])
+    user    users  @relation(fields: [user_id], references: [id])
     user_id String
 }
 
-model transaction {
+model transactions {
     id             String          @id @default(uuid())
     user_id        String
     title          String
@@ -45,9 +45,9 @@ model transaction {
     ignore         Boolean         @default(false)
     created_at     DateTime        @default(now())
 
-    user        user        @relation(fields: [user_id], references: [id])
-    category    category    @relation(fields: [category_id], references: [id])
-    subcategory subcategory @relation(fields: [subcategory_id], references: [id])
+    user        users         @relation(fields: [user_id], references: [id])
+    category    categories    @relation(fields: [category_id], references: [id])
+    subcategory subcategories @relation(fields: [subcategory_id], references: [id])
 
     media   transactions_media[]
     amounts amounts[]
@@ -68,15 +68,15 @@ model internal_transfer {
     ignore               Boolean  @default(false)
     created_at           DateTime @default(now())
 
-    user              user         @relation(fields: [user_id], references: [id])
-    currency          currency     @relation(fields: [currency_id], references: [id])
-    bank_account_from bank_account @relation("bank_account_from", fields: [bank_account_from_id], references: [id])
-    bank_account_to   bank_account @relation("bank_account_to", fields: [bank_account_to_id], references: [id])
-    category          category     @relation(fields: [category_id], references: [id])
-    subcategory       subcategory  @relation(fields: [subcategory_id], references: [id])
+    users             users         @relation(fields: [user_id], references: [id])
+    currencies        currencies    @relation(fields: [currency_id], references: [id])
+    bank_account_from bank_accounts @relation("bank_account_from", fields: [bank_account_from_id], references: [id])
+    bank_account_to   bank_accounts @relation("bank_account_to", fields: [bank_account_to_id], references: [id])
+    category          categories    @relation(fields: [category_id], references: [id])
+    subcategory       subcategories @relation(fields: [subcategory_id], references: [id])
 }
 
-model subscription {
+model subscriptions {
     id              String   @id @default(uuid())
     user_id         String
     title           String
@@ -93,9 +93,9 @@ model subscription {
     is_enabled      Boolean
     created_at      DateTime @default(now())
 
-    user         user         @relation(fields: [user_id], references: [id])
-    currency     currency     @relation(fields: [current_id], references: [id])
-    bank_account bank_account @relation(fields: [bank_account_id], references: [id])
+    user         users         @relation(fields: [user_id], references: [id])
+    currency     currencies    @relation(fields: [current_id], references: [id])
+    bank_account bank_accounts @relation(fields: [bank_account_id], references: [id])
 }
 
 model transactions_media {
@@ -106,10 +106,10 @@ model transactions_media {
     path           String
     created_at     DateTime @default(now())
 
-    transactions transaction @relation(fields: [transaction_id], references: [id])
+    transaction transactions @relation(fields: [transaction_id], references: [id])
 }
 
-model bank_account {
+model bank_accounts {
     id         String          @id @default(uuid())
     title      String
     type       BankAccountType @default(BANK)
@@ -118,11 +118,11 @@ model bank_account {
 
     internal_transfers_from internal_transfer[] @relation("bank_account_from")
     internal_transfers_to   internal_transfer[] @relation("bank_account_to")
-    subscription            subscription[]
+    subscriptions           subscriptions[]
     amounts                 amounts[]
 }
 
-model category {
+model categories {
     id          String          @id @default(uuid())
     user_id     String
     title       String
@@ -131,14 +131,14 @@ model category {
     logo_icon   String
     created_at  DateTime        @default(now())
 
-    transaction       transaction[]
+    transactions      transactions[]
     internal_transfer internal_transfer[]
-    subcategory       subcategory[]
+    subcategories     subcategories[]
 
-    user user @relation(fields: [user_id], references: [id])
+    user users @relation(fields: [user_id], references: [id])
 }
 
-model subcategory {
+model subcategories {
     id          String   @id @default(uuid())
     category_id String
     title       String
@@ -146,13 +146,13 @@ model subcategory {
     logo_icon   String
     created_at  DateTime @default(now())
 
-    transaction       transaction[]
+    transactions      transactions[]
     internal_transfer internal_transfer[]
 
-    category category @relation(fields: [category_id], references: [id])
+    category categories @relation(fields: [category_id], references: [id])
 }
 
-model currency {
+model currencies {
     id         String   @id @default(uuid())
     title      String
     code       String
@@ -160,7 +160,7 @@ model currency {
     created_at DateTime @default(now())
 
     internal_transfer internal_transfer[]
-    subscription      subscription[]
+    subscriptions     subscriptions[]
     amounts           amounts[]
 }
 
@@ -172,9 +172,9 @@ model amounts {
     bank_account_id String
     created_at      DateTime @default(now())
 
-    currency     currency     @relation(fields: [currency_id], references: [id])
-    bank_account bank_account @relation(fields: [bank_account_id], references: [id])
-    transaction  transaction  @relation(fields: [transaction_id], references: [id])
+    currency     currencies    @relation(fields: [currency_id], references: [id])
+    bank_account bank_accounts @relation(fields: [bank_account_id], references: [id])
+    transaction  transactions  @relation(fields: [transaction_id], references: [id])
 }
 
 enum TransactionType {
