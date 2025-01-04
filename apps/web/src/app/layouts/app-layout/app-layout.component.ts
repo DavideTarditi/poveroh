@@ -3,6 +3,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
+import { TranslatePipe } from '@ngx-translate/core';
+import { TranslationService } from '../../core/services/translation.services';
+import { UserService } from '../../core/services/user.services';
+import { IUser } from '@poveroh/types';
 
 @Component({
     selector: 'app-app-layout',
@@ -14,11 +18,19 @@ import { MatIcon } from '@angular/material/icon';
         MatMenu,
         MatMenuTrigger,
         MatIcon,
+        TranslatePipe,
     ],
     templateUrl: './app-layout.component.html',
 })
 export class AppLayoutComponent implements OnInit {
-    constructor() {}
+    constructor(
+        protected i18n: TranslationService,
+        protected userService: UserService
+    ) {}
 
-    ngOnInit() {}
+    async ngOnInit() {
+        this.user = await this.userService.me(true);
+    }
+
+    protected user: IUser | undefined;
 }

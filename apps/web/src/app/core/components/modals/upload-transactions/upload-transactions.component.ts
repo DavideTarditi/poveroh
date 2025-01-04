@@ -1,10 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ButtonComponent } from '../../input/button/button.component';
 import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
-import { FieldType } from '../../../types/fields';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UploadFormComponent } from '../../form/upload-form/upload-form.component';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import {
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
+} from '@angular/material/dialog';
+import { FieldType } from '@poveroh/types';
 
 @Component({
     selector: 'upload-transactions-modal',

@@ -1,5 +1,6 @@
-import { CookieOptions, StorageType } from '../types/storage';
+import { StorageType } from '@poveroh/types';
 import { environment } from '../../../environments/environment';
+import { CookieOptions } from 'express';
 
 class StoragePlugin {
     storage: string | Storage;
@@ -29,7 +30,7 @@ class StoragePlugin {
         }
     }
 
-    set(key: string, value: any, options: CookieOptions | null): void {
+    set(key: string, value: any, options?: CookieOptions): void {
         if (this.storageType === StorageType.COOKIE) {
             let cookieString: string = `${key}=${value}`;
 
@@ -62,6 +63,10 @@ class StoragePlugin {
         }
 
         return data;
+    }
+
+    parse<T>(key: string): T {
+        return JSON.parse(<string>this.get(key)) as T;
     }
 
     remove(key: string) {

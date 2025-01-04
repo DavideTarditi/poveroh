@@ -1,5 +1,5 @@
+import { INotifyMessage, NotifyStatus } from '@poveroh/types';
 import { Notyf } from 'notyf';
-import { INotifyMessage, NotifyStatus } from '../types/notify';
 
 function notifyPlugin() {
     const notyf = new Notyf({

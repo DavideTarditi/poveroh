@@ -1,13 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { FieldType } from '../../../types/fields';
 import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { IItem } from '../../../types/item';
 import { ButtonComponent } from '../../input/button/button.component';
 import { NgIf } from '@angular/common';
 import { MultiFormComponent } from '../multi-form/multi-form.component';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
+import { FieldType, IItem } from '@poveroh/types';
 
 @Component({
     selector: 'upload-form',

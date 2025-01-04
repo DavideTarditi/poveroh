@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { FieldType } from '../../../types/fields';
 import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { IItem } from '../../../types/item';
-import { currencyCatalog } from '../../../types/general';
+import { currencyCatalog, FieldType, IItem } from '@poveroh/types';
 
 @Component({
     selector: 'entrate-form',

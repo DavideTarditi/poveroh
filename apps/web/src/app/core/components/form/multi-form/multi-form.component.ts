@@ -1,16 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IItem } from '../../../types/item';
-import {
-    TransactionAction,
-    TransactionActionItem,
-} from '../../../types/transaction';
-import { FieldType } from '../../../types/fields';
 import { EntrateFormComponent } from '../entrate-form/entrate-form.component';
 import { GirocontoFormComponent } from '../giroconto-form/giroconto-form.component';
 import { NgSwitch, NgSwitchCase } from '@angular/common';
 import { SelectButtonComponent } from '../../input/select-button/select-button.component';
 import { UsciteFormComponent } from '../uscite-form/uscite-form.component';
+import { FieldType, IItem, TransactionAction } from '@poveroh/types';
+import { TransactionService } from '../../../services/transaction.services';
 
 @Component({
     selector: 'multi-form',
@@ -32,10 +28,15 @@ export class MultiFormComponent implements OnInit {
 
     selectedForm = 0;
 
-    constructor(protected fb: FormBuilder) {}
+    constructor(
+        protected fb: FormBuilder,
+        private transactions: TransactionService
+    ) {
+        this.TransactionActionItem = this.transactions.readTransactionAction();
+    }
 
     ngOnInit(): void {
-        this.newForm(TransactionAction.INTERNAL);
+        this.newForm(this.TransactionAction.INTERNAL);
     }
 
     newForm(index: TransactionAction): void {
@@ -51,7 +52,7 @@ export class MultiFormComponent implements OnInit {
                     ignore: [false],
                 });
                 break;
-            case TransactionAction.ADD:
+            case TransactionAction.INCOME:
                 this.form = this.fb.group({
                     title: ['', Validators.required],
                     date: ['', Validators.required],
@@ -65,7 +66,7 @@ export class MultiFormComponent implements OnInit {
                     ignore: [false],
                 });
                 break;
-            case TransactionAction.SUB:
+            case TransactionAction.EXPENSES:
                 this.form = this.fb.group({
                     title: ['', Validators.required],
                     date: ['', Validators.required],
@@ -91,6 +92,6 @@ export class MultiFormComponent implements OnInit {
     };
 
     protected readonly TransactionAction = TransactionAction;
-    protected readonly TransactionActionItem = TransactionActionItem;
+    protected readonly TransactionActionItem: IItem[] = [];
     protected readonly FieldType = FieldType;
 }

@@ -1,8 +1,7 @@
-import { ServerRequest } from '../types/server';
 import { environment } from '../../../environments/environment';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import notifyPlugin from './notify.plugin';
-import { NotifyStatus } from '../types/notify';
+import { NotifyStatus, ServerRequest } from '@poveroh/types';
 
 function ServerPlugin() {
     const status = async () => {
@@ -14,17 +13,16 @@ function ServerPlugin() {
         );
     };
 
-    const send = async (
+    function send<T>(
         type: ServerRequest,
         url: string,
         data: any,
         source: string
-    ): Promise<any> => {
-        return new Promise<any>(async (resolve, reject) => {
+    ): Promise<T> {
+        return new Promise<T>(async (resolve, reject) => {
+            let res: AxiosResponse;
             try {
                 url = environment.API_URL + url;
-
-                let res: AxiosResponse;
                 switch (type) {
                     case ServerRequest.GET:
                         res = await axios.get(url);
@@ -42,21 +40,25 @@ function ServerPlugin() {
                     throw new Error(res.data?.message || 'An error occurred');
                 }
 
-                resolve(res.data);
+                resolve(res.data as T);
             } catch (error) {
-                if (error instanceof Error) {
-                    notifyPlugin().notifyHandleNotification({
-                        status: NotifyStatus.ERROR,
-                        description: error.message,
-                    });
-                } else if (error instanceof AxiosError) {
-                    console.error(error);
+                let errorMessage: string = 'Error occurred';
+
+                if (error instanceof AxiosError) {
+                    errorMessage = error.response?.data.message;
+                } else if (error instanceof Error) {
+                    errorMessage = error.message;
                 }
+
+                notifyPlugin().notifyHandleNotification({
+                    status: NotifyStatus.ERROR,
+                    description: errorMessage,
+                });
 
                 reject(error);
             }
         });
-    };
+    }
 
     return {
         status,

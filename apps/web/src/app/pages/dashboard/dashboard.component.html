@@ -2,18 +2,18 @@
     <div class="flex flex-row items-end justify-between">
         <div class="flex flex-row items-end space-x-6">
             <div class="flex flex-col space-y-3">
-                <p class="sub">BILANCIO ATTUALE</p>
+                <p class="sub uppercase">{{ 'dashboard.totalBalance' | translate }}</p>
                 <h1 class="leading-[100%]">$ 126.568,53</h1>
             </div>
             <div class="flex flex-col space-y-1">
-                <p class="sub small">USCITE</p>
+                <p class="sub small uppercase">{{ 'dashboard.expenses' | translate }}</p>
                 <div class="flex flex-row items-center danger-all">
                     <mat-icon aria-label="icon" fontIcon="arrow_drop_down"></mat-icon>
                     <p>-126.568,53 (0,05%)</p>
                 </div>
             </div>
             <div class="flex flex-col space-y-1">
-                <p class="sub small">ENTRATE</p>
+                <p class="sub small uppercase">{{ 'dashboard.income' | translate }}</p>
                 <div class="flex flex-row items-center success-all">
                     <mat-icon aria-label="icon" fontIcon="arrow_drop_up"></mat-icon>
                     <p>+126.568,53 (1,05%)</p>
@@ -37,7 +37,7 @@
 
     <div class="flex flex-row space-x-5 w-full">
         <div class="flex flex-col space-y-5 w-full">
-            <box-layout title="Trend">
+            <box-layout [title]="i18n.t('widget.trend')">
                 <ng-template #header>
                     <div class="flex flex-row space-x-3">
                         <select-button [data]="dataYears"></select-button>
@@ -54,7 +54,7 @@
                 </ng-template>
             </box-layout>
 
-            <box-layout title="Prossimi pagamenti">
+            <box-layout [title]="i18n.t('widget.lastTransactions')">
                 <ng-template #header>
                     <!--                    <go-button message="Inserisci" icon="ri-add-line" size="mid"></go-button>-->
                 </ng-template>
@@ -132,9 +132,9 @@
             </box-layout>
         </div>
         <div class="flex flex-col space-y-5 w-full">
-            <box-layout title="Ultime transazioni">
+            <box-layout [title]="i18n.t('widget.lastTransactions')">
                 <ng-template #header>
-                    <go-button message="Inserisci" icon="add" size="mid"
+                    <go-button [message]="i18n.t('buttons.add')" icon="add" size="mid"
                                (click)="openDialog()"></go-button>
                 </ng-template>
                 <ng-template #body>
@@ -210,7 +210,7 @@
                 </ng-template>
             </box-layout>
 
-            <box-layout title="Trend">
+            <box-layout [title]="i18n.t('widget.trend')">
                 <ng-template #header>
                     <div class="flex flex-row space-x-3">
                         <select-button [data]="dataYears"></select-button>

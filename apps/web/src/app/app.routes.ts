@@ -11,6 +11,10 @@ import { TestOtherComponent } from './pages/test/test-other/test-other.component
 import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './core/guards/auth.guards';
+import { LogoutComponent } from './pages/settings/logout.component';
+import { AccountEditComponent } from './pages/account/edit/account-edit.component';
+import { AccountSecurityComponent } from './pages/account/security/account-security.component';
+import { SettingsComponent } from './pages/logout/settings.component';
 
 export const routes: Routes = [
     {
@@ -41,8 +45,29 @@ export const routes: Routes = [
                 component: TransactionsComponent,
                 canActivate: [AuthGuard],
             },
+            {
+                path: 'settings',
+                component: SettingsComponent,
+                canActivate: [AuthGuard],
+            },
+            {
+                path: 'account',
+                children: [
+                    {
+                        path: 'edit',
+                        component: AccountEditComponent,
+                        canActivate: [AuthGuard],
+                    },
+                    {
+                        path: 'security',
+                        component: AccountSecurityComponent,
+                        canActivate: [AuthGuard],
+                    },
+                ],
+            },
         ],
     },
+    { path: 'logout', component: LogoutComponent },
     { path: 'test-input', component: TestInputComponent },
     { path: 'test-other', component: TestOtherComponent },
     { path: '**', redirectTo: 'login' },

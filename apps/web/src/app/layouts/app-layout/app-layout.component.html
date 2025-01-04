@@ -6,33 +6,33 @@
                      priority />
             </a>
             <div class="flex flex-row space-x-6">
-                <a routerLink="/transactions">Transazioni</a>
-                <a routerLink="/">Abbonamenti</a>
-                <a routerLink="/">Investimenti</a>
-                <a routerLink="/">Report</a>
+                <a routerLink="/transactions">{{ 'transactions.title' | translate }}</a>
+                <a routerLink="/">{{ 'subscriptions.title' | translate }}</a>
+                <a routerLink="/">{{ 'investments.title' | translate }}</a>
+                <a routerLink="/">{{ 'reports.title' | translate }}</a>
             </div>
         </div>
         <div class="hidden items-center space-x-6 lg:flex">
             <div class="popover-container relative">
                 <div class="user-box" mat-button [matMenuTriggerFor]="accountPopover">
-                    <p>Davide Tarditi</p>
+                    <p>{{ userService.fullName() }}</p>
                 </div>
 
                 <mat-menu #accountPopover xPosition="before">
                     <div class="flex flex-col space-y-5 w-[200px]">
                         <div class="space-y-2">
-                            <p class="font-bold">Davide Tarditi</p>
-                            <p class="small font-bold sub">dt.davide.tarditi&#64;gmail.com</p>
+                            <p class="font-bold">{{ userService.fullName() }}</p>
+                            <p class="font-bold sub">{{ user?.email }}</p>
                         </div>
                         <hr />
                         <div class="flex flex-col space-y-5">
                             <a class="flex items-center space-x-2 w-full" href="/settings">
                                 <mat-icon aria-label="icon" fontIcon="settings"></mat-icon>
-                                <p>Impostazioni</p>
+                                <p>{{ 'settings.title' | translate }}</p>
                             </a>
                             <a class="flex items-center space-x-2 w-full danger-all" href="/logout">
                                 <mat-icon aria-label="icon" fontIcon="logout"></mat-icon>
-                                <p>Esci</p>
+                                <p>{{ 'logout.title' | translate }}</p>
                             </a>
                         </div>
                         <hr>

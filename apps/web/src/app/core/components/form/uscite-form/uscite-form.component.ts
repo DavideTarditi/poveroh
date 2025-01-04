@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FieldType } from '../../../types/fields';
 import { FieldInputComponent } from '../../input/fields/field-input/field-input.component';
 import {
     AbstractControl,
@@ -9,12 +8,11 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { IItem } from '../../../types/item';
-import { currencyCatalog } from '../../../types/general';
 import { NgForOf, NgIf } from '@angular/common';
 import { ButtonComponent } from '../../input/button/button.component';
 import { NewAmountIconComponent } from '../../other/new-amount-icon/new-amount-icon.component';
 import { MatIcon } from '@angular/material/icon';
+import { currencyCatalog, FieldType, IItem } from '@poveroh/types';
 
 @Component({
     selector: 'uscite-form',
