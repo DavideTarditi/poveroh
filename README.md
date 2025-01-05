@@ -4,7 +4,7 @@
 
 # Poveroh
 
-#### A single platform to track poverty.
+#### An unified platform to track your wealth.
 
 <h4>
     <a href="https://github.com/DavideTarditi/poveroh/issues/">Report Bug</a>
